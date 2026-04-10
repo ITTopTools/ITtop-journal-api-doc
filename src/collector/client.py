@@ -7,6 +7,7 @@ from typing import Any
 import httpx
 
 from src.collector.endpoints import BASE_API_URL, LOGIN_PATH, Endpoint
+from src.collector.array_trimmer import trim_arrays
 
 LOGGER = logging.getLogger(__name__)
 RETRY_ATTEMPTS = 3
@@ -109,25 +110,27 @@ class JournalClient:
             f"after {RETRY_ATTEMPTS} attempts."
         ) from last_error
 
-    async def collect_all(self, endpoints: list[Endpoint]) -> dict[str, Any]:
-        """Collect all endpoint responses and continue on per-endpoint failures."""
-
-        await self.authenticate()
-
-        collected: dict[str, Any] = {}
-        for endpoint in endpoints:
-            if endpoint.path == LOGIN_PATH:
-                continue
-
-            try:
-                collected[endpoint.path] = await self._fetch_with_retry(endpoint)
-            except Exception as error:  # noqa: BLE001
-                LOGGER.warning(
-                    "Endpoint collection failed for %s %s: %s",
-                    endpoint.method,
-                    endpoint.path,
-                    error,
-                )
-                collected[endpoint.path] = {"error": str(error)}
-
-        return collected
+    async def collect_all(self, endpoints: list[Endpoint], max_list_items: int = 3) -> dict[str, Any]:
+            """Collect all endpoint responses and continue on per-endpoint failures."""
+    
+            await self.authenticate()
+    
+            collected: dict[str, Any] = {}
+            for endpoint in endpoints:
+                if endpoint.path == LOGIN_PATH:
+                    continue
+    
+                try:
+                    raw_data = await self._fetch_with_retry(endpoint)
+                    # Применяем усечение массивов
+                    collected[endpoint.path] = trim_arrays(raw_data, max_items=max_list_items)
+                except Exception as error:  # noqa: BLE001
+                    LOGGER.warning(
+                        "Endpoint collection failed for %s %s: %s",
+                        endpoint.method,
+                        endpoint.path,
+                        error,
+                    )
+                    collected[endpoint.path] = {"error": str(error)}
+    
+            return collected

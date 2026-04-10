@@ -1,51 +1,45 @@
-"""Tests for anonymization recursion and field rules."""
-
-import src.anonymizer.anonymizer as anonymizer_module
+import pytest
 from src.anonymizer.anonymizer import Anonymizer
 
+def test_anonymize_replaces_strings():
+    anon = Anonymizer()
+    data = {"name": "Ivan Ivanov", "bio": "Some long description"}
+    result = anon.anonymize(data)
+    
+    assert result["name"] != "Ivan Ivanov"
+    assert isinstance(result["name"], str)
+    assert result["bio"] != "Some long description"
 
-def test_anonymize_replaces_fio(monkeypatch):
-    """Known field should be replaced by configured rule."""
+def test_anonymize_replaces_integers():
+    anon = Anonymizer()
+    data = {"id": 12345}
+    result = anon.anonymize(data)
+    
+    assert result["id"] != 12345
+    assert isinstance(result["id"], int)
 
-    monkeypatch.setattr(anonymizer_module, "RULES", {"fio": lambda: "MASKED_NAME"})
-
-    original = {"fio": "Ivanov Ivan"}
-    result = Anonymizer().anonymize(original)
-
-    assert result["fio"] == "MASKED_NAME"
-    assert result["fio"] != original["fio"]
-
-
-def test_anonymize_replaces_nested_fields(monkeypatch):
-    """Nested dictionaries should be processed recursively."""
-
-    monkeypatch.setattr(
-        anonymizer_module,
-        "RULES",
-        {
-            "email": lambda: "masked@example.com",
-            "fio": lambda: "MASKED_NAME",
-        },
-    )
-
-    original = {
-        "profile": {
-            "fio": "Ivanov Ivan",
-            "contacts": {"email": "real@example.com"},
-        }
+def test_anonymize_nested_structure():
+    anon = Anonymizer()
+    data = {
+        "user": {"name": "Admin", "settings": {"theme": "dark"}},
+        "items": [1, 2, 3]
     }
-    result = Anonymizer().anonymize(original)
+    result = anon.anonymize(data)
+    
+    assert result["user"]["name"] != "Admin"
+    assert result["user"]["settings"]["theme"] != "dark"
+    assert all(i != original for i, original in zip(result["items"], [1, 2, 3]))
 
-    assert result["profile"]["fio"] == "MASKED_NAME"
-    assert result["profile"]["contacts"]["email"] == "masked@example.com"
-
-
-def test_anonymize_keeps_unknown_fields(monkeypatch):
-    """Fields without rules should remain unchanged."""
-
-    monkeypatch.setattr(anonymizer_module, "RULES", {"fio": lambda: "MASKED_NAME"})
-
-    original = {"note": "leave me", "fio": "Ivanov Ivan"}
-    result = Anonymizer().anonymize(original)
-
-    assert result["note"] == "leave me"
+def test_anonymize_preserves_special_formats():
+    anon = Anonymizer()
+    data = {
+        "url": "https://google.com",
+        "email": "test@test.com",
+        "date": "2024-01-01"
+    }
+    result = anon.anonymize(data)
+    
+    assert result["url"].startswith("http")
+    assert "@" in result["email"]
+    # Проверка формата даты через регулярку (базовая)
+    assert "-" in result["date"]
