@@ -1,0 +1,550 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IT Top Journal API",
+    "version": "2026-04-10",
+    "description": "Auto-generated documentation from daily Journal API collection."
+  },
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "POST /auth/login",
+        "description": "Auto-generated operation for `/auth/login`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "example": {
+                "application_key": "",
+                "id_city": null,
+                "login": "<login>",
+                "password": "<password>"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/settings/user-info": {
+      "get": {
+        "summary": "GET /settings/user-info",
+        "description": "Auto-generated operation for `/settings/user-info`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": {
+                  "groups": [
+                    {
+                      "group_status": 12717,
+                      "is_primary": true,
+                      "id": 97157,
+                      "name": "zkjOcaa"
+                    }
+                  ],
+                  "manual_link": null,
+                  "student_id": 13806,
+                  "current_group_id": 35014,
+                  "full_name": "CDRcPphNRVHdS",
+                  "achieves_count": 50276,
+                  "stream_id": 95208,
+                  "stream_name": "DORNHWBvJTQrbf",
+                  "group_name": "OvgUFt",
+                  "level": 80234,
+                  "photo": "https://cline-luna.net/",
+                  "gaming_points": [
+                    {
+                      "new_gaming_point_types__id": 6415,
+                      "points": 28626
+                    },
+                    {
+                      "new_gaming_point_types__id": 49416,
+                      "points": 20490
+                    }
+                  ],
+                  "spent_gaming_points": [],
+                  "visibility": {
+                    "is_design": false,
+                    "is_video_courses": false,
+                    "is_vacancy": false,
+                    "is_signal": true,
+                    "is_promo": false,
+                    "is_test": false,
+                    "is_email_verified": true,
+                    "is_quizzes_expired": false,
+                    "is_debtor": false,
+                    "is_phone_verified": true,
+                    "is_only_profile": false,
+                    "is_referral_program": false,
+                    "is_dz_group_issue": true,
+                    "is_birthday": false,
+                    "is_school": false,
+                    "is_news_popup": false,
+                    "is_school_branch": false,
+                    "is_college_branch": true,
+                    "is_higher_education_branch": false,
+                    "is_russian_branch": true,
+                    "is_academy_branch": false
+                  },
+                  "current_group_status": 65928,
+                  "birthday": "2026-01-11T02:58:15.806121",
+                  "age": 2743,
+                  "last_date_visit": "2026-01-01T22:43:15.881894",
+                  "registration_date": "2026-03-10T02:06:43.971699",
+                  "gender": 24907,
+                  "study_form_short_name": "LcEzK"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/chart/average-progress": {
+      "get": {
+        "summary": "GET /dashboard/chart/average-progress",
+        "description": "Auto-generated operation for `/dashboard/chart/average-progress`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "date": "2026-02-05T20:44:40.821177",
+                    "points": 66401,
+                    "previous_points": null,
+                    "has_rasp": null
+                  },
+                  {
+                    "date": "2026-01-04T18:13:03.370846",
+                    "points": 51014,
+                    "previous_points": 11450,
+                    "has_rasp": null
+                  },
+                  {
+                    "date": "2026-01-10T11:46:35.515434",
+                    "points": 94791,
+                    "previous_points": 95672,
+                    "has_rasp": null
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/chart/attendance": {
+      "get": {
+        "summary": "GET /dashboard/chart/attendance",
+        "description": "Auto-generated operation for `/dashboard/chart/attendance`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "date": "2026-04-06T07:22:16.608961",
+                    "points": 37940,
+                    "previous_points": null,
+                    "has_rasp": true
+                  },
+                  {
+                    "date": "2026-03-07T22:18:56.570244",
+                    "points": 13366,
+                    "previous_points": 29945,
+                    "has_rasp": true
+                  },
+                  {
+                    "date": "2026-01-08T11:53:16.079916",
+                    "points": 79808,
+                    "previous_points": 92001,
+                    "has_rasp": true
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/progress/leader-group": {
+      "get": {
+        "summary": "GET /dashboard/progress/leader-group",
+        "description": "Auto-generated operation for `/dashboard/progress/leader-group`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "amount": 91630,
+                    "id": 64361,
+                    "full_name": "tXCnjz",
+                    "photo_path": "https://www.garcia.com/",
+                    "position": 84752
+                  },
+                  {
+                    "amount": 20732,
+                    "id": 99690,
+                    "full_name": "VNsrB",
+                    "photo_path": "https://stevenson.com/",
+                    "position": 63490
+                  },
+                  {
+                    "amount": 31910,
+                    "id": 36213,
+                    "full_name": "qYvMalrMpEnqPyp",
+                    "photo_path": "https://gordon-mitchell.com/",
+                    "position": 60842
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/progress/leader-stream": {
+      "get": {
+        "summary": "GET /dashboard/progress/leader-stream",
+        "description": "Auto-generated operation for `/dashboard/progress/leader-stream`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "id": 41093,
+                    "full_name": "QFLfyAxpTs",
+                    "photo_path": "https://www.davenport.net/",
+                    "position": 6109,
+                    "amount": 62557
+                  },
+                  {
+                    "id": 7625,
+                    "full_name": "LKyaqLYGrNdeIo",
+                    "photo_path": "https://thompson.biz/",
+                    "position": 22520,
+                    "amount": 32347
+                  },
+                  {
+                    "id": 74603,
+                    "full_name": "pIftNsyLNbWnCaq",
+                    "photo_path": "http://duarte.net/",
+                    "position": 94626,
+                    "amount": 62518
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/progress/operations/student-visits": {
+      "get": {
+        "summary": "GET /progress/operations/student-visits",
+        "description": "Auto-generated operation for `/progress/operations/student-visits`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "date_visit": "2026-02-13T11:21:14.376328",
+                    "lesson_number": 82652,
+                    "status_was": 12108,
+                    "spec_id": 26680,
+                    "teacher_name": "RyixOfclktLuU",
+                    "spec_name": "aIcodGiOw",
+                    "lesson_theme": "oZiSDJvkecNF",
+                    "control_work_mark": null,
+                    "home_work_mark": null,
+                    "lab_work_mark": null,
+                    "class_work_mark": null,
+                    "practical_work_mark": null,
+                    "final_work_mark": null
+                  },
+                  {
+                    "date_visit": "2026-02-25T14:20:24.180233",
+                    "lesson_number": 22320,
+                    "status_was": 51915,
+                    "spec_id": 20031,
+                    "teacher_name": "VsiWerCcmY",
+                    "spec_name": "nzdpnWoKDzr",
+                    "lesson_theme": "RvxaWw",
+                    "control_work_mark": null,
+                    "home_work_mark": null,
+                    "lab_work_mark": null,
+                    "class_work_mark": null,
+                    "practical_work_mark": null,
+                    "final_work_mark": null
+                  },
+                  {
+                    "date_visit": "2026-01-29T12:41:06.524817",
+                    "lesson_number": 94256,
+                    "status_was": 15890,
+                    "spec_id": 68841,
+                    "teacher_name": "wKJrBNuE",
+                    "spec_name": "kTyFRfZtfrBp",
+                    "lesson_theme": "IKqyUyWHEEICfL",
+                    "control_work_mark": null,
+                    "home_work_mark": null,
+                    "lab_work_mark": null,
+                    "class_work_mark": null,
+                    "practical_work_mark": null,
+                    "final_work_mark": null
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/count/homework": {
+      "get": {
+        "summary": "GET /count/homework",
+        "description": "Auto-generated operation for `/count/homework`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "counter_type": 32385,
+                    "counter": 96992
+                  },
+                  {
+                    "counter_type": 52078,
+                    "counter": 96704
+                  },
+                  {
+                    "counter_type": 54790,
+                    "counter": 36746
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedule/operations/get-by-date": {
+      "get": {
+        "summary": "GET /schedule/operations/get-by-date",
+        "description": "Auto-generated operation for `/schedule/operations/get-by-date`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "date": "2026-03-18T07:03:07.143506",
+                    "lesson": 22751,
+                    "started_at": "JFmLCzJ",
+                    "finished_at": "CZKtEoxZ",
+                    "teacher_name": "zEdnHUZO",
+                    "subject_name": "GJhujbHoprhbW",
+                    "room_name": "gZDsfuYirl"
+                  },
+                  {
+                    "date": "2026-03-06T08:04:55.630412",
+                    "lesson": 34215,
+                    "started_at": "XsRZEqPxBkJKo",
+                    "finished_at": "pIkenQ",
+                    "teacher_name": "fZmYsgsryl",
+                    "subject_name": "RPbVhHEzHWBO",
+                    "room_name": "ALgZmNrzpCCG"
+                  },
+                  {
+                    "date": "2026-01-16T23:52:12.497395",
+                    "lesson": 4552,
+                    "started_at": "hzezFRmPr",
+                    "finished_at": "NYMyz",
+                    "teacher_name": "DiBJGvU",
+                    "subject_name": "nKppAQAQsgZj",
+                    "room_name": "RwfQDwS"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2026-04-10"
+          }
+        ]
+      }
+    },
+    "/reviews/index/list": {
+      "get": {
+        "summary": "GET /reviews/index/list",
+        "description": "Auto-generated operation for `/reviews/index/list`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "date": "2026-03-05T02:56:09.448671",
+                    "message": "hMhYON",
+                    "spec": "MMatpv",
+                    "full_spec": "AyRsmIO",
+                    "teacher": "HxFpPA"
+                  },
+                  {
+                    "date": "2026-04-06T10:08:11.973124",
+                    "message": "CPzTiLdODHELnu",
+                    "spec": "moZNkPvEAvJWk",
+                    "full_spec": "dFpYFkltDLeAH",
+                    "teacher": "IxcXCIqBRgyIFiI"
+                  },
+                  {
+                    "date": "2026-02-13T20:29:55.730738",
+                    "message": "ngxHBtxHPu",
+                    "spec": "ThdrkAPqivfHb",
+                    "full_spec": "ksXBAaXCqJsiU",
+                    "teacher": "wzGIunVKjGqiqm"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/feedback/students/evaluate-lesson-list": {
+      "get": {
+        "summary": "GET /feedback/students/evaluate-lesson-list",
+        "description": "Auto-generated operation for `/feedback/students/evaluate-lesson-list`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": [
+                  {
+                    "key": "zMYPInrw",
+                    "date_visit": "2026-04-06T06:25:14.242274",
+                    "fio_teach": "QOAMzfFph",
+                    "spec_name": "uQKqDaiLzRBm",
+                    "teach_photo": null
+                  },
+                  {
+                    "key": "TaYNuDQSy",
+                    "date_visit": "2026-04-01T16:35:35.251330",
+                    "fio_teach": "nVQwbeUD",
+                    "spec_name": "GKXVyngYJV",
+                    "teach_photo": null
+                  },
+                  {
+                    "key": "mEoDpa",
+                    "date_visit": "2026-02-17T10:25:11.167965",
+                    "fio_teach": "GZzyya",
+                    "spec_name": "vSoCR",
+                    "teach_photo": null
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/tags": {
+      "get": {
+        "summary": "GET /public/tags",
+        "description": "Auto-generated operation for `/public/tags`.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "example": []
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
