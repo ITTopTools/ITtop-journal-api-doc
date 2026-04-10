@@ -1,0 +1,15 @@
+[project]
+name = "journal-api-docs"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx",
+    "pydantic>=2.0",
+    "faker",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
