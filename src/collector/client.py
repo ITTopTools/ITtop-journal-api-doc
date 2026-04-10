@@ -49,8 +49,11 @@ class JournalClient:
         }
 
         response = await self.client.post(LOGIN_PATH, json=payload)
+        
+        print(f"Status: {response.status_code}")
+        print(f"Body: {response.text}")
         response.raise_for_status()
-
+        
         data = response.json()
         access_token = data.get("access_token")
         if not isinstance(access_token, str) or not access_token:
