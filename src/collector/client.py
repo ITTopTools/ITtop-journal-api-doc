@@ -42,7 +42,7 @@ class JournalClient:
         """Authenticate and return access token."""
 
         payload = {
-            "application_key": "",
+            "application_key": "6a56a5df2667e65aab73ce76d1dd737f7d1faef9c52e8b8c55ac75f565d8e8a6",
             "id_city": None,
             "username": self.login,
             "password": self.password,
