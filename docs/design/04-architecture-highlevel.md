@@ -27,8 +27,8 @@
 
 | Компонент | Что делает | Технология |
 |-----------|-----------|------------|
-| server | Собирает сырые данные из API по всему сайту по каждому известному эндпоинту | playwright |
-| validation and openAPI | openapi pydantic |
+| fetch Server | Fetch data from journal from all endpoints | playwright |
+| OpenAPI+Swagger UI+Validator | openapi+swagger UI geenrator for gui doc, pydantic for validating data |
 ---
 
 ---
