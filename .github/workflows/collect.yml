@@ -1,0 +1,44 @@
+name: Collect and Publish
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        id: pipeline
+        env:
+          JOURNAL_LOGIN: ${{ secrets.JOURNAL_LOGIN }}
+          JOURNAL_PASSWORD: ${{ secrets.JOURNAL_PASSWORD }}
+        run: python main.py
+
+      - name: Create issue if validation failed
+        if: ${{ hashFiles('data/validation_issue.md') != '' }}
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "API schema changed — validation failed"
+          content-filepath: data/validation_issue.md
+          labels: api-change
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./documentation
