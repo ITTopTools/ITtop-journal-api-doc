@@ -57,6 +57,12 @@ class OpenAPIBuilder:
                 "version": date.today().isoformat(),
                 "description": description,
             },
+            "servers": [
+                {
+                    "url": "https://ittop-mock.blazer19092008.workers.dev/api/v2",
+                    "description": "Mock server (anonymized data, updated daily)",
+                }
+            ],
             "components": {
                 "securitySchemes": {
                     "BearerAuth": {
