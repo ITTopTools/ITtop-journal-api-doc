@@ -23,7 +23,7 @@ ENDPOINTS: list[Endpoint] = [
         params={
             "application_key": "",
             "id_city": None,
-            "login": "<login>",
+            "username": "<login>",
             "password": "<password>",
         },
     ),
