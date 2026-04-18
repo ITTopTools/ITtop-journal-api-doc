@@ -3,4 +3,4 @@ data/raw/*
 __pycache__/
 .env
 *.pyc
-examples/
+examples/data/validation_issue.md
