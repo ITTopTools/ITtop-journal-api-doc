@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from src.collector.endpoints import ENDPOINTS
+from src.collector.endpoints import ENDPOINTS, LOGIN_PATH
 
 API_DOWN_WARNING = "⚠️ API unavailable at collection time. Examples may be outdated."
 
@@ -26,6 +26,19 @@ class OpenAPIBuilder:
                 "title": "IT Top Journal API",
                 "version": date.today().isoformat(),
                 "description": description,
+            },
+            "components": {
+                "securitySchemes": {
+                    "BearerAuth": {
+                        "type": "http",
+                        "scheme": "bearer",
+                        "bearerFormat": "JWT",
+                        "description": (
+                            "JWT access token obtained from POST /auth/login response field "
+                            "`access_token`. Pass as: Authorization: Bearer <token>"
+                        ),
+                    }
+                }
             },
             "paths": {},
         }
@@ -72,6 +85,9 @@ class OpenAPIBuilder:
                         }
                     },
                 }
+
+            if endpoint.path != LOGIN_PATH:
+                operation["security"] = [{"BearerAuth": []}]
 
             if endpoint.path in examples:
                 operation["responses"]["200"]["content"]["application/json"]["example"] = examples[

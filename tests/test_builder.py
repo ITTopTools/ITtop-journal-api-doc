@@ -31,3 +31,25 @@ def test_build_contains_known_endpoints():
     for endpoint in ENDPOINTS:
         assert endpoint.path in spec["paths"]
         assert endpoint.method.lower() in spec["paths"][endpoint.path]
+
+
+def test_build_adds_security_headers_and_auth_scheme():
+    """Authenticated operations should declare auth scheme."""
+
+    spec = OpenAPIBuilder().build(examples={})
+    auth_operation = spec["paths"]["/settings/user-info"]["get"]
+
+    assert spec["components"]["securitySchemes"]["BearerAuth"]["scheme"] == "bearer"
+    assert auth_operation["security"] == [{"BearerAuth": []}]
+
+
+def test_build_uses_username_field_for_login_example():
+    """Login request example should document the real username field."""
+
+    spec = OpenAPIBuilder().build(examples={})
+    login_example = spec["paths"]["/auth/login"]["post"]["requestBody"]["content"][
+        "application/json"
+    ]["example"]
+
+    assert "username" in login_example
+    assert "login" not in login_example
