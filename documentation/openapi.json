@@ -2,8 +2,18 @@
   "openapi": "3.0.3",
   "info": {
     "title": "IT Top Journal API",
-    "version": "2026-04-10",
+    "version": "2026-04-18",
     "description": "Auto-generated documentation from daily Journal API collection."
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT access token obtained from POST /auth/login response field `access_token`. Pass as: Authorization: Bearer <token>"
+      }
+    }
   },
   "paths": {
     "/auth/login": {
@@ -24,6 +34,7 @@
           }
         },
         "requestBody": {
+          "description": "Content-Type: application/json must be set explicitly.",
           "required": true,
           "content": {
             "application/json": {
@@ -34,7 +45,7 @@
               "example": {
                 "application_key": "",
                 "id_city": null,
-                "login": "<login>",
+                "username": "<login>",
                 "password": "<password>"
               }
             }
@@ -58,30 +69,30 @@
                 "example": {
                   "groups": [
                     {
-                      "group_status": 40732,
+                      "group_status": 20952,
                       "is_primary": true,
-                      "id": 32808,
-                      "name": "HjkKWLhSsFQYHO"
+                      "id": 34950,
+                      "name": "xzWJPpEiO"
                     }
                   ],
                   "manual_link": null,
-                  "student_id": 92895,
-                  "current_group_id": 47329,
-                  "full_name": "iugrBKUKsvci",
-                  "achieves_count": 61200,
-                  "stream_id": 73888,
-                  "stream_name": "dJUHjBGaqHnw",
-                  "group_name": "QtgEBkrrgN",
-                  "level": 35222,
-                  "photo": "https://www.madden.com/",
+                  "student_id": 92167,
+                  "current_group_id": 41313,
+                  "full_name": "JjHRfvxO",
+                  "achieves_count": 9119,
+                  "stream_id": 55038,
+                  "stream_name": "vJDyrU",
+                  "group_name": "QMiEVcP",
+                  "level": 57161,
+                  "photo": "https://morgan.com/",
                   "gaming_points": [
                     {
-                      "new_gaming_point_types__id": 22282,
-                      "points": 16428
+                      "new_gaming_point_types__id": 25539,
+                      "points": 53058
                     },
                     {
-                      "new_gaming_point_types__id": 31989,
-                      "points": 57710
+                      "new_gaming_point_types__id": 12597,
+                      "points": 63263
                     }
                   ],
                   "spent_gaming_points": [],
@@ -108,18 +119,55 @@
                     "is_russian_branch": true,
                     "is_academy_branch": false
                   },
-                  "current_group_status": 65447,
-                  "birthday": "2026-01-19T05:02:26.477865",
-                  "age": 79316,
-                  "last_date_visit": "2026-03-24T17:54:48.297253",
-                  "registration_date": "2026-01-23T10:04:55.161444",
-                  "gender": 33801,
-                  "study_form_short_name": "AVavvsGyRHmv"
+                  "current_group_status": 31286,
+                  "birthday": "2026-04-13T18:26:15.431841",
+                  "age": 72122,
+                  "last_date_visit": "2026-01-12T02:16:34.482176",
+                  "registration_date": "2026-02-25T13:01:57.771272",
+                  "gender": 53782,
+                  "study_form_short_name": "bHJlR"
                 }
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/dashboard/chart/average-progress": {
@@ -132,33 +180,73 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": [
                   {
-                    "date": "2026-02-13T05:15:26.176175",
-                    "points": 66544,
+                    "date": "2026-03-14T11:26:52.710133",
+                    "points": 24872,
                     "previous_points": null,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-02-04T09:59:51.666502",
-                    "points": 58371,
-                    "previous_points": 70851,
+                    "date": "2026-01-29T00:24:42.027464",
+                    "points": 26241,
+                    "previous_points": 56585,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-02-17T06:11:28.104701",
-                    "points": 43799,
-                    "previous_points": 2022,
+                    "date": "2026-03-06T01:57:21.794016",
+                    "points": 61352,
+                    "previous_points": 84863,
                     "has_rasp": null
                   }
                 ]
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/dashboard/chart/attendance": {
@@ -171,33 +259,73 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": [
                   {
-                    "date": "2026-03-27T20:45:38.171901",
-                    "points": 71374,
+                    "date": "2026-04-03T07:04:08.396417",
+                    "points": 46319,
                     "previous_points": null,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-02-24T12:05:40.305504",
-                    "points": 51209,
-                    "previous_points": 61408,
+                    "date": "2026-03-14T09:40:27.379782",
+                    "points": 68761,
+                    "previous_points": 47501,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-01-02T11:40:20.871024",
-                    "points": 79745,
-                    "previous_points": 16080,
+                    "date": "2026-02-14T15:18:00.760082",
+                    "points": 56151,
+                    "previous_points": 99010,
                     "has_rasp": true
                   }
                 ]
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/dashboard/progress/leader-group": {
@@ -210,36 +338,76 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": [
                   {
-                    "amount": 71662,
-                    "id": 13574,
-                    "full_name": "EQaIywhgTik",
-                    "photo_path": "https://www.contreras.info/",
-                    "position": 16551
+                    "amount": 32290,
+                    "id": 27791,
+                    "full_name": "uWPeqNfWVbAO",
+                    "photo_path": "http://travis.com/",
+                    "position": 29667
                   },
                   {
-                    "amount": 60355,
-                    "id": 45079,
-                    "full_name": "SbjGaXHAetZd",
-                    "photo_path": "http://cook.net/",
-                    "position": 33221
+                    "amount": 81601,
+                    "id": 5353,
+                    "full_name": "gxUEQFcFjvGPyWG",
+                    "photo_path": "https://thompson-smith.com/",
+                    "position": 34382
                   },
                   {
-                    "amount": 28522,
-                    "id": 67855,
-                    "full_name": "uEKbKfTqdXXAgKw",
-                    "photo_path": "http://www.hughes.com/",
-                    "position": 2324
+                    "amount": 79677,
+                    "id": 75226,
+                    "full_name": "ZySwd",
+                    "photo_path": "https://www.stein-miller.com/",
+                    "position": 63427
                   }
                 ]
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/dashboard/progress/leader-stream": {
@@ -252,36 +420,76 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": [
                   {
-                    "id": 80320,
-                    "full_name": "MwdzGtNSAUrbDr",
-                    "photo_path": "https://miller-kelley.com/",
-                    "position": 37670,
-                    "amount": 80807
+                    "id": 79976,
+                    "full_name": "bsRDDSkLOZlVYf",
+                    "photo_path": "https://www.lewis-lewis.biz/",
+                    "position": 31908,
+                    "amount": 72805
                   },
                   {
-                    "id": 66549,
-                    "full_name": "FBOMQjL",
-                    "photo_path": "http://www.coleman.com/",
-                    "position": 40880,
-                    "amount": 15163
+                    "id": 92282,
+                    "full_name": "ObZWT",
+                    "photo_path": "https://dominguez.com/",
+                    "position": 77783,
+                    "amount": 60117
                   },
                   {
-                    "id": 50647,
-                    "full_name": "VqcUXcyxeEb",
-                    "photo_path": "http://rojas-trevino.com/",
-                    "position": 69285,
-                    "amount": 29640
+                    "id": 23539,
+                    "full_name": "TstEisSSk",
+                    "photo_path": "https://www.davies.org/",
+                    "position": 95471,
+                    "amount": 53157
                   }
                 ]
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/progress/operations/student-visits": {
@@ -294,18 +502,21 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": [
                   {
-                    "date_visit": "2026-02-11T08:41:13.277222",
-                    "lesson_number": 70644,
-                    "status_was": 92223,
-                    "spec_id": 75611,
-                    "teacher_name": "EkVkMesFQpa",
-                    "spec_name": "vBuvIeN",
-                    "lesson_theme": "BabNKxAhVCzfdW",
+                    "date_visit": "2026-02-14T12:32:56.473701",
+                    "lesson_number": 92496,
+                    "status_was": 22565,
+                    "spec_id": 59113,
+                    "teacher_name": "eEbkYLE",
+                    "spec_name": "ZPiMUThiG",
+                    "lesson_theme": "kSAQl",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -314,13 +525,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-03-28T00:14:26.090807",
-                    "lesson_number": 7883,
-                    "status_was": 91101,
-                    "spec_id": 60846,
-                    "teacher_name": "CvfYAQFiW",
-                    "spec_name": "WOMFzgbDAiYJgLT",
-                    "lesson_theme": "DcDYBEQttHvet",
+                    "date_visit": "2026-03-08T22:24:09.352284",
+                    "lesson_number": 69138,
+                    "status_was": 85825,
+                    "spec_id": 98464,
+                    "teacher_name": "aDxrXDqoOKRxHQ",
+                    "spec_name": "DlOApUsol",
+                    "lesson_theme": "ZLgdkLzzhXJKMPX",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -329,13 +540,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-02-23T20:35:02.326081",
-                    "lesson_number": 87769,
-                    "status_was": 63354,
-                    "spec_id": 66382,
-                    "teacher_name": "dQtoQAzJpynwkgO",
-                    "spec_name": "KbMybK",
-                    "lesson_theme": "FNhNnkvxUmGZ",
+                    "date_visit": "2026-01-14T19:09:37.555756",
+                    "lesson_number": 57650,
+                    "status_was": 47890,
+                    "spec_id": 43619,
+                    "teacher_name": "MdvRJHKa",
+                    "spec_name": "spdkEWoMTr",
+                    "lesson_theme": "yJndLzwTIEeVDJL",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -347,7 +558,44 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/count/homework": {
@@ -360,27 +608,67 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": [
                   {
-                    "counter_type": 16009,
-                    "counter": 64805
+                    "counter_type": 82675,
+                    "counter": 16667
                   },
                   {
-                    "counter_type": 70261,
-                    "counter": 54508
+                    "counter_type": 45394,
+                    "counter": 69919
                   },
                   {
-                    "counter_type": 60500,
-                    "counter": 53681
+                    "counter_type": 69828,
+                    "counter": 76746
                   }
                 ]
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/schedule/operations/get-by-date": {
@@ -393,43 +681,48 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
-                },
-                "example": [
-                  {
-                    "date": "2026-03-22T15:01:38.421144",
-                    "lesson": 85352,
-                    "started_at": "KlTJoiXI",
-                    "finished_at": "EjWlfSjme",
-                    "teacher_name": "jumFkL",
-                    "subject_name": "LrjXJVtrAnLRLZF",
-                    "room_name": "muEGCtDBI"
-                  },
-                  {
-                    "date": "2026-04-02T20:43:49.475609",
-                    "lesson": 27213,
-                    "started_at": "ELJfMbLhL",
-                    "finished_at": "LrWstiZcqa",
-                    "teacher_name": "gLPTKiWkadoNgg",
-                    "subject_name": "jdkBUmCqeZDRlA",
-                    "room_name": "wHqvJL"
-                  },
-                  {
-                    "date": "2026-01-24T07:28:41.671092",
-                    "lesson": 41383,
-                    "started_at": "oPSTCdvQQzQUg",
-                    "finished_at": "JtIVjAnoxXdXk",
-                    "teacher_name": "UnoyyooWQS",
-                    "subject_name": "NwAFDhMC",
-                    "room_name": "iOZfGJcyNrquMl"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
                   }
-                ]
+                },
+                "example": []
               }
             }
           }
         },
         "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          },
           {
             "name": "date",
             "in": "query",
@@ -437,7 +730,12 @@
             "schema": {
               "type": "string"
             },
-            "example": "2026-04-10"
+            "example": "2026-04-18"
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
           }
         ]
       }
@@ -452,36 +750,76 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": [
                   {
-                    "date": "2026-03-14T15:47:08.255962",
-                    "message": "KcuDVXoRjetsp",
-                    "spec": "CTBHC",
-                    "full_spec": "oEMkptgTGfQFg",
-                    "teacher": "gphhMAgQBtS"
+                    "date": "2026-01-24T17:11:25.825006",
+                    "message": "PNFcreo",
+                    "spec": "nWVjXU",
+                    "full_spec": "SeuIhbC",
+                    "teacher": "TotFHjJ"
                   },
                   {
-                    "date": "2026-02-24T03:26:52.716202",
-                    "message": "hpmqAyZORKXCfn",
-                    "spec": "cMmuUdZWlYLEulP",
-                    "full_spec": "ETqduYa",
-                    "teacher": "zSslHenHYb"
+                    "date": "2026-02-07T18:21:55.801313",
+                    "message": "AFZad",
+                    "spec": "UNWLDz",
+                    "full_spec": "HzEdQTzFWBURrq",
+                    "teacher": "tGaNjshTaCQHJ"
                   },
                   {
-                    "date": "2026-02-15T00:53:08.868073",
-                    "message": "ZZEOoO",
-                    "spec": "LspyCjziWDsu",
-                    "full_spec": "AsHNNqDElhyxz",
-                    "teacher": "RpZQYHudIrkoen"
+                    "date": "2026-01-12T01:51:30.888457",
+                    "message": "JzRYbKmNobm",
+                    "spec": "fyyRisYdPWTfrRC",
+                    "full_spec": "eOZWFl",
+                    "teacher": "UtBurOwceNpL"
                   }
                 ]
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/feedback/students/evaluate-lesson-list": {
@@ -494,36 +832,54 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
-                },
-                "example": [
-                  {
-                    "key": "pnKWciyeiRs",
-                    "date_visit": "2026-02-06T10:54:13.710721",
-                    "fio_teach": "OkOVpx",
-                    "spec_name": "lYvhwMtj",
-                    "teach_photo": null
-                  },
-                  {
-                    "key": "hUAaHFa",
-                    "date_visit": "2026-03-23T18:20:52.903888",
-                    "fio_teach": "FSSRQIKLyycIiyH",
-                    "spec_name": "adXdJYlpWDjcWi",
-                    "teach_photo": null
-                  },
-                  {
-                    "key": "jaFbG",
-                    "date_visit": "2026-03-06T08:18:53.814748",
-                    "fio_teach": "ySigtJTMnAl",
-                    "spec_name": "EhGGfuanIldefb",
-                    "teach_photo": null
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
                   }
-                ]
+                },
+                "example": []
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     },
     "/public/tags": {
@@ -536,14 +892,54 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 },
                 "example": []
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru",
+            "description": "Required by the API CORS policy."
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://journal.top-academy.ru/",
+            "description": "Required by the API. Must end with trailing slash."
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "description": "Recommended to match a real browser UA to avoid blocks."
+          }
+        ]
       }
     }
   }
