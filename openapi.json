@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "IT Top Journal API",
-    "version": "2026-04-18",
+    "version": "2026-04-19",
     "description": "Auto-generated documentation from daily Journal API collection."
   },
   "servers": [
@@ -75,30 +75,30 @@
                 "example": {
                   "groups": [
                     {
-                      "group_status": 93345,
+                      "group_status": 38172,
                       "is_primary": true,
-                      "id": 94764,
-                      "name": "MMqLrWiMfBM"
+                      "id": 87160,
+                      "name": "jlSAEOdj"
                     }
                   ],
                   "manual_link": null,
-                  "student_id": 56005,
-                  "current_group_id": 70228,
-                  "full_name": "MjzHq",
-                  "achieves_count": 44943,
-                  "stream_id": 42812,
-                  "stream_name": "Xovhu",
-                  "group_name": "OIxoEkrjapPz",
-                  "level": 56764,
-                  "photo": "http://mckenzie-zimmerman.net/",
+                  "student_id": 90009,
+                  "current_group_id": 63139,
+                  "full_name": "lRRiwaLNJWKGGB",
+                  "achieves_count": 93774,
+                  "stream_id": 43984,
+                  "stream_name": "jgCyvADu",
+                  "group_name": "sEFOaMvHT",
+                  "level": 65245,
+                  "photo": "https://www.lambert.org/",
                   "gaming_points": [
                     {
-                      "new_gaming_point_types__id": 62762,
-                      "points": 5829
+                      "new_gaming_point_types__id": 65554,
+                      "points": 84166
                     },
                     {
-                      "new_gaming_point_types__id": 46818,
-                      "points": 36153
+                      "new_gaming_point_types__id": 38664,
+                      "points": 1682
                     }
                   ],
                   "spent_gaming_points": [],
@@ -125,13 +125,13 @@
                     "is_russian_branch": true,
                     "is_academy_branch": false
                   },
-                  "current_group_status": 89350,
-                  "birthday": "2026-02-27T10:12:11.397043",
-                  "age": 38790,
-                  "last_date_visit": "2026-03-18T08:47:31.712638",
-                  "registration_date": "2026-01-10T20:16:55.033247",
-                  "gender": 85502,
-                  "study_form_short_name": "mVqxTcarizxE"
+                  "current_group_status": 88109,
+                  "birthday": "2026-01-24T08:21:43.991608",
+                  "age": 90744,
+                  "last_date_visit": "2026-01-06T13:40:32.181849",
+                  "registration_date": "2026-03-14T23:59:27.721452",
+                  "gender": 23582,
+                  "study_form_short_name": "tHOcjIanLyo"
                 }
               }
             }
@@ -194,21 +194,21 @@
                 },
                 "example": [
                   {
-                    "date": "2026-03-14T13:58:38.707479",
-                    "points": 17003,
+                    "date": "2026-01-24T04:29:15.416686",
+                    "points": 93910,
                     "previous_points": null,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-04-15T05:21:58.792610",
-                    "points": 79272,
-                    "previous_points": 30056,
+                    "date": "2026-01-28T01:30:06.516085",
+                    "points": 14322,
+                    "previous_points": 83170,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-04-05T04:32:10.529348",
-                    "points": 88362,
-                    "previous_points": 84977,
+                    "date": "2026-04-03T17:39:02.611336",
+                    "points": 21055,
+                    "previous_points": 26661,
                     "has_rasp": null
                   }
                 ]
@@ -273,21 +273,21 @@
                 },
                 "example": [
                   {
-                    "date": "2026-04-05T19:05:02.332482",
-                    "points": 39220,
+                    "date": "2026-04-08T18:21:13.106037",
+                    "points": 77854,
                     "previous_points": null,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-02-02T17:31:40.964122",
-                    "points": 65130,
-                    "previous_points": 74538,
+                    "date": "2026-01-15T18:57:53.595243",
+                    "points": 24805,
+                    "previous_points": 39285,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-01-14T21:05:56.991415",
-                    "points": 18510,
-                    "previous_points": 61080,
+                    "date": "2026-01-14T21:33:19.489035",
+                    "points": 83951,
+                    "previous_points": 18945,
                     "has_rasp": true
                   }
                 ]
@@ -352,25 +352,25 @@
                 },
                 "example": [
                   {
-                    "amount": 69306,
-                    "id": 22258,
-                    "full_name": "uavbKQbsjQZkqjT",
-                    "photo_path": "http://www.wallace.com/",
-                    "position": 32552
+                    "amount": 34118,
+                    "id": 36660,
+                    "full_name": "YHrYdJQXszCfPG",
+                    "photo_path": "https://www.blair.com/",
+                    "position": 15212
                   },
                   {
-                    "amount": 89067,
-                    "id": 33080,
-                    "full_name": "jOZwJvjhPGQNp",
-                    "photo_path": "https://sanchez-oliver.info/",
-                    "position": 71483
+                    "amount": 64292,
+                    "id": 65266,
+                    "full_name": "PjrAc",
+                    "photo_path": "https://www.frederick-pierce.info/",
+                    "position": 25103
                   },
                   {
-                    "amount": 72150,
-                    "id": 77442,
-                    "full_name": "Atodo",
-                    "photo_path": "https://www.white-barrera.org/",
-                    "position": 29985
+                    "amount": 66159,
+                    "id": 62611,
+                    "full_name": "TATVcrA",
+                    "photo_path": "http://roberts.com/",
+                    "position": 54324
                   }
                 ]
               }
@@ -434,25 +434,25 @@
                 },
                 "example": [
                   {
-                    "id": 3492,
-                    "full_name": "msqRlCA",
-                    "photo_path": "https://smith-ruiz.com/",
-                    "position": 48113,
-                    "amount": 27349
+                    "id": 24569,
+                    "full_name": "qYiWsZbBpNwxQ",
+                    "photo_path": "http://www.greene.com/",
+                    "position": 75267,
+                    "amount": 55774
                   },
                   {
-                    "id": 45158,
-                    "full_name": "RGouahtaUccVU",
-                    "photo_path": "https://johnson.com/",
-                    "position": 67429,
-                    "amount": 95292
+                    "id": 21481,
+                    "full_name": "KxGIbx",
+                    "photo_path": "http://www.mitchell-price.com/",
+                    "position": 47712,
+                    "amount": 28622
                   },
                   {
-                    "id": 42559,
-                    "full_name": "aDruoz",
-                    "photo_path": "http://rivera.org/",
-                    "position": 1480,
-                    "amount": 11536
+                    "id": 8574,
+                    "full_name": "HMXCA",
+                    "photo_path": "http://www.ross.org/",
+                    "position": 96123,
+                    "amount": 86034
                   }
                 ]
               }
@@ -516,13 +516,13 @@
                 },
                 "example": [
                   {
-                    "date_visit": "2026-03-14T13:02:53.629495",
-                    "lesson_number": 31149,
-                    "status_was": 75565,
-                    "spec_id": 54623,
-                    "teacher_name": "yiYaKZPGjrbrx",
-                    "spec_name": "PzZwcrDGAdUAc",
-                    "lesson_theme": "tmGoxMEba",
+                    "date_visit": "2026-03-02T16:24:50.317861",
+                    "lesson_number": 34526,
+                    "status_was": 82152,
+                    "spec_id": 47993,
+                    "teacher_name": "aPSKz",
+                    "spec_name": "lEtLCg",
+                    "lesson_theme": "zwBPFBZfMQg",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -531,13 +531,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-03-09T19:03:46.446881",
-                    "lesson_number": 8387,
-                    "status_was": 52138,
-                    "spec_id": 38280,
-                    "teacher_name": "TRfPwlYDucL",
-                    "spec_name": "SMaYga",
-                    "lesson_theme": "OKHDfMYBCbPXiAw",
+                    "date_visit": "2026-04-06T03:17:29.839613",
+                    "lesson_number": 42039,
+                    "status_was": 97962,
+                    "spec_id": 57367,
+                    "teacher_name": "NLWJv",
+                    "spec_name": "GVUBhCDZC",
+                    "lesson_theme": "WNLTpt",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -546,13 +546,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-02-12T07:08:02.578607",
-                    "lesson_number": 85926,
-                    "status_was": 57884,
-                    "spec_id": 9564,
-                    "teacher_name": "Xhwkr",
-                    "spec_name": "MfXzY",
-                    "lesson_theme": "aBckcBnkxTtTsh",
+                    "date_visit": "2026-03-08T05:01:39.722077",
+                    "lesson_number": 80910,
+                    "status_was": 71556,
+                    "spec_id": 82572,
+                    "teacher_name": "jULRkLEznYoyaG",
+                    "spec_name": "uDRCtichQejS",
+                    "lesson_theme": "KeFkyxLDtvgzH",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -622,16 +622,16 @@
                 },
                 "example": [
                   {
-                    "counter_type": 99897,
-                    "counter": 45152
+                    "counter_type": 72904,
+                    "counter": 64241
                   },
                   {
-                    "counter_type": 41026,
-                    "counter": 20700
+                    "counter_type": 89560,
+                    "counter": 1071
                   },
                   {
-                    "counter_type": 30213,
-                    "counter": 70078
+                    "counter_type": 89560,
+                    "counter": 32268
                   }
                 ]
               }
@@ -736,7 +736,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "2026-04-18"
+            "example": "2026-04-19"
           }
         ],
         "security": [
@@ -764,25 +764,25 @@
                 },
                 "example": [
                   {
-                    "date": "2026-02-25T15:26:15.888937",
-                    "message": "MzgbUCno",
-                    "spec": "YUXyfSqYCSz",
-                    "full_spec": "aCwhkJuWCCzWe",
-                    "teacher": "wzRpRfRLhcN"
+                    "date": "2026-04-05T00:24:07.689277",
+                    "message": "IexjcjwrB",
+                    "spec": "zdGBLVEMRi",
+                    "full_spec": "BvRkZIOygqDzQee",
+                    "teacher": "ONSKan"
                   },
                   {
-                    "date": "2026-02-07T21:51:20.738907",
-                    "message": "JopyELZgvMeOm",
-                    "spec": "aiMTrNnyBR",
-                    "full_spec": "zkmEobCML",
-                    "teacher": "cTVNXo"
+                    "date": "2026-02-21T17:05:00.760980",
+                    "message": "VcyZGWk",
+                    "spec": "bJogy",
+                    "full_spec": "nquLWfwcEYHc",
+                    "teacher": "ZRmQBmaTHwbKD"
                   },
                   {
-                    "date": "2026-01-05T18:15:10.018458",
-                    "message": "aUttDlJfXgTFMy",
-                    "spec": "wGYGRaQxhtu",
-                    "full_spec": "aKsuxkJtfl",
-                    "teacher": "KrdWwT"
+                    "date": "2026-03-28T13:45:37.669611",
+                    "message": "FCvTldps",
+                    "spec": "VKMWWPpyUiNQWd",
+                    "full_spec": "UoAxniqsuzumbH",
+                    "teacher": "IgdtuJcRQPVGZ"
                   }
                 ]
               }
