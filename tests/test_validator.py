@@ -8,7 +8,7 @@ class MockModel(BaseModel):
 
 def test_validate_all_for_known_path(monkeypatch):
     # Патчим MODELS так, как ожидает новый валидатор
-    monkeypatch.setattr(validator_module, "MODELS", {"/test": MockModel})
+    monkeypatch.setattr(validator_module, "MODELS", {"/test": (MockModel, False)})
     
     # 1. Успешный кейс
     results = Validator().validate_all({"/test": {"id": 1}})
