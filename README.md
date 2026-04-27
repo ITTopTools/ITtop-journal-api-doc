@@ -1,95 +1,194 @@
 # ITtop Journal API Docs
 
-> Автоматическая OpenAPI документация для [IT Top Academy Journal](https://journal.top-academy.ru).  
-> Данные собираются раз в сутки, анонимизируются и публикуются через GitHub Pages.
+> Автоматическая OpenAPI-документация для [IT Top Academy Journal](https://journal.top-academy.ru).
+> Данные собираются, анонимизируются и публикуются через GitHub Pages.
 
-## Что это
+## О проекте
 
-IT Top Journal не имеет публичной документации. Этот проект:
+IT Top Journal не имеет публичной документации. Этот проект заполняет пробел:
 
-- Собирает реальные ответы API через авторизованные запросы
-- Валидирует их через Pydantic — если структура изменилась, открывается GitHub Issue
-- Анонимизирует данные через Faker — реальные имена, ID и даты не публикуются
-- Генерирует `openapi.json` и публикует Swagger UI на GitHub Pages
+- **Собирает** реальные ответы API через авторизованные запросы
+- **Валидирует** структуру через Pydantic — если API изменился, пайплайн падает и открывается Issue
+- **Анонимизирует** данные через Faker — реальные имена, ID и даты не попадают в публичный репозиторий
+- **Генерирует** `openapi.json` и публикует Swagger UI на GitHub Pages
 
-**Документация обновляется автоматически каждые 24 часа.**
+Пайплайн запускается автоматически каждый день в 03:00 UTC через GitHub Actions. Также доступен ручной запуск (workflow_dispatch).
 
-## For AI Agents
+## Как это работает
 
-All AI agents working in this repo follow the shared rules in [`AGENTS.md`](AGENTS.md). Read it first.
-Agent-specific files add only what's unique to each tool — no duplication:
+```
+Авторизация → Сбор ответов → Pydantic-валидация → Faker-анонимизация → OpenAPI-генерация → GitHub Pages
+                                        ↓ (ошибка)
+                                  GitHub Issue
+```
 
-| File | Tool | Purpose |
-|------|------|---------|
-| [`AGENTS.md`](AGENTS.md) | All | Shared rules — single source of truth |
-| [`CLAUDE.md`](CLAUDE.md) | Claude Code | TDD enforcement, verification mandate |
-| [`GEMINI.md`](GEMINI.md) | Gemini CLI | Lifecycle phases, decision protocol |
-| [`.codex/AGENTS.md`](.codex/AGENTS.md) | Codex | Style rules, superpowers setup |
+1. `collector/` — логинится по `/auth/login`, обходит все эндпоинты, сохраняет сырые ответы
+2. `validator/` — прогоняет ответы через Pydantic-модели; несовпадения → Issue с деталями
+3. `anonymizer/` — подменяет PII (имена, ID, даты) на Faker-генерированные значения
+4. `publisher/` — строит `openapi.json` + `index.html` (Swagger UI) из анонимизированных данных
 
-## Структура
+## Структура проекта
 
 ```
 src/
-  collector/     Авторизация и сбор данных с эндпоинтов
-  validator/     Pydantic-модели и валидация ответов
-  anonymizer/    Faker-замена реальных значений
-  publisher/     Генерация openapi.json и Swagger UI
+  collector/             Авторизация и сбор данных с эндпоинтов
+    client.py            HTTP-клиент (httpx)
+    endpoints.py         Реестр всех эндпоинтов (путь, метод, параметры)
+    array_trimmer.py     Обрезка длинных массивов для примеров
+  validator/             Pydantic-модели и валидация ответов
+    models.py            Схемы ответов для каждого эндпоинта
+    validator.py         Прогон ответов через модели, формирование Issue
+  anonymizer/            Faker-замена реальных значений
+    anonymizer.py        Основная логика анонимизации
+    rules.py             Правила замены по полям
+  publisher/             Генерация openapi.json и Swagger UI
+    builder.py           Сборка OpenAPI-спеки из примеров
 data/
-  raw/           Сырые ответы API (в .gitignore)
-  examples/      Анонимизированные примеры (коммитятся)
-documentation/   Артефакт для GitHub Pages
+  raw/                   Сырые ответы API (в .gitignore, не коммитится)
+  examples/              Анонимизированные примеры (коммитятся)
+documentation/           Артефакты для GitHub Pages (openapi.json + index.html)
 devel/
-  design/        Архитектурные решения
-  plans/         Планы реализации
-  changelog/     История изменений
-tests/           Pytest-тесты
+  design/                Архитектурные решения
+  plans/                 Планы реализации
+  changelog/             История изменений
+tests/                   Pytest-тесты
+scripts/                 Вспомогательные скрипты (сборка mock-worker и т.д.)
+mock/                    Cloudflare Worker для mock-API
 ```
 
-## Setup
+## Установка и запуск
+
+### Зависимости
+
+- Python 3.12+
+- [uv](https://docs.astral.sh/uv/) (рекомендуется) или pip
+
+### Установка
 
 ```bash
-uv sync &uv lock
-uv run main.py
+uv sync
 ```
 
-## Запуск
+### Локальный запуск
 
 ```bash
-JOURNAL_LOGIN=your_login JOURNAL_PASSWORD=your_password python main.py
+JOURNAL_LOGIN=ваш_логин JOURNAL_PASSWORD=ваш_пароль uv run main.py
 ```
 
-Результат:
-- `data/raw/latest.json` — сырые ответы (не коммитится)
-- `data/examples/latest.json` — анонимизированные примеры
-- `documentation/openapi.json` — готовый OpenAPI спек
+После запуска появятся:
 
-## Тесты
+| Файл | Описание |
+|------|----------|
+| `data/raw/latest.json` | Сырые ответы API (в .gitignore) |
+| `data/examples/latest.json` | Анонимизированные примеры |
+| `documentation/openapi.json` | Готовая OpenAPI-спека |
+| `documentation/index.html` | Swagger UI |
+
+### Просмотр документации локально
 
 ```bash
-pytest
-ruff check .
+cd documentation && python -m http.server 8000
 ```
+
+Открыть http://localhost:8000 — там будет Swagger UI с интерактивной документацией.
 
 ## Покрытые эндпоинты
 
+**30 эндпоинтов**, включая авторизацию, профиль, дашборд, расписание, успеваемость и публичные данные.
+
+### Авторизация
+
 | Эндпоинт | Метод | Описание |
 |----------|-------|----------|
-| `/auth/login` | POST | Авторизация, получение Bearer токена |
+| `/auth/login` | POST | Авторизация, получение Bearer-токена |
+
+### Профиль
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
 | `/settings/user-info` | GET | Профиль студента, группа, поток |
-| `/dashboard/chart/average-progress` | GET | График среднего прогресса по месяцам |
-| `/dashboard/chart/attendance` | GET | График посещаемости по месяцам |
+| `/profile/operations/settings` | GET | Настройки профиля, контакты, фото |
+| `/profile/statistic/student-achievements` | GET | Достижения студента |
+
+### Дашборд — графики
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
+| `/dashboard/chart/average-progress` | GET | Средний прогресс по месяцам |
+| `/dashboard/chart/attendance` | GET | Посещаемость по месяцам |
+| `/dashboard/chart/progress` | GET | Графики прогресса по типам (chart_type + chart_models) |
+
+### Дашборд — рейтинг
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
 | `/dashboard/progress/leader-group` | GET | Топ студентов по группе |
 | `/dashboard/progress/leader-stream` | GET | Топ студентов по потоку |
+| `/dashboard/progress/leader-group-points` | GET | Позиция и баллы студента в группе |
+| `/dashboard/progress/leader-stream-points` | GET | Позиция и баллы студента в потоке |
+| `/dashboard/progress/activity` | GET | Лента активности (баллы, достижения) |
+
+### Дашборд — экзамены
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
+| `/dashboard/info/future-exams` | GET | Предстоящие экзамены |
+
+### Расписание
+
+| Эндпоинт | Метод | Описание | Параметры |
+|----------|-------|----------|-----------|
+| `/schedule/operations/get-by-date` | GET | Расписание на дату | `?date_filter=YYYY-MM-DD` |
+| `/schedule/operations/get-by-date-range` | GET | Расписание за период | `?date_start&date_end=YYYY-MM-DD` |
+| `/schedule/operations/get-month` | GET | Расписание на месяц | `?date_filter=YYYY-MM-DD` |
+
+### Успеваемость
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
 | `/progress/operations/student-visits` | GET | Журнал посещений и оценок |
+| `/progress/operations/student-exams` | GET | Оценки за экзамены |
 | `/count/homework` | GET | Счётчики домашних заданий по типам |
-| `/schedule/operations/get-by-date` | GET | Расписание на дату (`?date=YYYY-MM-DD`) |
+
+### Библиотека
+
+| Эндпоинт | Метод | Описание | Параметры |
+|----------|-------|----------|-----------|
+| `/library/operations/list` | GET | Список материалов | `?material_type&filter_type&recommended_type` |
+
+### Отзывы и обратная связь
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
 | `/reviews/index/list` | GET | Отзывы преподавателей |
+| `/reviews/index/instruction` | GET | Инструкция по отзывам |
 | `/feedback/students/evaluate-lesson-list` | GET | Список уроков для оценки |
-| `/public/tags` | GET | Публичные теги |
+| `/feedback/social-review/get-review-list` | GET | Социальные отзывы (ссылки, скриншоты) |
+
+### Сигналы
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
+| `/signal/operations/signals-list` | GET | Список сигналов (обращения, проблемы) |
+| `/signal/operations/problems-list` | GET | Список типов проблем |
+
+### Новости
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
+| `/news/operations/latest-news` | GET | Последние новости |
+
+### Публичные эндпоинты
+
+| Эндпоинт | Метод | Описание | Параметры |
+|----------|-------|----------|-----------|
+| `/public/languages` | GET | Доступные языки | |
+| `/public/translations` | GET | Локализационные строки | `?language=ru` |
+| `/public/tags` | GET | Публичные теги | |
 
 ## Аутентификация
 
-Все эндпоинты кроме `/auth/login` требуют:
+Все эндпоинты кроме `/auth/login` требуют заголовки:
 
 ```
 Authorization: Bearer <access_token>
@@ -108,21 +207,102 @@ Referer: https://journal.top-academy.ru/
 }
 ```
 
+## Публикация на GitHub Pages
+
+Документация публикуется автоматически через GitHub Actions. Но можно и вручную.
+
+### Автоматическая публикация (через CI)
+
+Пайплайн `.github/workflows/collect.yml` запускается:
+- **По расписанию** — каждый день в 03:00 UTC
+- **Вручную** — кнопка «Run workflow» на вкладке Actions
+
+Для работы CI нужно настроить в Settings → Secrets and variables → Actions:
+
+| Секрет | Описание |
+|--------|----------|
+| `JOURNAL_LOGIN` | Логин от журнала |
+| `JOURNAL_PASSWORD` | Пароль от журнала |
+| `GITHUB_TOKEN` | Автоматически предоставляется GitHub (не нужно добавлять) |
+| `CLOUDFLARE_API_TOKEN` | Для деплоя mock-worker (опционально) |
+
+### Ручная публикация
+
+Если нужно обновить документацию вручную, без CI:
+
+**Вариант 1 — через gh-pages ветку (рекомендуется):**
+
+```bash
+# Запускаем пайплайн локально
+JOURNAL_LOGIN=ваш_логин JOURNAL_PASSWORD=ваш_пароль uv run main.py
+
+# Пушим содержимое documentation/ на ветку gh-pages
+npx gh-pages -d documentation
+```
+
+**Вариант 2 — через git subtree:**
+
+```bash
+uv run main.py
+
+git add documentation/
+git commit -m "docs: update openapi spec"
+git subtree push --prefix documentation origin gh-pages
+```
+
+### Настройка GitHub Pages в репозитории
+
+1. Открыть **Settings → Pages**
+2. В поле **Source** выбрать `Deploy from a branch`
+3. В поле **Branch** выбрать `gh-pages` и папку `/ (root)`
+4. Нажать **Save**
+
+После этого документация будет доступна по адресу:
+`https://<username>.github.io/<repo-name>/`
+
 ## Мониторинг изменений API
 
-Если структура ответа изменилась — пайплайн падает и открывает GitHub Issue с описанием конкретных полей которые перестали проходить валидацию.
+Если структура ответа API изменилась и перестала проходить Pydantic-валидацию:
+
+1. Пайплайн падает
+2. Создаётся GitHub Issue с лейблом `api-change` и описанием конкретных полей
+3. Issue нужно обработать — обновить модель в `src/validator/models.py`
+
+## Тесты и линтинг
+
+```bash
+# Запуск тестов
+uv run pytest
+
+# Линтинг
+uv run ruff check .
+
+# Фикс автоисправимых проблем
+uv run ruff check --fix .
+```
+
+## Для AI-агентов
+
+Все AI-агенты в этом репозитории следуют общим правилам из [`AGENTS.md`](AGENTS.md). Файлы агентов дополняют, а не дублируют:
+
+| Файл | Инструмент | Назначение |
+|------|------------|------------|
+| [`AGENTS.md`](AGENTS.md) | Все | Общие правила — единый источник правды |
+| [`CLAUDE.md`](CLAUDE.md) | Claude Code | TDD, верификация |
+| [`GEMINI.md`](GEMINI.md) | Gemini CLI | Фазы разработки, протокол решений |
+| [`.codex/AGENTS.md`](.codex/AGENTS.md) | Codex | Стиль, настройки |
 
 ## Планы
 
-### Ближайшее
+### Выполнено
 
-- [X] Добавить `BearerAuth` security scheme в OpenAPI спек
-- [X] Задокументировать обязательные headers (`Origin`, `Referer`) как parameters
-- [X] Исправить схему ответов (`array` vs `object`) на основе реальных данных
+- [x] Добавить `BearerAuth` security scheme в OpenAPI-спеку
+- [x] Задокументировать обязательные заголовки (`Origin`, `Referer`) как параметры
+- [x] Исправить схему ответов (`array` vs `object`) на основе реальных данных
+- [x] Покрыть основные эндпоинты (30 из известных)
 
-### Позже
+### В планах
 
-- [ ] Текстовая документация по каждому эндпоинту на основе реальных примеров — типы полей, возможные значения, семантика
+- [ ] Текстовая документация по каждому эндпоинту — типы полей, возможные значения, семантика
 - [ ] Документирование enum-значений (`status_was`, `counter_type`, `gender`, `group_status`)
-- [X] Покрытие дополнительных эндпоинтов по мере обнаружения (В процессе, большая часть основных endpoint задокументирована)
-- [ ] Changelog автоматически генерируемый из issue истории изменений API
+- [ ] Автоматический changelog из истории Issue об изменениях API
