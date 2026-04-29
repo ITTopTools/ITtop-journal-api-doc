@@ -1,4 +1,3 @@
-import pytest
 from pydantic import BaseModel
 from src.validator.validator import Validator, ValidationResult
 import src.validator.validator as validator_module
@@ -37,3 +36,23 @@ def test_known_path_with_collector_error_is_failure(monkeypatch):
     results = Validator().validate_all({"/test": {"error": "timeout"}})
     assert results[0].success is False
     assert "Collector Error" in results[0].errors[0]
+
+def test_count_warning_included_in_issue_body():
+    result = ValidationResult(
+        endpoint="/schedule/operations/get-month",
+        success=True,
+        count_warning="Expected <= 31 items, got 45",
+    )
+    body = Validator().format_issue_body([result])
+    assert "Count warning" in body
+    assert "45" in body
+
+def test_count_warning_shown_even_when_success():
+    result = ValidationResult(
+        endpoint="/schedule/operations/get-by-date",
+        success=True,
+        count_warning="Expected <= 1 items, got 3",
+    )
+    body = Validator().format_issue_body([result])
+    assert "Count warning" in body
+    assert "/schedule/operations/get-by-date" in body

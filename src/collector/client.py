@@ -11,6 +11,7 @@ from src.collector.array_trimmer import trim_arrays
 
 LOGGER = logging.getLogger(__name__)
 RETRY_ATTEMPTS = 3
+DEFAULT_MAX_ITEMS = 3
 RETRY_DELAY_SECONDS = 60
 REQUEST_TIMEOUT_SECONDS = 30
 
@@ -110,20 +111,27 @@ class JournalClient:
             f"after {RETRY_ATTEMPTS} attempts."
         ) from last_error
 
-    async def collect_all(self, endpoints: list[Endpoint], max_list_items: int = 3) -> dict[str, Any]:
-            """Collect all endpoint responses and continue on per-endpoint failures."""
-    
+    async def collect_all(self, endpoints: list[Endpoint]) -> tuple[dict[str, Any], dict[str, int]]:
+            """Collect all endpoint responses and continue on per-endpoint failures.
+
+            Returns (collected, raw_counts) where raw_counts maps endpoint paths
+            to their untrimmed list length for validate_count=True endpoints.
+            """
+
             await self.authenticate()
-    
+
             collected: dict[str, Any] = {}
+            raw_counts: dict[str, int] = {}
             for endpoint in endpoints:
                 if endpoint.path == LOGIN_PATH:
                     continue
-    
+
                 try:
                     raw_data = await self._fetch_with_retry(endpoint)
-                    # Применяем усечение массивов
-                    collected[endpoint.path] = trim_arrays(raw_data, max_items=max_list_items)
+                    if endpoint.validate_count and isinstance(raw_data, list):
+                        raw_counts[endpoint.path] = len(raw_data)
+                    limit = endpoint.max_items if endpoint.max_items is not None else DEFAULT_MAX_ITEMS
+                    collected[endpoint.path] = trim_arrays(raw_data, max_items=limit)
                 except Exception as error:  # noqa: BLE001
                     LOGGER.warning(
                         "Endpoint collection failed for %s %s: %s",
@@ -132,5 +140,5 @@ class JournalClient:
                         error,
                     )
                     collected[endpoint.path] = {"error": str(error)}
-    
-            return collected
+
+            return collected, raw_counts

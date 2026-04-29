@@ -26,3 +26,4 @@ Each entry is a separate file: `YYYY-MM-DD-title.md`.
 ## Entries
 
 - [`init.md`](init.md) — Repository created from template
+- [`2026-04-29-remove-schedule-count-validation.md`](2026-04-29-remove-schedule-count-validation.md) — Remove fixed count validation on schedule endpoints

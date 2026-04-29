@@ -10,7 +10,7 @@ from typing import Any
 
 from src.anonymizer.anonymizer import Anonymizer
 from src.collector.client import JournalClient
-from src.collector.endpoints import ENDPOINTS
+from src.collector.endpoints import ENDPOINTS, Endpoint
 from src.publisher.builder import OpenAPIBuilder
 from src.validator.validator import Validator
 
@@ -46,23 +46,48 @@ async def run_pipeline() -> None:
     login = os.environ["JOURNAL_LOGIN"]
     password = os.environ["JOURNAL_PASSWORD"]
 
+    endpoint_map: dict[str, Endpoint] = {e.path: e for e in ENDPOINTS}
+
     client = JournalClient(login, password)
     try:
-        raw = await client.collect_all(ENDPOINTS)
+        raw, raw_counts = await client.collect_all(ENDPOINTS)
     finally:
         await client.close()
 
     _write_json(Path("data/raw/latest.json"), raw)
 
+    # Count validation on untrimmed data
+    count_warnings: dict[str, str] = {}
+    for path, count in raw_counts.items():
+        ep = endpoint_map[path]
+        if ep.validate_count and ep.expected_max_items is not None:
+            if count > ep.expected_max_items:
+                count_warnings[path] = (
+                    f"Expected <= {ep.expected_max_items} items, got {count}"
+                )
+
     validator = Validator()
     results = validator.validate_all(raw)
-    if validator.has_failures(results):
+
+    # Merge count warnings into validation results
+    for r in results:
+        if r.endpoint in count_warnings:
+            r.count_warning = count_warnings[r.endpoint]
+
+    if validator.has_failures(results) or count_warnings:
         issue_body = validator.format_issue_body(results)
         Path("data/validation_issue.md").write_text(issue_body, encoding="utf-8")
         print(VALIDATION_FAILED_MARKER)
 
+    # Per-endpoint anonymization
     anonymizer = Anonymizer()
-    clean = anonymizer.anonymize(raw)
+    clean: dict[str, Any] = {}
+    for path, data in raw.items():
+        ep = endpoint_map.get(path)
+        if ep is not None and not ep.anonymize:
+            clean[path] = data
+        else:
+            clean[path] = anonymizer.anonymize(data)
     _write_json(Path("data/examples/latest.json"), clean)
 
     is_api_down = bool(raw) and all(isinstance(item, dict) and "error" in item for item in raw.values())
