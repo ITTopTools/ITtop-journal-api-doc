@@ -6,7 +6,7 @@
 |--------|---------|------------|
 | `dev` | Development. Free push, CI runs but doesn't block. | None |
 | `main` | Stable code. Only merged via PR with green CI. | Direct push blocked, requires `test` check, requires PR |
-| `gh-pages` | Auto-generated Swagger UI deploy. | None (CI pushes directly via `peaceiris/actions-gh-pages`) |
+| `gh-pages` | Auto-generated Swagger UI deploy. | `pages` environment restricts deploys to `main` only |
 
 ## Workflow
 
@@ -23,10 +23,18 @@ dev  ──PR──>  main  ──schedule/manual──>  gh-pages
 ## CI
 
 - `ci.yml` — lint (ruff) + pytest on every push and PR
-- `collect.yml` — cron (03:00 UTC daily) + manual dispatch. Collects API, publishes Pages, deploys Worker
+- `collect.yml` — cron (03:00 UTC daily) + manual dispatch. Uses `environment: pages` so only `main` branch can deploy to `gh-pages`. Collects API, publishes Pages, deploys Worker.
+
+## gh-pages protection
+
+No branch protection rules — `peaceiris/actions-gh-pages` pushes directly via git.
+
+Instead, the `pages` GitHub Environment has a **deployment branch policy** allowing only `main`. This means:
+- `collect.yml` running from `main` → deploy succeeds
+- `collect.yml` running from any other branch → deploy blocked at environment level
 
 ## What not to do
 
 - Don't push directly to `main` — it's protected
-- Don't push directly to `gh-pages` — let `collect.yml` handle it
+- Don't push manually to `gh-pages` — let `collect.yml` handle it
 - Don't force-push any branch
