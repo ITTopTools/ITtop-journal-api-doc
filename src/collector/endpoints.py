@@ -9,6 +9,10 @@ class Endpoint:
     path: str
     method: str
     params: dict | None = None
+    anonymize: bool = True
+    max_items: int | None = None
+    validate_count: bool = False
+    expected_max_items: int | None = None
 
 ENDPOINTS: list[Endpoint] = [
     Endpoint(path=LOGIN_PATH, method="POST", params={
@@ -17,9 +21,13 @@ ENDPOINTS: list[Endpoint] = [
         "username": "<login>",
         "password": "<password>",
     }),
+
+    # ── Profile / Settings ──
     Endpoint(path="/settings/user-info", method="GET"),
     Endpoint(path="/profile/operations/settings", method="GET"),
     Endpoint(path="/profile/statistic/student-achievements", method="GET"),
+
+    # ── Dashboard ──
     Endpoint(path="/dashboard/chart/average-progress", method="GET"),
     Endpoint(path="/dashboard/chart/attendance", method="GET"),
     Endpoint(path="/dashboard/chart/progress", method="GET"),
@@ -29,32 +37,54 @@ ENDPOINTS: list[Endpoint] = [
     Endpoint(path="/dashboard/progress/leader-group-points", method="GET"),
     Endpoint(path="/dashboard/progress/leader-stream-points", method="GET"),
     Endpoint(path="/dashboard/info/future-exams", method="GET"),
-    Endpoint(path="/schedule/operations/get-by-date-range", method="GET", params={
-        "date_start": date.today().isoformat(),
-        "date_end": date.today().isoformat(),
-    }),
-    Endpoint(path="/schedule/operations/get-month", method="GET", params={
-        "date_filter": date.today().isoformat(),
-    }),
-    Endpoint(path="/schedule/operations/get-by-date", method="GET", params={
-        "date_filter": date.today().isoformat(),
-    }),
+
+    # ── Schedule ── count varies by number of classes per day, no fixed limit
+    Endpoint(
+        path="/schedule/operations/get-by-date",
+        method="GET",
+        params={"date_filter": date.today().isoformat()},
+    ),
+    Endpoint(
+        path="/schedule/operations/get-by-date-range",
+        method="GET",
+        params={
+            "date_start": date.today().isoformat(),
+            "date_end": date.today().isoformat(),
+        },
+    ),
+    Endpoint(
+        path="/schedule/operations/get-month",
+        method="GET",
+        params={"date_filter": date.today().isoformat()},
+    ),
+
+    # ── Progress ──
     Endpoint(path="/progress/operations/student-visits", method="GET"),
     Endpoint(path="/progress/operations/student-exams", method="GET"),
+
+    # ── Library / Homework ──
     Endpoint(path="/library/operations/list", method="GET", params={
         "material_type": 2,
         "filter_type": 0,
         "recommended_type": 0,
     }),
     Endpoint(path="/count/homework", method="GET"),
+
+    # ── Reviews / Feedback ──
     Endpoint(path="/reviews/index/list", method="GET"),
     Endpoint(path="/reviews/index/instruction", method="GET"),
     Endpoint(path="/feedback/students/evaluate-lesson-list", method="GET"),
     Endpoint(path="/feedback/social-review/get-review-list", method="GET"),
+
+    # ── Signals ──
     Endpoint(path="/signal/operations/signals-list", method="GET"),
     Endpoint(path="/signal/operations/problems-list", method="GET"),
+
+    # ── News ──
     Endpoint(path="/news/operations/latest-news", method="GET"),
-    Endpoint(path="/public/languages", method="GET"),
-    Endpoint(path="/public/translations", method="GET", params={"language": "ru"}),
-    Endpoint(path="/public/tags", method="GET"),
+
+    # ── Public (not sensitive, anonymize=False) ──
+    Endpoint(path="/public/languages", method="GET", anonymize=False),
+    Endpoint(path="/public/translations", method="GET", params={"language": "ru"}, anonymize=False),
+    Endpoint(path="/public/tags", method="GET", anonymize=False),
 ]

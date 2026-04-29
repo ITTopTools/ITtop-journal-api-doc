@@ -80,6 +80,7 @@ class ValidationResult:
     endpoint: str
     success: bool
     errors: list[str] = field(default_factory=list)
+    count_warning: str | None = None
 
 
 class Validator:
@@ -128,8 +129,10 @@ class Validator:
             ""
         ]
         for r in results:
-            if not r.success:
+            if not r.success or r.count_warning:
                 lines.append(f"### `{r.endpoint}`")
+                if r.count_warning:
+                    lines.append(f"* ⚠️ Count warning: {r.count_warning}")
                 for e in r.errors:
                     lines.append(f"* {e}")
                 lines.append("")

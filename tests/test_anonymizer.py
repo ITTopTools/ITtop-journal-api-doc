@@ -1,4 +1,3 @@
-import pytest
 from src.anonymizer.anonymizer import Anonymizer
 
 def test_anonymize_replaces_strings():
