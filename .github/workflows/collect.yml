@@ -12,6 +12,7 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
+    environment: pages
     steps:
       - uses: actions/checkout@v4
 
