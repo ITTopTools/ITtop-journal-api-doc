@@ -6,7 +6,7 @@
 |--------|---------|------------|
 | `dev` | Development. Free push, CI runs but doesn't block. | None |
 | `main` | Stable code. Only merged via PR with green CI. | Direct push blocked, requires `test` check, requires PR |
-| `gh-pages` | Auto-generated Swagger UI deploy. | Direct push blocked, requires PR + approval |
+| `gh-pages` | Auto-generated Swagger UI deploy. | None (CI pushes directly via `peaceiris/actions-gh-pages`) |
 
 ## Workflow
 
@@ -28,5 +28,5 @@ dev  ──PR──>  main  ──schedule/manual──>  gh-pages
 ## What not to do
 
 - Don't push directly to `main` — it's protected
-- Don't push directly to `gh-pages` — it's protected, let CI handle it
+- Don't push directly to `gh-pages` — let `collect.yml` handle it
 - Don't force-push any branch
