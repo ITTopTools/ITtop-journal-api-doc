@@ -63,12 +63,45 @@ ENDPOINTS: list[Endpoint] = [
     Endpoint(path="/progress/operations/student-exams", method="GET"),
 
     # ── Library / Homework ──
+    # material_type=2, filter_type=0, recommended_type=0 — default filter values
+    # observed in the UI; exact meaning unknown, but these return non-empty data.
     Endpoint(path="/library/operations/list", method="GET", params={
         "material_type": 2,
         "filter_type": 0,
         "recommended_type": 0,
     }),
+    # Returns counters per homework status type. counter_type meanings:
+    #   0 — overdue (deadline passed, auto-fail grade assigned)
+    #   1 — reviewed by teacher (has a grade)
+    #   2 — submitted, awaiting teacher review
+    #   3 — current (not yet submitted by student)
+    #   4 — total across all types
+    #   5 — deleted by teacher (was submitted but rejected)
     Endpoint(path="/count/homework", method="GET"),
+
+    # ── Homework (DZ) ──
+    # List of student's groups with their subjects — shown in the group switcher in the DZ tab.
+    # Not used to resolve group_id for homework requests; group_id comes from
+    # current_group_id in /settings/user-info.
+    Endpoint(path="/homework/settings/group-history", method="GET"),
+    # Subjects (specs) linked to the current group.
+    Endpoint(path="/settings/group-specs", method="GET"),
+    # Tags for the homework self-evaluation form (shown after submitting HW).
+    Endpoint(path="/homework/evaluation/operations/get-tags", method="GET"),
+    # group_id=4 — current_group_id from /settings/user-info.
+    # status=1 — "reviewed by teacher" (counter_type 1, 457 items at collection time);
+    #            chosen because status=0 (overdue) and status=3 (current) had 0 items.
+    # type=0 — regular HW; type=1 is lab work, identical response structure, same model.
+    Endpoint(
+        path="/homework/operations/list",
+        method="GET",
+        params={
+            "page": 1,
+            "status": 1,
+            "type": 0,
+            "group_id": 4,
+        },
+    ),
 
     # ── Reviews / Feedback ──
     Endpoint(path="/reviews/index/list", method="GET"),
@@ -85,6 +118,7 @@ ENDPOINTS: list[Endpoint] = [
 
     # ── Public (not sensitive, anonymize=False) ──
     Endpoint(path="/public/languages", method="GET", anonymize=False),
+    # language=ru — only Russian locale collected; other locales share the same schema.
     Endpoint(path="/public/translations", method="GET", params={"language": "ru"}, anonymize=False),
     Endpoint(path="/public/tags", method="GET", anonymize=False),
 ]
