@@ -27,8 +27,12 @@ from .models import (
     ProblemItem,
     NewsItem,
     LanguageItem,
-    # TranslationsResponse, 
+    # TranslationsResponse,
     PublicTagItem,
+    GroupSpecItem,
+    HomeworkEvalTagItem,
+    HomeworkGroupHistoryItem,
+    HomeworkItem,
 )
 
 LOGGER = logging.getLogger(__name__)
@@ -59,6 +63,10 @@ MODELS: dict[str, tuple[type, bool]] = {
     "/progress/operations/student-exams":           (StudentExamItem,       True),
     "/library/operations/list":                     (LibraryItem,           True),
     "/count/homework":                              (HomeworkCountItem,     True),
+    "/homework/settings/group-history":             (HomeworkGroupHistoryItem, True),
+    "/settings/group-specs":                        (GroupSpecItem,            True),
+    "/homework/evaluation/operations/get-tags":     (HomeworkEvalTagItem,      True),
+    "/homework/operations/list":                    (HomeworkItem,             True),
     "/reviews/index/list":                          (ReviewItem,            True),
     # /reviews/index/instruction возвращает null — нет смысла валидировать,
     # пропускаем (упадёт в ветку unknown path -> success=True)

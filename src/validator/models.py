@@ -299,3 +299,68 @@ class TranslationsResponse(_Base):
 
 class PublicTagItem(_Base):
     pass
+
+
+# ── /settings/group-specs — list ──
+
+class GroupSpecItem(_Base):
+    id: int | None = None
+    name: str | None = None
+    short_name: str | None = None
+
+
+# ── /homework/settings/group-history — list ──
+
+class HomeworkGroupHistoryItem(_Base):
+    specs: list[GroupSpecItem] | None = None
+    id: int | None = None
+    name: str | None = None
+
+
+# ── /homework/evaluation/operations/get-tags — list ──
+
+class HomeworkEvalTagItem(_Base):
+    id: int | None = None
+    translate_key: str | None = None
+    type: str | None = None
+
+
+# ── /homework/operations/list — list ──
+
+class HomeworkStudItem(_Base):
+    id: int | None = None
+    filename: str | None = None
+    file_path: str | None = None
+    tmp_file: str | None = None
+    mark: int | None = None
+    creation_time: str | None = None
+    stud_answer: str | None = None
+    auto_mark: bool | None = None
+
+
+class HomeworkCommentItem(_Base):
+    text_comment: Any = None
+    attachment: Any = None
+    attachment_path: Any = None
+    date_updated: str | None = None
+
+
+class HomeworkItem(_Base):
+    id: int | None = None
+    id_spec: int | None = None
+    id_teach: int | None = None
+    id_group: int | None = None
+    fio_teach: str | None = None
+    theme: str | None = None
+    completion_time: str | None = None
+    creation_time: str | None = None
+    overdue_time: str | None = None
+    filename: str | None = None
+    file_path: str | None = None
+    comment: str | None = None
+    name_spec: str | None = None
+    status: int | None = None
+    common_status: Any = None
+    cover_image: str | None = None
+    homework_stud: HomeworkStudItem | None = None
+    homework_comment: HomeworkCommentItem | None = None
