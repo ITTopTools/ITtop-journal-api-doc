@@ -13,7 +13,7 @@
 **Files:**
 - Modify: `scripts/build_worker.py`
 
-- [ ] **Step 1: Заменить шаблон Worker-а**
+- [x] **Step 1: Заменить шаблон Worker-а**
 
 Найти функцию `_render_worker` и заменить возвращаемый шаблон:
 
@@ -101,7 +101,7 @@ export default {{
 """
 ```
 
-- [ ] **Step 2: Добавить константу `REAL_API_BASE` на уровень модуля**
+- [x] **Step 2: Добавить константу `REAL_API_BASE` на уровень модуля**
 
 В начале файла рядом с `EXAMPLES_PATH`:
 
@@ -110,7 +110,7 @@ REAL_API_BASE = "https://msapi.top-academy.ru/api/v2"
 API_PREFIX = "/api/v2"
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add scripts/build_worker.py
@@ -127,7 +127,7 @@ git commit -m "feat(worker): add cors proxy mode when bearer token present"
 Теперь Worker — единственный сервер. Официальный `msapi.top-academy.ru` убираем —
 он недоступен из браузера из-за CORS, смысла нет.
 
-- [ ] **Step 1: Обновить константу `SERVERS`**
+- [x] **Step 1: Обновить константу `SERVERS`**
 
 ```python
 # Worker выступает единственной точкой входа:
@@ -142,7 +142,7 @@ SERVERS = [
 ]
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/publisher/builder.py
@@ -156,7 +156,7 @@ git commit -m "fix(builder): single worker server, remove unreachable official u
 **Files:**
 - Modify: `tests/test_builder.py`
 
-- [ ] **Step 1: Заменить тест серверов**
+- [x] **Step 1: Заменить тест серверов**
 
 Удалить `test_build_contains_official_and_mock_servers`, добавить:
 
@@ -174,14 +174,14 @@ def test_build_contains_single_worker_server():
     assert spec["servers"][0]["url"] == "https://ittop-mock.blazer19092008.workers.dev/api/v2"
 ```
 
-- [ ] **Step 2: Прогнать тесты**
+- [x] **Step 2: Прогнать тесты**
 
 ```bash
 pytest tests/test_builder.py -v
 # Expected: все PASS
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add tests/test_builder.py
@@ -196,33 +196,33 @@ git commit -m "test(builder): update server assertion for single worker endpoint
 - Modify: `data/examples/latest.json` (уже есть)
 - Modify: `mock/worker.js` (генерируется)
 
-- [ ] **Step 1: Пересобрать Worker**
+- [x] **Step 1: Пересобрать Worker**
 
 ```bash
 python scripts/build_worker.py
 ```
 
-- [ ] **Step 2: Проверить что прокси-логика попала в файл**
+- [x] **Step 2: Проверить что прокси-логика попала в файл**
 
 ```bash
 grep "proxyToRealApi" mock/worker.js
 # Expected: строка найдена
 ```
 
-- [ ] **Step 3: Задеплоить**
+- [x] **Step 3: Задеплоить**
 
 ```bash
 cd mock && npx wrangler deploy
 ```
 
-- [ ] **Step 4: Проверить mock (без токена)**
+- [x] **Step 4: Проверить mock (без токена)**
 
 ```bash
 curl https://ittop-mock.blazer19092008.workers.dev/api/v2/reviews/index/list
 # Expected: анонимизированные данные из MOCK
 ```
 
-- [ ] **Step 5: Проверить прокси (с токеном)**
+- [x] **Step 5: Проверить прокси (с токеном)**
 
 ```bash
 curl -H "Authorization: Bearer <твой_токен>" \
@@ -231,7 +231,7 @@ curl -H "Authorization: Bearer <твой_токен>" \
 # Expected: реальные данные с msapi.top-academy.ru
 ```
 
-- [ ] **Step 6: Пересобрать openapi.json**
+- [x] **Step 6: Пересобрать openapi.json**
 
 ```bash
 python -c "
@@ -242,7 +242,7 @@ print('done')
 "
 ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add documentation/openapi.json

@@ -13,7 +13,7 @@
 **Files:**
 - Modify: `src/collector/endpoints.py`
 
-- [ ] **Step 1: Add new working endpoints**
+- [x] **Step 1: Add new working endpoints**
 
 ```python
 ENDPOINTS: list[Endpoint] = [
@@ -45,7 +45,7 @@ ENDPOINTS: list[Endpoint] = [
 ]
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/collector/endpoints.py
@@ -59,21 +59,21 @@ git commit -m "feat: add new working endpoints from discovery"
 **Files:**
 - Read: `client.py`, `latest.json`
 
-- [ ] **Step 1: Run collector and check output**
+- [x] **Step 1: Run collector and check output**
 
 ```bash
 uv run main.py
 # Expected: PIPELINE_OK, new keys in latest.json
 ```
 
-- [ ] **Step 2: Confirm new data present**
+- [x] **Step 2: Confirm new data present**
 
 ```bash
 jq 'keys' latest.json
 # Should include: /profile/operations/settings, /news/operations/latest-news, etc.
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add latest.json
