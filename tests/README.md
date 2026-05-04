@@ -1,11 +1,12 @@
 # tests/
 
-Tests mirror the structure of `src/`.
+Tests mirror `src/` structure.
 
 | src/ | tests/ |
 |------|--------|
-| `src/parser.py` | `tests/test_parser.py` |
-| `src/utils/config.py` | `tests/utils/test_config.py` |
-| `src/parser.cpp` | `tests/test_parser.cpp` |
+| `src/collector/` | `tests/test_client.py`, `tests/test_endpoints.py` |
+| `src/validator/` | `tests/test_validator.py` |
+| `src/anonymizer/` | `tests/test_anonymizer.py` |
+| `src/publisher/` | `tests/test_builder.py` |
 
 Write the test before the implementation. Always.

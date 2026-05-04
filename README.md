@@ -31,29 +31,23 @@ IT Top Journal не имеет публичной документации. Эт
 
 ```
 src/
-  collector/             Авторизация и сбор данных с эндпоинтов
-    client.py            HTTP-клиент (httpx)
-    endpoints.py         Реестр всех эндпоинтов (путь, метод, параметры)
-    array_trimmer.py     Обрезка длинных массивов для примеров
-  validator/             Pydantic-модели и валидация ответов
-    models.py            Схемы ответов для каждого эндпоинта
-    validator.py         Прогон ответов через модели, формирование Issue
-  anonymizer/            Faker-замена реальных значений
-    anonymizer.py        Основная логика анонимизации
-    rules.py             Правила замены по полям
-  publisher/             Генерация openapi.json и Swagger UI
-    builder.py           Сборка OpenAPI-спеки из примеров
+  collector/             Авторизация и сбор данных
+  validator/             Pydantic-модели и валидация
+  anonymizer/            Faker-замена PII
+  publisher/             Генерация OpenAPI + Swagger UI
 data/
-  raw/                   Сырые ответы API (в .gitignore, не коммитится)
+  raw/                   Сырые ответы API (gitignore, не коммитится)
   examples/              Анонимизированные примеры (коммитятся)
-documentation/           Артефакты для GitHub Pages (openapi.json + index.html)
+documentation/           Документация (MkDocs)
+  src/                  Исходники markdown + openapi.json
+  site/                 Собранный сайт (gitignore, деплоится на Pages)
 devel/
-  design/                Архитектурные решения
+  design/                Архитектурные решения (01-idea → 08-branch-strategy)
   plans/                 Планы реализации
   changelog/             История изменений
+  skills/                Справочники для AI-агентов
 tests/                   Pytest-тесты
-scripts/                 Вспомогательные скрипты (сборка mock-worker и т.д.)
-mock/                    Cloudflare Worker для mock-API
+mock/                    Cloudflare Worker + сборка
 ```
 
 ## Установка и запуск

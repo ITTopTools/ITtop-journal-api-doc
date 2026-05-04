@@ -27,4 +27,4 @@
 | [`devel/design/`](design/) | Design documents (filled sequentially) |
 | [`devel/plans/`](plans/) | Implementation plans |
 | [`devel/changelog/`](changelog/) | Change history |
-| [`skills/`](../skills/) | Agent skill references |
+| [`devel/skills/`](skills/) | Agent skill references |

@@ -1,11 +1,12 @@
 # src/
 
-Source code lives here.
+Pipeline modules — each handles one stage of the collection-to-publication flow.
 
-Tests mirror this structure in `tests/` — if `src/parser.py` exists, write `tests/test_parser.py`.
+| Package | Purpose | Key files |
+|---------|---------|-----------|
+| `collector/` | Auth + API data collection | `client.py`, `endpoints.py`, `array_trimmer.py` |
+| `validator/` | Pydantic models + validation | `models.py`, `validator.py` |
+| `anonymizer/` | Faker PII replacement | `anonymizer.py`, `rules.py` |
+| `publisher/` | OpenAPI + Swagger UI generation | `builder.py`, `templates/swagger/` |
 
-Adjust per project:
-- **Python**: package directory with `__init__.py`
-- **TypeScript**: `src/` with index entry point
-- **C++**: `include/` for headers, `src/` for implementation
-- **Rust**: handled by Cargo, this folder may not be needed
+Tests mirror this structure in `tests/`.

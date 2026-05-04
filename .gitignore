@@ -34,9 +34,16 @@ coverage/
 htmlcov/
 .coverage
 
+# Cache
+.pytest_cache/
+.ruff_cache/
+
 # Project-specific
 data/raw/*
 !data/raw/.gitkeep
 examples/data/validation_issue.md
 data/validation_issue.md
 .wrangler
+
+# MkDocs output
+documentation/site/

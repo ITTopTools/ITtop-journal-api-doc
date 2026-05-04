@@ -19,7 +19,7 @@ Don't skip design docs. Plans build on them.
 
 File name: `YYYY-MM-DD-feature-name.md`. One file per feature.
 
-For detailed plan structure with bite-sized tasks, see [`skills/writing-plans.md`](../../skills/writing-plans.md).
+For detailed plan structure with bite-sized tasks, see [`devel/skills/writing-plans.md`](../skills/writing-plans.md).
 
 ```
 # Plan: [Title]

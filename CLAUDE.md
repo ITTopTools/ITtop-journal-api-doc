@@ -22,7 +22,7 @@ No production code without a failing test first. Write test → run it → confi
 
 ## Before Claiming Anything Is Done
 
-Run the actual verification command and read the full output. No "should pass" or "looks correct" — fresh evidence only. See `skills/verification-before-completion.md`.
+Run the actual verification command and read the full output. No "should pass" or "looks correct" — fresh evidence only. See `devel/skills/verification-before-completion.md`.
 
 ## Skills
 
@@ -30,8 +30,8 @@ Read the relevant skill file before starting work of that type:
 
 | Situation | File |
 |-----------|------|
-| Something is broken | `skills/systematic-debugging.md` |
-| Planning a feature | `skills/writing-plans.md` |
-| Code review | `skills/code-review.md` |
-| About to claim done | `skills/verification-before-completion.md` |
-| Implementing anything | `skills/test-driven-development.md` |
+| Something is broken | `devel/skills/systematic-debugging.md` |
+| Planning a feature | `devel/skills/writing-plans.md` |
+| Code review | `devel/skills/code-review.md` |
+| About to claim done | `devel/skills/verification-before-completion.md` |
+| Implementing anything | `devel/skills/test-driven-development.md` |
