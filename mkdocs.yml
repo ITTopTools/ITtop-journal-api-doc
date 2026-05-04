@@ -1,0 +1,52 @@
+site_name: IT Top Journal API
+docs_dir: documentation/src
+site_dir: documentation/site
+
+theme:
+  name: material
+  language: ru
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep-purple
+      accent: deep-purple
+      toggle:
+        icon: material/brightness-7
+        name: Переключить на тёмную тему
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep-purple
+      accent: deep-purple
+      toggle:
+        icon: material/brightness-4
+        name: Переключить на светлую тему
+  font:
+    text: Roboto
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+  icon:
+    repo: fontawesome/brands/github
+  logo: material/api
+  favicon: material/api
+
+repo_url: https://github.com/trapplus/ITtop-journal-api-doc
+repo_name: ITtop-journal-api-doc
+
+plugins:
+  - awesome-pages
+  - swagger-ui-tag:
+      supportedSubmitMethods: []
+      docExpansion: list
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/trapplus/ITtop-journal-api-doc
