@@ -45,5 +45,5 @@ examples/data/validation_issue.md
 data/validation_issue.md
 .wrangler
 
-# MkDocs output
+# MkDocs output (built by CI and committed back)
 documentation/site/
