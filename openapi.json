@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "IT Top Journal API",
-    "version": "2026-05-03",
+    "version": "2026-05-04",
     "description": "Auto-generated documentation from daily Journal API collection."
   },
   "servers": [
@@ -75,30 +75,30 @@
                 "example": {
                   "groups": [
                     {
-                      "group_status": 34289,
+                      "group_status": 10983,
                       "is_primary": true,
-                      "id": 68984,
-                      "name": "sPgLo"
+                      "id": 46340,
+                      "name": "hkQQGsmRgb"
                     }
                   ],
                   "manual_link": null,
-                  "student_id": 60569,
-                  "current_group_id": 59494,
-                  "full_name": "jxnSX",
-                  "achieves_count": 84996,
-                  "stream_id": 51805,
-                  "stream_name": "PDvKfHyyUw",
-                  "group_name": "slfBWUVzWsNefC",
-                  "level": 71356,
-                  "photo": "http://www.melton.org/",
+                  "student_id": 93735,
+                  "current_group_id": 20470,
+                  "full_name": "oKawuyYLOIBGlc",
+                  "achieves_count": 82617,
+                  "stream_id": 78963,
+                  "stream_name": "qOaBqtGYPq",
+                  "group_name": "ofblLBKxWnWZcBJ",
+                  "level": 95691,
+                  "photo": "https://www.ferguson.info/",
                   "gaming_points": [
                     {
-                      "new_gaming_point_types__id": 21566,
-                      "points": 45215
+                      "new_gaming_point_types__id": 43014,
+                      "points": 9471
                     },
                     {
-                      "new_gaming_point_types__id": 17033,
-                      "points": 82899
+                      "new_gaming_point_types__id": 71359,
+                      "points": 98622
                     }
                   ],
                   "spent_gaming_points": [],
@@ -125,13 +125,13 @@
                     "is_russian_branch": true,
                     "is_academy_branch": false
                   },
-                  "current_group_status": 38107,
-                  "birthday": "2026-04-10T01:40:23.693499",
-                  "age": 98500,
-                  "last_date_visit": "2026-03-13T00:42:49.048453",
-                  "registration_date": "2026-03-19T04:16:46.950995",
-                  "gender": 86654,
-                  "study_form_short_name": "uynXARBXvY"
+                  "current_group_status": 17455,
+                  "birthday": "2026-01-12T08:45:40.782603",
+                  "age": 98310,
+                  "last_date_visit": "2026-02-02T04:26:51.063410",
+                  "registration_date": "2026-04-20T21:54:19.237336",
+                  "gender": 38601,
+                  "study_form_short_name": "yAXNGgyQyFoy"
                 }
               }
             }
@@ -190,55 +190,55 @@
                   "additionalProperties": true
                 },
                 "example": {
-                  "id": 71554,
-                  "ful_name": "JlpjUKrB",
-                  "address": "tRDvkOuLhKU",
-                  "date_birth": "2026-04-28T23:00:37.867775",
-                  "study": "PyRtfhWq",
-                  "email": "johnathanhughes@example.org",
-                  "last_approving_status": 88722,
-                  "form_type": 66040,
-                  "photo_path": "http://www.fischer.com/",
+                  "id": 44198,
+                  "ful_name": "DjIgJq",
+                  "address": "gNgFmYt",
+                  "date_birth": "2026-04-13T22:29:37.372694",
+                  "study": "kkUMsXkhnNjt",
+                  "email": "gillespiemadison@example.org",
+                  "last_approving_status": 43881,
+                  "form_type": 10917,
+                  "photo_path": "http://www.lowe.com/",
                   "has_not_approved_data": false,
                   "has_not_approved_photo": false,
                   "is_email_verified": true,
                   "is_phone_verified": true,
                   "phones": [
                     {
-                      "phone_type": 73740,
-                      "phone_number": "qPvFIVFnqeD"
+                      "phone_type": 33701,
+                      "phone_number": "QUAvUSTBQd"
                     },
                     {
-                      "phone_type": 1586,
-                      "phone_number": "qZlkQILiwkM"
+                      "phone_type": 78319,
+                      "phone_number": "hcYgNgDE"
                     }
                   ],
                   "links": [
                     {
-                      "id": 33046,
-                      "name": "PYHGHONNy",
-                      "reg": "eTjKXI",
-                      "required_type": 35185,
+                      "id": 89352,
+                      "name": "nCalF",
+                      "reg": "uxAUhP",
+                      "required_type": 29950,
                       "value": null,
                       "valid": true,
                       "is_required": false,
                       "show_link": true
                     },
                     {
-                      "id": 75687,
-                      "name": "zMBssBxE",
-                      "reg": "sCCxm",
-                      "required_type": 85870,
+                      "id": 37338,
+                      "name": "NVORHvmqvOjt",
+                      "reg": "JxJTxf",
+                      "required_type": 36912,
                       "value": null,
                       "valid": true,
                       "is_required": false,
                       "show_link": true
                     },
                     {
-                      "id": 32059,
-                      "name": "hjWfHxcPl",
+                      "id": 59480,
+                      "name": "FJksTvFSHvf",
                       "reg": "",
-                      "required_type": 93641,
+                      "required_type": 78072,
                       "value": null,
                       "valid": true,
                       "is_required": false,
@@ -246,7 +246,7 @@
                     }
                   ],
                   "relatives": [],
-                  "fill_percentage": 33035,
+                  "fill_percentage": 10704,
                   "decline_comment": null,
                   "azure": {
                     "login": null,
@@ -316,47 +316,47 @@
                 },
                 "example": [
                   {
-                    "id": 6483,
-                    "translate_key": "WXaru",
+                    "id": 68788,
+                    "translate_key": "oCEFcsyxWr",
                     "is_active": true,
                     "achieve_points": [
                       {
-                        "id": 19801,
-                        "points_count": 26696
+                        "id": 58814,
+                        "points_count": 81593
                       },
                       {
-                        "id": 32555,
-                        "points_count": 53718
+                        "id": 69293,
+                        "points_count": 21689
                       }
                     ]
                   },
                   {
-                    "id": 12265,
-                    "translate_key": "LIXanxBh",
+                    "id": 31188,
+                    "translate_key": "VdpXlIdkLchM",
                     "is_active": true,
                     "achieve_points": [
                       {
-                        "id": 50345,
-                        "points_count": 83721
+                        "id": 32897,
+                        "points_count": 59638
                       },
                       {
-                        "id": 71207,
-                        "points_count": 23603
+                        "id": 78530,
+                        "points_count": 98081
                       }
                     ]
                   },
                   {
-                    "id": 12043,
-                    "translate_key": "WtagVH",
+                    "id": 14072,
+                    "translate_key": "iOQnDvjPN",
                     "is_active": true,
                     "achieve_points": [
                       {
-                        "id": 51150,
-                        "points_count": 67300
+                        "id": 53389,
+                        "points_count": 38313
                       },
                       {
-                        "id": 11440,
-                        "points_count": 94754
+                        "id": 50908,
+                        "points_count": 40927
                       }
                     ]
                   }
@@ -422,21 +422,21 @@
                 },
                 "example": [
                   {
-                    "date": "2026-04-23T16:03:09.614152",
-                    "points": 25440,
+                    "date": "2026-03-12T19:08:24.028208",
+                    "points": 78279,
                     "previous_points": null,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-03-20T03:16:17.504346",
-                    "points": 27594,
-                    "previous_points": 10282,
+                    "date": "2026-03-02T16:29:02.585896",
+                    "points": 66801,
+                    "previous_points": 81394,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-05-02T11:39:24.241278",
-                    "points": 36410,
-                    "previous_points": 8807,
+                    "date": "2026-04-09T02:11:05.010351",
+                    "points": 92605,
+                    "previous_points": 11983,
                     "has_rasp": null
                   }
                 ]
@@ -501,21 +501,21 @@
                 },
                 "example": [
                   {
-                    "date": "2026-03-30T00:21:06.579670",
-                    "points": 47564,
+                    "date": "2026-02-08T11:12:22.750405",
+                    "points": 11232,
                     "previous_points": null,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-04-21T08:25:58.549556",
-                    "points": 47666,
-                    "previous_points": 32362,
+                    "date": "2026-04-22T19:19:20.244090",
+                    "points": 62482,
+                    "previous_points": 3892,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-03-27T15:18:03.863374",
-                    "points": 81105,
-                    "previous_points": 12478,
+                    "date": "2026-01-21T17:35:13.037599",
+                    "points": 21619,
+                    "previous_points": 66438,
                     "has_rasp": true
                   }
                 ]
@@ -580,51 +580,51 @@
                 },
                 "example": [
                   {
-                    "chart_type": 82223,
+                    "chart_type": 22889,
                     "chart_models": []
                   },
                   {
-                    "chart_type": 92957,
+                    "chart_type": 90470,
                     "chart_models": [
                       {
-                        "date": "2026-03-17T08:30:56.444263",
-                        "points": 54540,
+                        "date": "2026-03-26T11:15:41.895578",
+                        "points": 10686,
                         "previous_points": null,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-04-11T01:34:46.097447",
-                        "points": 7580,
-                        "previous_points": 75611,
+                        "date": "2026-02-17T11:17:12.272308",
+                        "points": 2114,
+                        "previous_points": 46757,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-04-19T21:22:12.876897",
-                        "points": 49270,
-                        "previous_points": 90864,
+                        "date": "2026-02-04T15:10:01.668421",
+                        "points": 6327,
+                        "previous_points": 44086,
                         "has_rasp": false
                       }
                     ]
                   },
                   {
-                    "chart_type": 51731,
+                    "chart_type": 31916,
                     "chart_models": [
                       {
-                        "date": "2026-02-17T04:49:08.960266",
-                        "points": 17318,
+                        "date": "2026-03-27T09:17:30.523134",
+                        "points": 18409,
                         "previous_points": null,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-02-23T17:07:09.889959",
-                        "points": 61442,
-                        "previous_points": 68386,
+                        "date": "2026-03-22T19:28:56.740428",
+                        "points": 45650,
+                        "previous_points": 86590,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-01-04T20:04:22.850332",
-                        "points": 72349,
-                        "previous_points": 61711,
+                        "date": "2026-04-01T22:55:00.267949",
+                        "points": 12764,
+                        "previous_points": 29233,
                         "has_rasp": false
                       }
                     ]
@@ -691,39 +691,39 @@
                 },
                 "example": [
                   {
-                    "date": "2026-03-29T14:21:26.666287",
-                    "action": 80202,
-                    "current_point": 54670,
-                    "point_types_id": 16065,
-                    "point_types_name": "AVtXnLpA",
-                    "achievements_id": 7027,
-                    "achievements_name": "HxiYKYMaKxyZGQB",
-                    "achievements_type": 43231,
-                    "badge": 56371,
+                    "date": "2026-03-05T09:34:30.043354",
+                    "action": 37495,
+                    "current_point": 20942,
+                    "point_types_id": 5347,
+                    "point_types_name": "NaBldJFTTTU",
+                    "achievements_id": 36330,
+                    "achievements_name": "vrHbwDcryZzIdN",
+                    "achievements_type": 19392,
+                    "badge": 5530,
                     "old_competition": false
                   },
                   {
-                    "date": "2026-05-02T23:18:55.282306",
-                    "action": 96341,
-                    "current_point": 70630,
-                    "point_types_id": 73679,
-                    "point_types_name": "CulABZmxmACt",
-                    "achievements_id": 43554,
-                    "achievements_name": "foGqmpvdEt",
-                    "achievements_type": 81700,
-                    "badge": 60447,
+                    "date": "2026-01-23T13:03:18.162769",
+                    "action": 22472,
+                    "current_point": 66308,
+                    "point_types_id": 82322,
+                    "point_types_name": "MovjytghPW",
+                    "achievements_id": 49732,
+                    "achievements_name": "cJKDQDfOTbKzFbU",
+                    "achievements_type": 43623,
+                    "badge": 67103,
                     "old_competition": false
                   },
                   {
-                    "date": "2026-01-12T10:02:36.801288",
-                    "action": 75947,
-                    "current_point": 70205,
-                    "point_types_id": 5733,
-                    "point_types_name": "RXWbotLfewGy",
-                    "achievements_id": 85022,
-                    "achievements_name": "lYGmzbfYrdLeEx",
-                    "achievements_type": 62834,
-                    "badge": 81771,
+                    "date": "2026-03-27T07:53:38.367857",
+                    "action": 54019,
+                    "current_point": 11628,
+                    "point_types_id": 13629,
+                    "point_types_name": "BdqThGQXdMOyF",
+                    "achievements_id": 85268,
+                    "achievements_name": "UNybkuZjc",
+                    "achievements_type": 31509,
+                    "badge": 75202,
                     "old_competition": false
                   }
                 ]
@@ -788,25 +788,25 @@
                 },
                 "example": [
                   {
-                    "amount": 68440,
-                    "id": 35912,
-                    "full_name": "KyOYiJXHUtrSSPe",
-                    "photo_path": "https://www.hughes-anderson.info/",
-                    "position": 22460
+                    "amount": 74704,
+                    "id": 47520,
+                    "full_name": "jBkqEUoxfCab",
+                    "photo_path": "https://www.buck.com/",
+                    "position": 37045
                   },
                   {
-                    "amount": 17152,
-                    "id": 23458,
-                    "full_name": "HgRRgBQrRGjz",
-                    "photo_path": "https://www.foster-howard.com/",
-                    "position": 25870
+                    "amount": 94116,
+                    "id": 78859,
+                    "full_name": "vmgLJIifuKB",
+                    "photo_path": "https://www.buckley-woods.com/",
+                    "position": 99076
                   },
                   {
-                    "amount": 61441,
-                    "id": 35547,
-                    "full_name": "qhqrxkxSbMPgPVK",
-                    "photo_path": "http://www.smith.com/",
-                    "position": 17892
+                    "amount": 23418,
+                    "id": 69373,
+                    "full_name": "NYmcMQhykjh",
+                    "photo_path": "http://www.harris.com/",
+                    "position": 7212
                   }
                 ]
               }
@@ -870,25 +870,25 @@
                 },
                 "example": [
                   {
-                    "id": 34611,
-                    "full_name": "KcDvnYvcWCaQ",
-                    "photo_path": "https://www.curtis.com/",
-                    "position": 80136,
-                    "amount": 7076
+                    "id": 81181,
+                    "full_name": "SxAlkPkXmupVuS",
+                    "photo_path": "https://huff.net/",
+                    "position": 6735,
+                    "amount": 41520
                   },
                   {
-                    "id": 93558,
-                    "full_name": "ebAMWQqMi",
-                    "photo_path": "https://schmidt.biz/",
-                    "position": 67768,
-                    "amount": 8290
+                    "id": 94279,
+                    "full_name": "KnckfykFolcgx",
+                    "photo_path": "http://richards-brewer.com/",
+                    "position": 87723,
+                    "amount": 82284
                   },
                   {
-                    "id": 26990,
-                    "full_name": "QaggVsiJV",
-                    "photo_path": "http://www.cox.com/",
-                    "position": 36321,
-                    "amount": 42616
+                    "id": 29658,
+                    "full_name": "sBzRxo",
+                    "photo_path": "http://barrett.com/",
+                    "position": 90313,
+                    "amount": 61713
                   }
                 ]
               }
@@ -948,10 +948,10 @@
                   "additionalProperties": true
                 },
                 "example": {
-                  "totalCount": 29593,
-                  "studentPosition": 31018,
-                  "weekDiff": 57305,
-                  "monthDiff": 93083
+                  "totalCount": 18432,
+                  "studentPosition": 65867,
+                  "weekDiff": 79717,
+                  "monthDiff": 28910
                 }
               }
             }
@@ -1011,9 +1011,9 @@
                 },
                 "example": {
                   "totalCount": null,
-                  "studentPosition": 93815,
-                  "weekDiff": 49325,
-                  "monthDiff": 5259
+                  "studentPosition": 28488,
+                  "weekDiff": 19935,
+                  "monthDiff": 60871
                 }
               }
             }
@@ -1177,7 +1177,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "2026-05-03"
+            "example": "2026-05-04"
           }
         ],
         "security": [
@@ -1246,7 +1246,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "2026-05-03"
+            "example": "2026-05-04"
           },
           {
             "name": "date_end",
@@ -1255,7 +1255,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "2026-05-03"
+            "example": "2026-05-04"
           }
         ],
         "security": [
@@ -1283,31 +1283,31 @@
                 },
                 "example": [
                   {
-                    "date": "2026-02-11T14:58:00.649011",
-                    "lesson": 56482,
-                    "started_at": "PZYlIN",
-                    "finished_at": "EfyIJ",
-                    "teacher_name": "uEjymhawCuBBA",
-                    "subject_name": "psiYVIdSqaIE",
-                    "room_name": "wAMYhcShzx"
+                    "date": "2026-04-23T00:00:21.741858",
+                    "lesson": 20315,
+                    "started_at": "ZyrJtEA",
+                    "finished_at": "oDjegzWrg",
+                    "teacher_name": "THybgezmcYN",
+                    "subject_name": "FKAMmzvzbLBKO",
+                    "room_name": "nsEYRjyQzNelAFp"
                   },
                   {
-                    "date": "2026-03-27T01:52:44.373666",
-                    "lesson": 81104,
-                    "started_at": "bFvajqnzB",
-                    "finished_at": "jQfxiaMcyExzpe",
-                    "teacher_name": "zLAVD",
-                    "subject_name": "pWSGWY",
-                    "room_name": "vuppYmCTHI"
+                    "date": "2026-01-21T23:45:38.982761",
+                    "lesson": 72402,
+                    "started_at": "hKmeULjhgRGvb",
+                    "finished_at": "xIvWvtJ",
+                    "teacher_name": "GRxwUEvtFQlWlzU",
+                    "subject_name": "eyyAPxBhIREjFx",
+                    "room_name": "XytHNVuewmVsX"
                   },
                   {
-                    "date": "2026-01-01T14:13:06.896289",
-                    "lesson": 95685,
-                    "started_at": "nhOJIj",
-                    "finished_at": "bLwJTRJxrlrNbi",
-                    "teacher_name": "GXrGgtdmfG",
-                    "subject_name": "JEPsnxCndZPVgp",
-                    "room_name": "qqqAA"
+                    "date": "2026-02-06T01:05:48.815151",
+                    "lesson": 69953,
+                    "started_at": "KDTtAOquGUv",
+                    "finished_at": "nnKkuALlw",
+                    "teacher_name": "zDICvAUZzTGCoDu",
+                    "subject_name": "WAvTM",
+                    "room_name": "siOigSXsHpjItIN"
                   }
                 ]
               }
@@ -1352,7 +1352,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "2026-05-03"
+            "example": "2026-05-04"
           }
         ],
         "security": [
@@ -1380,13 +1380,13 @@
                 },
                 "example": [
                   {
-                    "date_visit": "2026-02-03T21:30:00.954136",
-                    "lesson_number": 28035,
-                    "status_was": 15714,
-                    "spec_id": 93449,
-                    "teacher_name": "bLYGhYKHqB",
-                    "spec_name": "lMzrkW",
-                    "lesson_theme": "XrHRmJSwydaSpLZ",
+                    "date_visit": "2026-01-04T02:18:07.549623",
+                    "lesson_number": 64948,
+                    "status_was": 53585,
+                    "spec_id": 39886,
+                    "teacher_name": "DvUWibNkdNl",
+                    "spec_name": "wnVYpw",
+                    "lesson_theme": "VeEyGXfMGTeS",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -1395,13 +1395,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-01-06T12:06:18.791689",
-                    "lesson_number": 7602,
-                    "status_was": 7818,
-                    "spec_id": 25463,
-                    "teacher_name": "VxZAWLXvhrTJWEf",
-                    "spec_name": "CpXYiIAzfwO",
-                    "lesson_theme": "qHyZnESgWnRUf",
+                    "date_visit": "2026-03-12T08:40:31.583173",
+                    "lesson_number": 57393,
+                    "status_was": 46405,
+                    "spec_id": 7590,
+                    "teacher_name": "aiILfa",
+                    "spec_name": "ZWWnbcf",
+                    "lesson_theme": "VjxpPmMenx",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -1410,13 +1410,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-01-03T03:21:08.152795",
-                    "lesson_number": 53445,
-                    "status_was": 96643,
-                    "spec_id": 6938,
-                    "teacher_name": "sBslEfytWjL",
-                    "spec_name": "yyXorlp",
-                    "lesson_theme": "ubFrZSLXALuSyW",
+                    "date_visit": "2026-03-07T20:59:27.577996",
+                    "lesson_number": 47781,
+                    "status_was": 31389,
+                    "spec_id": 99546,
+                    "teacher_name": "gHRBTsCcolvR",
+                    "spec_name": "hrddhIqHzFy",
+                    "lesson_theme": "lZOiEdFuiJOt",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -1486,49 +1486,49 @@
                 },
                 "example": [
                   {
-                    "teacher": "sliYsN",
-                    "mark": 10705,
-                    "mark_type": 71285,
-                    "date": "2026-04-09T19:20:31.679928",
+                    "teacher": "SsVJQqJ",
+                    "mark": 84744,
+                    "mark_type": 39606,
+                    "date": "2026-04-09T01:39:29.432444",
                     "ex_file_name": null,
-                    "id_file": 18593,
-                    "exam_id": 28192,
+                    "id_file": 36748,
+                    "exam_id": 94739,
                     "file_path": null,
                     "comment_teach": null,
-                    "need_access": 74820,
+                    "need_access": 90184,
                     "need_access_stud": null,
                     "comment_delete_file": null,
-                    "spec": "FuYFkpaMyVdqQ"
+                    "spec": "OgUCgIOEQPmDp"
                   },
                   {
-                    "teacher": "QfNrrWpnpBTTwpk",
-                    "mark": 35923,
-                    "mark_type": 75916,
-                    "date": "2026-01-28T01:10:11.877040",
+                    "teacher": "WmDmyuzKxg",
+                    "mark": 86765,
+                    "mark_type": 46043,
+                    "date": "2026-02-14T02:10:09.521302",
                     "ex_file_name": null,
-                    "id_file": 41624,
-                    "exam_id": 95282,
-                    "file_path": "https://www.klein.info/",
+                    "id_file": 94774,
+                    "exam_id": 24826,
+                    "file_path": "http://www.ryan-simon.info/",
                     "comment_teach": "",
-                    "need_access": 76402,
+                    "need_access": 57159,
                     "need_access_stud": null,
                     "comment_delete_file": null,
-                    "spec": "qpIOiWsEdV"
+                    "spec": "AAlWs"
                   },
                   {
-                    "teacher": "FWYzKOFUVTUtGtk",
-                    "mark": 68717,
-                    "mark_type": 63135,
-                    "date": "2026-04-22T21:47:27.850834",
+                    "teacher": "oAMAMDCbPJLS",
+                    "mark": 74092,
+                    "mark_type": 99765,
+                    "date": "2026-04-07T22:45:04.930606",
                     "ex_file_name": null,
-                    "id_file": 87115,
-                    "exam_id": 13367,
-                    "file_path": "http://www.yang.org/",
+                    "id_file": 87078,
+                    "exam_id": 95875,
+                    "file_path": "http://kelly.info/",
                     "comment_teach": "",
-                    "need_access": 36794,
+                    "need_access": 53809,
                     "need_access_stud": null,
                     "comment_delete_file": null,
-                    "spec": "OWUcZyIsCBS"
+                    "spec": "NzdzX"
                   }
                 ]
               }
@@ -1679,16 +1679,16 @@
                 },
                 "example": [
                   {
-                    "counter_type": 29934,
-                    "counter": 3775
+                    "counter_type": 83973,
+                    "counter": 11735
                   },
                   {
-                    "counter_type": 42988,
-                    "counter": 16243
+                    "counter_type": 25218,
+                    "counter": 38861
                   },
                   {
-                    "counter_type": 68280,
-                    "counter": 42964
+                    "counter_type": 62840,
+                    "counter": 4787
                   }
                 ]
               }
@@ -1754,28 +1754,28 @@
                   {
                     "specs": [
                       {
-                        "id": 63495,
-                        "name": "ZVKbFO",
-                        "short_name": "RBfxMLI"
+                        "id": 15159,
+                        "name": "tdKaXYxONQ",
+                        "short_name": "PQdzeYRN"
                       },
                       {
-                        "id": 56131,
-                        "name": "FmMbaPvaDYw",
-                        "short_name": "eNjRpWdjmzUNAlq"
+                        "id": 39862,
+                        "name": "mpznlHhNa",
+                        "short_name": "HPcbhOumVkFbL"
                       },
                       {
-                        "id": 16687,
-                        "name": "bGatrSRsnm",
-                        "short_name": "CtUwhoXK"
+                        "id": 10203,
+                        "name": "MQKXKGKNTglunb",
+                        "short_name": "bmdUrrTwPauG"
                       }
                     ],
-                    "id": 84761,
-                    "name": "BSGLbPWKCRcZdA"
+                    "id": 6317,
+                    "name": "ipHwJXfuro"
                   },
                   {
                     "specs": [],
-                    "id": 63161,
-                    "name": "sEEpj"
+                    "id": 17285,
+                    "name": "tWFXYzkslIv"
                   }
                 ]
               }
@@ -1839,19 +1839,19 @@
                 },
                 "example": [
                   {
-                    "id": 39591,
-                    "name": "RaHGqQT",
-                    "short_name": "cKGhPTSmzt"
+                    "id": 41087,
+                    "name": "CCSnRWCNOgekX",
+                    "short_name": "JStLqKWvUB"
                   },
                   {
-                    "id": 64770,
-                    "name": "dHishKNiSl",
-                    "short_name": "SMXoPiEGa"
+                    "id": 31718,
+                    "name": "logLdonO",
+                    "short_name": "WccfdXDzsiCk"
                   },
                   {
-                    "id": 48834,
-                    "name": "HLdNMUbIab",
-                    "short_name": "IZXlqcgzvs"
+                    "id": 38703,
+                    "name": "RZcvfYNy",
+                    "short_name": "FuxhR"
                   }
                 ]
               }
@@ -1915,19 +1915,19 @@
                 },
                 "example": [
                   {
-                    "id": 30259,
-                    "translate_key": "EKLiSUO",
-                    "type": "JkSJQvDzb"
+                    "id": 61476,
+                    "translate_key": "RZyZTPTy",
+                    "type": "FsYByTaQzkXnVHQ"
                   },
                   {
-                    "id": 83384,
-                    "translate_key": "KHkHkiRRz",
-                    "type": "pAPDGIrrJBlelS"
+                    "id": 59900,
+                    "translate_key": "ZpvUjTXtzpwZXn",
+                    "type": "IpTHVjUgSNr"
                   },
                   {
-                    "id": 85951,
-                    "translate_key": "jYDmRUc",
-                    "type": "oGtxtAxBh"
+                    "id": 1126,
+                    "translate_key": "qNWxR",
+                    "type": "lRClFccNeFZAq"
                   }
                 ]
               }
@@ -1991,62 +1991,62 @@
                 },
                 "example": [
                   {
-                    "id": 67961,
-                    "id_spec": 27786,
-                    "id_teach": 6054,
-                    "id_group": 62220,
-                    "fio_teach": "vnVtdIApvyelT",
-                    "theme": "EyXiFyVaDFHBB",
-                    "completion_time": "2026-04-10T07:38:55.734320",
-                    "creation_time": "2026-01-15T02:46:24.788761",
-                    "overdue_time": "2026-03-20T18:00:58.104897",
+                    "id": 58908,
+                    "id_spec": 97407,
+                    "id_teach": 12966,
+                    "id_group": 68082,
+                    "fio_teach": "DnYmIuBoPZwXYYR",
+                    "theme": "KOHsCx",
+                    "completion_time": "2026-05-03T12:27:44.503821",
+                    "creation_time": "2026-01-09T01:59:53.619182",
+                    "overdue_time": "2026-03-18T06:16:46.359915",
                     "filename": null,
-                    "file_path": "https://webb-mckee.info/",
-                    "comment": "yWLgwgdFhDOSZ",
-                    "name_spec": "loFuNUFJ",
-                    "status": 96485,
+                    "file_path": "http://www.collier.net/",
+                    "comment": "QXbMQ",
+                    "name_spec": "aglqY",
+                    "status": 97846,
                     "common_status": null,
                     "homework_stud": {
-                      "id": 63938,
+                      "id": 36093,
                       "filename": null,
-                      "file_path": "https://rios.biz/",
+                      "file_path": "https://hogan.biz/",
                       "tmp_file": null,
-                      "mark": 36141,
-                      "creation_time": "2026-04-07T07:02:11.478321",
-                      "stud_answer": "PpCjwexeltVKQRq",
+                      "mark": 96373,
+                      "creation_time": "2026-04-21T10:52:09.208112",
+                      "stud_answer": "IHJdIyROzr",
                       "auto_mark": false
                     },
                     "homework_comment": {
                       "text_comment": null,
                       "attachment": null,
                       "attachment_path": null,
-                      "date_updated": "2026-03-16T04:22:05.582343"
+                      "date_updated": "2026-01-25T00:42:21.367815"
                     },
                     "cover_image": null
                   },
                   {
-                    "id": 93838,
-                    "id_spec": 71710,
-                    "id_teach": 10255,
-                    "id_group": 51899,
-                    "fio_teach": "kINOSGVYIDWjo",
-                    "theme": "nBWglBBm",
-                    "completion_time": "2026-01-02T22:08:14.606723",
-                    "creation_time": "2026-01-21T16:01:24.579986",
-                    "overdue_time": "2026-02-13T18:03:34.341751",
+                    "id": 74060,
+                    "id_spec": 47751,
+                    "id_teach": 26311,
+                    "id_group": 93772,
+                    "fio_teach": "iVRiIJFxDTJKtQ",
+                    "theme": "YJEgPYYoeV",
+                    "completion_time": "2026-02-17T18:24:28.031903",
+                    "creation_time": "2026-01-04T21:55:19.123866",
+                    "overdue_time": "2026-02-16T03:32:39.729765",
                     "filename": null,
-                    "file_path": "https://kelley.net/",
+                    "file_path": "http://www.johnson.com/",
                     "comment": "",
-                    "name_spec": "iuJGqMmgXoVx",
-                    "status": 2511,
+                    "name_spec": "briNBXfuVSYQ",
+                    "status": 72273,
                     "common_status": null,
                     "homework_stud": {
-                      "id": 93521,
+                      "id": 5877,
                       "filename": null,
-                      "file_path": "https://glover-howard.com/",
+                      "file_path": "https://www.carter-vasquez.com/",
                       "tmp_file": null,
-                      "mark": 9802,
-                      "creation_time": "2026-02-07T23:27:43.875401",
+                      "mark": 17016,
+                      "creation_time": "2026-04-25T03:36:38.430601",
                       "stud_answer": null,
                       "auto_mark": false
                     },
@@ -2054,33 +2054,33 @@
                       "text_comment": null,
                       "attachment": null,
                       "attachment_path": null,
-                      "date_updated": "2026-03-17T14:33:39.856029"
+                      "date_updated": "2026-02-27T02:13:15.743170"
                     },
-                    "cover_image": "https://www.garcia.org/"
+                    "cover_image": "http://harvey.com/"
                   },
                   {
-                    "id": 73695,
-                    "id_spec": 50328,
-                    "id_teach": 35240,
-                    "id_group": 96707,
-                    "fio_teach": "vAAofvTs",
-                    "theme": "avDgRu",
-                    "completion_time": "2026-01-17T10:04:45.947347",
-                    "creation_time": "2026-04-14T07:44:30.156793",
-                    "overdue_time": "2026-01-23T06:10:52.479213",
+                    "id": 57076,
+                    "id_spec": 85500,
+                    "id_teach": 66227,
+                    "id_group": 95732,
+                    "fio_teach": "TOWzROvgAfpx",
+                    "theme": "sYDhlDIx",
+                    "completion_time": "2026-04-24T17:21:02.090595",
+                    "creation_time": "2026-02-01T03:13:57.763313",
+                    "overdue_time": "2026-01-17T04:00:22.221375",
                     "filename": null,
-                    "file_path": "http://www.hall.com/",
+                    "file_path": "https://www.herrera-ramirez.com/",
                     "comment": "",
-                    "name_spec": "yMIyitaeIEG",
-                    "status": 92303,
+                    "name_spec": "Perjniv",
+                    "status": 13750,
                     "common_status": null,
                     "homework_stud": {
-                      "id": 2694,
+                      "id": 29160,
                       "filename": null,
-                      "file_path": "http://www.morales-munoz.net/",
+                      "file_path": "https://nguyen.com/",
                       "tmp_file": null,
-                      "mark": 98273,
-                      "creation_time": "2026-04-12T02:51:54.027925",
+                      "mark": 64783,
+                      "creation_time": "2026-04-19T07:52:59.854760",
                       "stud_answer": null,
                       "auto_mark": false
                     },
@@ -2088,9 +2088,9 @@
                       "text_comment": null,
                       "attachment": null,
                       "attachment_path": null,
-                      "date_updated": "2026-03-22T03:37:08.178346"
+                      "date_updated": "2026-02-18T10:03:28.683582"
                     },
-                    "cover_image": "https://harris.com/"
+                    "cover_image": "http://mitchell-marshall.com/"
                   }
                 ]
               }
@@ -2190,25 +2190,25 @@
                 },
                 "example": [
                   {
-                    "date": "2026-01-31T09:25:10.708366",
-                    "message": "rbjGSumTz",
-                    "spec": "diNNqHpW",
-                    "full_spec": "BXMWioa",
-                    "teacher": "MxKqSqOZRbC"
+                    "date": "2026-03-20T23:20:24.895070",
+                    "message": "QnmbrWew",
+                    "spec": "xAdwvrKlKa",
+                    "full_spec": "EloeLYQwdoWUB",
+                    "teacher": "uhpKcYczuDhEGo"
                   },
                   {
-                    "date": "2026-02-20T03:56:54.409249",
-                    "message": "iRikgFISTnnKDJr",
-                    "spec": "lPMSpORCN",
-                    "full_spec": "cCVmKJiDAVNJmvS",
-                    "teacher": "tkJLcy"
+                    "date": "2026-03-05T08:58:00.682753",
+                    "message": "AJhUq",
+                    "spec": "ataETnSbAGz",
+                    "full_spec": "PFnUJhsoDfWlej",
+                    "teacher": "kZArg"
                   },
                   {
-                    "date": "2026-01-25T23:09:51.158720",
-                    "message": "yZlCpJdeQGOjqzn",
-                    "spec": "vxqiNvt",
-                    "full_spec": "UjcmGAzI",
-                    "teacher": "BYWsMl"
+                    "date": "2026-03-12T16:51:11.068610",
+                    "message": "SKOfOWSKBXlPkxe",
+                    "spec": "hBIDjqg",
+                    "full_spec": "bdGoCcS",
+                    "teacher": "yWtgBlYKD"
                   }
                 ]
               }
@@ -2390,7 +2390,7 @@
                 "example": [
                   {
                     "status": null,
-                    "social_id": 60863,
+                    "social_id": 52255,
                     "link_id": null,
                     "link": null,
                     "screen_shot": null,
@@ -2402,21 +2402,21 @@
                   },
                   {
                     "status": null,
-                    "social_id": 3753,
-                    "link_id": 35474,
-                    "link": "https://olsen-hogan.com/",
-                    "screen_shot": "https://www.smith-mccarty.com/",
-                    "review_id": 15348,
+                    "social_id": 63453,
+                    "link_id": 64506,
+                    "link": "http://powell-gonzales.com/",
+                    "screen_shot": "https://www.thompson.com/",
+                    "review_id": 7644,
                     "comment": "",
-                    "teach_name": "ZqQeZmdegKbkF",
-                    "updated_at": "2026-03-05T16:29:32.915774",
+                    "teach_name": "NvKlWmTulcxolwn",
+                    "updated_at": "2026-04-16T22:08:34.658343",
                     "is_visibility": true
                   },
                   {
                     "status": null,
-                    "social_id": 76535,
-                    "link_id": 75882,
-                    "link": "https://diaz.com/",
+                    "social_id": 58732,
+                    "link_id": 97384,
+                    "link": "http://pennington.com/",
                     "screen_shot": null,
                     "review_id": null,
                     "comment": null,
@@ -2486,18 +2486,18 @@
                 },
                 "example": [
                   {
-                    "id": 58481,
-                    "date_desired": "2026-01-17T22:43:01.106687",
-                    "date_start": "2026-03-22T17:11:41.228025",
-                    "priority": 36524,
-                    "status": 12958,
-                    "message": "GLwwFKASEjobpou",
-                    "initiator_name": "uCKRP",
-                    "problem_id": 90660,
-                    "problem_name": "bNhqR",
-                    "problem_type": 85079,
-                    "days_diff": 60477,
-                    "theme": "mrjnAYsAznkvvK"
+                    "id": 69923,
+                    "date_desired": "2026-03-26T00:17:07.110208",
+                    "date_start": "2026-04-30T08:46:18.069286",
+                    "priority": 50231,
+                    "status": 4392,
+                    "message": "HhRFwYB",
+                    "initiator_name": "ZVNprDQs",
+                    "problem_id": 93878,
+                    "problem_name": "tYsRBqyGZEayzG",
+                    "problem_type": 47491,
+                    "days_diff": 25049,
+                    "theme": "KitHuwlibVxt"
                   }
                 ]
               }
@@ -2561,16 +2561,16 @@
                 },
                 "example": [
                   {
-                    "id": 48111,
-                    "title": "UUqcxyrKVsXidQ"
+                    "id": 84396,
+                    "title": "bkwHNGqlofFu"
                   },
                   {
-                    "id": 58166,
-                    "title": "PpgBfPmLaPzxH"
+                    "id": 4884,
+                    "title": "NWZqFhNG"
                   },
                   {
-                    "id": 22455,
-                    "title": "jBopwqDgOUKXP"
+                    "id": 22109,
+                    "title": "MltlpPUalDP"
                   }
                 ]
               }
@@ -2634,21 +2634,21 @@
                 },
                 "example": [
                   {
-                    "id_bbs": 46135,
-                    "theme": "bisMWLHYi",
-                    "time": "2026-04-18T10:05:16.974385",
+                    "id_bbs": 17309,
+                    "theme": "nyNJSFnjQaESD",
+                    "time": "2026-04-17T21:09:47.789584",
                     "viewed": true
                   },
                   {
-                    "id_bbs": 71654,
-                    "theme": "ldyjN",
-                    "time": "2026-01-28T21:47:46.781538",
+                    "id_bbs": 79828,
+                    "theme": "DwgYyVNLJqt",
+                    "time": "2026-03-28T18:29:29.122714",
                     "viewed": true
                   },
                   {
-                    "id_bbs": 88246,
-                    "theme": "hwnUGrsE",
-                    "time": "2026-02-27T10:25:41.808243",
+                    "id_bbs": 41923,
+                    "theme": "IBekHYYPXhZkkx",
+                    "time": "2026-03-27T16:29:10.352855",
                     "viewed": false
                   }
                 ]
