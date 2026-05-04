@@ -68,18 +68,27 @@ Red flags — stop and re-investigate if you're thinking:
 
 ```
 src/        # Source code
-tests/      # Tests — mirror src/ structure
+  collector/  # Auth + data collection
+  validator/  # Pydantic models + validation
+  anonymizer/ # Faker PII replacement
+  publisher/  # OpenAPI + Swagger UI generation
+data/
+  raw/       # Raw API responses (gitignore)
+  examples/  # Anonymized examples (committed)
+documentation/ # MkDocs documentation
+  src/       # Markdown source + openapi.json
+  site/      # Built site (gitignore, deployed to Pages)
 devel/
-  init.md   # Getting started after creating from template
-  plans/    # Implementation plans (YYYY-MM-DD-name.md)
-  design/   # Design documents (01-idea → 07-tradeoffs)
-  changelog/# Changelog (LLM and human-written)
-skills/     # Agent skill references (see below)
+  init.md    # Getting started after creating from template
+  design/    # Design documents (01-idea → 08-branch-strategy)
+  plans/     # Implementation plans (YYYY-MM-DD-name.md)
+  changelog/ # Changelog (LLM and human-written)
+  skills/    # Agent skill references (see below)
+tests/      # Tests — mirror src/ structure
+mock/       # Cloudflare Worker + build script
 .codex/     # Codex-specific config
 .github/    # PR templates
 ```
-
-<!-- Adjust per project, e.g. for C++ add include/ -->
 
 ---
 
@@ -89,11 +98,11 @@ When tackling a specific type of task, read the relevant skill file first:
 
 | Situation | Skill file |
 |-----------|-----------|
-| Something is broken | `skills/systematic-debugging.md` |
-| Planning a feature | `skills/writing-plans.md` |
-| Code review | `skills/code-review.md` |
-| About to claim done | `skills/verification-before-completion.md` |
-| Implementing anything | `skills/test-driven-development.md` |
+| Something is broken | `devel/skills/systematic-debugging.md` |
+| Planning a feature | `devel/skills/writing-plans.md` |
+| Code review | `devel/skills/code-review.md` |
+| About to claim done | `devel/skills/verification-before-completion.md` |
+| Implementing anything | `devel/skills/test-driven-development.md` |
 
 ---
 

@@ -33,6 +33,7 @@ from .models import (
     HomeworkEvalTagItem,
     HomeworkGroupHistoryItem,
     HomeworkItem,
+    LoginResponse,
 )
 
 LOGGER = logging.getLogger(__name__)
@@ -41,6 +42,7 @@ LOGGER = logging.getLogger(__name__)
 # is_list=True  — ответ является списком, валидируем каждый элемент отдельно
 # is_list=False — ответ является словарём, валидируем целиком
 MODELS: dict[str, tuple[type, bool]] = {
+    "/auth/login":                                  (LoginResponse,         False),
     "/settings/user-info":                          (UserInfoResponse,      False),
     "/profile/operations/settings":                 (ProfileSettingsResponse, False),
     "/profile/statistic/student-achievements":      (AchievementItem,       True),

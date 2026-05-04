@@ -182,13 +182,13 @@ class OpenAPIBuilder:
 
         return spec
 
-    def save(self, spec: dict, path: str = "documentation/openapi.json") -> None:
+    def save(self, spec: dict, path: str = "documentation/src/openapi.json") -> None:
         """Persist generated OpenAPI document as formatted JSON.
 
         Args:
             spec: Документ из метода build().
-            path: Куда сохранять. По умолчанию — папка documentation/,
-                  которую деплоит GitHub Pages.
+            path: Куда сохранять. По умолчанию — documentation/src/,
+                  откуда MkDocs подхватывает файл для swagger-ui-tag.
         """
 
         destination = Path(path)

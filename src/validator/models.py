@@ -364,3 +364,15 @@ class HomeworkItem(_Base):
     cover_image: str | None = None
     homework_stud: HomeworkStudItem | None = None
     homework_comment: HomeworkCommentItem | None = None
+
+
+# ── /auth/login — dict ──────────────────────────────────────────────────────
+
+class LoginResponse(_Base):
+    access_token: str
+    refresh_token: str
+    expires_in_refresh: int
+    expires_in_access: int
+    user_type: int
+    city_data: dict[str, Any]
+    user_role: str

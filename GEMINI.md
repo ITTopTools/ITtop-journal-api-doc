@@ -6,7 +6,7 @@
 
 - **Context-First**: Before any action, read `AGENTS.md` for project-specific stack and constraints.
 - **TDD**: Never write production code without a failing test first. No exceptions.
-- **Systematic Debugging**: Find root cause before fixing. Use `skills/systematic-debugging.md`.
+- **Systematic Debugging**: Find root cause before fixing. Use `devel/skills/systematic-debugging.md`.
 - **Zero Warnings**: Every commit must leave the codebase with zero compiler/linter warnings.
 
 ## Lifecycle Phases
@@ -19,7 +19,7 @@
 ### Phase 2: Planning (`devel/plans/`)
 
 - For tasks >30 min or >1 file, create a plan: `YYYY-MM-DD-feature-name.md`.
-- Follow format in `skills/writing-plans.md`.
+- Follow format in `devel/skills/writing-plans.md`.
 
 ### Phase 3: Implementation
 
@@ -31,7 +31,7 @@
 ## Commit & Verification
 
 - **Format**: `type: short description` (feat, fix, refactor, test, docs, chore).
-- **Verify**: Run full test suites and linters before claiming completion. See `skills/verification-before-completion.md`.
+- **Verify**: Run full test suites and linters before claiming completion. See `devel/skills/verification-before-completion.md`.
 
 ## Decision Making
 

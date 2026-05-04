@@ -1,6 +1,6 @@
 # OpenAPI Enrichment Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Enrich the generated OpenAPI document so it reflects the current auth payload, bearer authentication, required headers, and array-vs-object response shapes.
 
@@ -17,7 +17,7 @@
 - Read: `src/publisher/builder.py`
 - Read: `src/collector/endpoints.py`
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 ```python
 def test_build_adds_security_headers_and_auth_scheme():
@@ -54,12 +54,12 @@ def test_build_uses_array_schema_and_response_examples_for_list_endpoints():
     assert response["example"] == examples["/dashboard/chart/attendance"]
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `pytest tests/test_builder.py -v`
 Expected: FAIL because `components`, `security`, required headers, and array schemas are not implemented yet.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add tests/test_builder.py
@@ -73,7 +73,7 @@ git commit -m "test: add openapi enrichment coverage"
 - Modify: `src/publisher/builder.py`
 - Read: `src/validator/validator.py`
 
-- [ ] **Step 1: Change the login request example source**
+- [x] **Step 1: Change the login request example source**
 
 ```python
 params={
@@ -84,7 +84,7 @@ params={
 }
 ```
 
-- [ ] **Step 2: Add module-level header docs and validator-backed schema selection**
+- [x] **Step 2: Add module-level header docs and validator-backed schema selection**
 
 ```python
 from src.collector.endpoints import ENDPOINTS, LOGIN_PATH
@@ -103,7 +103,7 @@ REQUIRED_HEADERS = [
 ]
 ```
 
-- [ ] **Step 3: Extend `build()` to emit auth scheme, per-operation security, requestBody description, required headers, and array/object response schemas**
+- [x] **Step 3: Extend `build()` to emit auth scheme, per-operation security, requestBody description, required headers, and array/object response schemas**
 
 ```python
 spec["components"] = {
@@ -135,12 +135,12 @@ if endpoint.path != LOGIN_PATH:
     operation["parameters"] = REQUIRED_HEADERS + existing_params
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `pytest tests/test_builder.py -v`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/collector/endpoints.py src/publisher/builder.py
@@ -153,12 +153,12 @@ git commit -m "feat: enrich openapi auth and response metadata"
 - Read: `documentation/openapi.json`
 - Read: `main.py`
 
-- [ ] **Step 1: Confirm anonymized examples are wired through the pipeline**
+- [x] **Step 1: Confirm anonymized examples are wired through the pipeline**
 
 Run: `sed -n '40,90p' main.py`
 Expected: `builder.build(examples=clean, is_api_down=is_api_down)` is present.
 
-- [ ] **Step 2: Run lint and focused tests**
+- [x] **Step 2: Run lint and focused tests**
 
 Run: `ruff check src/publisher/builder.py src/collector/endpoints.py`
 Expected: All checks passed.
@@ -166,7 +166,7 @@ Expected: All checks passed.
 Run: `pytest tests/test_builder.py -v`
 Expected: All builder tests pass.
 
-- [ ] **Step 3: Rebuild and inspect generated OpenAPI**
+- [x] **Step 3: Rebuild and inspect generated OpenAPI**
 
 Run: `python main.py`
 Expected: `documentation/openapi.json` regenerated and `PIPELINE_OK` printed when credentials are available.
@@ -174,7 +174,7 @@ Expected: `documentation/openapi.json` regenerated and `PIPELINE_OK` printed whe
 Run: `sed -n '1,260p' documentation/openapi.json`
 Expected: `BearerAuth` exists, `/auth/login` shows `username`, authenticated endpoints include `Origin` and `Referer`, and list endpoints use array response schemas.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add documentation/openapi.json

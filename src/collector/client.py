@@ -40,8 +40,8 @@ class JournalClient:
 
         await self.client.aclose()
 
-    async def authenticate(self) -> str:
-        """Authenticate and return access token."""
+    async def authenticate(self) -> dict:
+        """Authenticate and return full login response."""
 
         payload = {
             "application_key": "6a56a5df2667e65aab73ce76d1dd737f7d1faef9c52e8b8c55ac75f565d8e8a6",
@@ -51,18 +51,18 @@ class JournalClient:
         }
 
         response = await self.client.post(LOGIN_PATH, json=payload)
-        
+
         print(f"Status: {response.status_code}")
         print(f"Body: {response.text}")
         response.raise_for_status()
-        
+
         data = response.json()
         access_token = data.get("access_token")
         if not isinstance(access_token, str) or not access_token:
             raise ValueError("Authentication response does not contain access_token.")
 
         self.client.headers["Authorization"] = f"Bearer {access_token}"
-        return access_token
+        return data
 
     async def fetch(self, endpoint: Endpoint) -> dict | list:
         """Request a single endpoint and return JSON response."""
@@ -118,10 +118,12 @@ class JournalClient:
             to their untrimmed list length for validate_count=True endpoints.
             """
 
-            await self.authenticate()
+            login_data = await self.authenticate()
 
             collected: dict[str, Any] = {}
             raw_counts: dict[str, int] = {}
+            collected[LOGIN_PATH] = login_data
+
             for endpoint in endpoints:
                 if endpoint.path == LOGIN_PATH:
                     continue

@@ -13,7 +13,7 @@
 **Files:**
 - Modify: `src/collector/endpoints.py`
 
-- [ ] **Step 1: Добавить поля в dataclass**
+- [x] **Step 1: Добавить поля в dataclass**
 
 ```python
 @dataclass(slots=True, frozen=True)
@@ -27,7 +27,7 @@ class Endpoint:
     expected_max_items: int | None = None  # используется только если validate_count=True
 ```
 
-- [ ] **Step 2: Проставить флаги на всех эндпоинтах**
+- [x] **Step 2: Проставить флаги на всех эндпоинтах**
 
 ```python
 ENDPOINTS: list[Endpoint] = [
@@ -112,7 +112,7 @@ ENDPOINTS: list[Endpoint] = [
 ]
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/collector/endpoints.py
@@ -126,7 +126,7 @@ git commit -m "feat(collector): add anonymize/max_items/validate_count fields to
 **Files:**
 - Modify: `src/collector/client.py`
 
-- [ ] **Step 1: Изменить сигнатуру collect_all**
+- [x] **Step 1: Изменить сигнатуру collect_all**
 
 Убрать `max_list_items: int = 3` как глобальный параметр. Trim теперь читает `endpoint.max_items`, fallback на `DEFAULT_MAX_ITEMS = 3`.
 
@@ -154,7 +154,7 @@ async def collect_all(self, endpoints: list[Endpoint]) -> dict[str, Any]:
     return collected
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/collector/client.py
@@ -168,7 +168,7 @@ git commit -m "refactor(collector): per-endpoint max_items trim, remove global p
 **Files:**
 - Modify: `src/validator/validator.py`
 
-- [ ] **Step 1: Добавить count-проверку в validate_all**
+- [x] **Step 1: Добавить count-проверку в validate_all**
 
 `validate_all` получает `endpoints: list[Endpoint]` вторым аргументом. Перед trim (до вызова — raw данные уже обрезаны коллектором, поэтому count-валидация работает на сырых данных в **main.py**, см. Task 4). Здесь только структурная валидация.
 
@@ -196,7 +196,7 @@ for r in results:
         lines.append("")
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/validator/validator.py
@@ -210,7 +210,7 @@ git commit -m "feat(validator): add count_warning field to ValidationResult"
 **Files:**
 - Modify: `main.py`
 
-- [ ] **Step 1: Добавить сбор raw без trim, затем count-проверку**
+- [x] **Step 1: Добавить сбор raw без trim, затем count-проверку**
 
 ```python
 # Сборка raw данных (trim внутри collect_all по endpoint.max_items)
@@ -265,13 +265,13 @@ for path, count in raw_counts.items():
 
 Передать `count_warnings` в `format_issue_body` или смержить с results.
 
-- [ ] **Step 2: Обновить вызов collect_all везде где используется**
+- [x] **Step 2: Обновить вызов collect_all везде где используется**
 
 ```bash
 grep -n "collect_all" main.py
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add main.py src/collector/client.py
@@ -285,7 +285,7 @@ git commit -m "feat(pipeline): count validation on raw data before trim"
 **Files:**
 - Modify: `main.py`
 
-- [ ] **Step 1: Применять anonymizer per-endpoint**
+- [x] **Step 1: Применять anonymizer per-endpoint**
 
 Сейчас: `clean = anonymizer.anonymize(raw)` — анонит весь dict целиком.
 
@@ -302,7 +302,7 @@ for path, data in raw.items():
         clean[path] = anonymizer.anonymize(data)
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add main.py
@@ -317,7 +317,7 @@ git commit -m "feat(pipeline): skip anonymization for non-sensitive endpoints"
 - Modify: `tests/test_validator.py`
 - Modify: `tests/test_anonymizer.py`
 
-- [ ] **Step 1: Добавить тест на count_warning**
+- [x] **Step 1: Добавить тест на count_warning**
 
 ```python
 def test_count_warning_included_in_issue_body():
@@ -332,7 +332,7 @@ def test_count_warning_included_in_issue_body():
     assert "45" in body
 ```
 
-- [ ] **Step 2: Добавить тест что anonymize=False endpoint не меняется**
+- [x] **Step 2: Добавить тест что anonymize=False endpoint не меняется**
 
 ```python
 def test_anonymize_false_endpoint_passes_through():
@@ -342,14 +342,14 @@ def test_anonymize_false_endpoint_passes_through():
     assert result == data
 ```
 
-- [ ] **Step 3: Прогнать тесты**
+- [x] **Step 3: Прогнать тесты**
 
 ```bash
 pytest tests/ -v
 # Expected: все PASS
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add tests/
@@ -360,21 +360,21 @@ git commit -m "test: coverage for count_warning and anonymize=False passthrough"
 
 ### Task 7: Lint и финальная проверка
 
-- [ ] **Step 1: Ruff**
+- [x] **Step 1: Ruff**
 
 ```bash
 ruff check src/ tests/ main.py
 # Expected: All checks passed
 ```
 
-- [ ] **Step 2: Полный тест**
+- [x] **Step 2: Полный тест**
 
 ```bash
 pytest -v
 # Expected: все зелёные
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A

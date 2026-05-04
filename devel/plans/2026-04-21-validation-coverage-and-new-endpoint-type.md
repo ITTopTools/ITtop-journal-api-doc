@@ -88,7 +88,7 @@ git commit -m "fix(validator): correct schedule path bug, register all endpoint 
 - Modify: `src/collector/endpoints.py`
 - Modify: `src/validator/validator.py`
 
-- [ ] **Step 1: Добавить эндпоинт в реестр**
+- [x] **Step 1: Добавить эндпоинт в реестр**
 
 ```python
 Endpoint(path="/schedule/operations/get-by-date", method="GET", params={
@@ -96,13 +96,13 @@ Endpoint(path="/schedule/operations/get-by-date", method="GET", params={
 }),
 ```
 
-- [ ] **Step 2: Добавить в MODELS (уже добавлен в Task 2)**
+- [x] **Step 2: Добавить в MODELS (уже добавлен в Task 2)**
 
 ```python
 "/schedule/operations/get-by-date": (ScheduleItem, True),
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/collector/endpoints.py
@@ -116,28 +116,28 @@ git commit -m "feat(collector): add schedule/get-by-date endpoint"
 **Files:**
 - Read: `data/raw/latest.json`
 
-- [ ] **Step 1: Прогнать пайплайн**
+- [x] **Step 1: Прогнать пайплайн**
 
 ```bash
 JOURNAL_LOGIN=... JOURNAL_PASSWORD=... uv run main.py
 # Expected: PIPELINE_OK, отсутствие data/validation_issue.md
 ```
 
-- [ ] **Step 2: Проверить покрытие**
+- [x] **Step 2: Проверить покрытие**
 
 ```bash
 jq 'keys' data/raw/latest.json
 # Все ключи должны быть либо в MODELS, либо быть known-skip (/reviews/index/instruction)
 ```
 
-- [ ] **Step 3: Прогнать тесты**
+- [x] **Step 3: Прогнать тесты**
 
 ```bash
 pytest tests/test_validator.py -v
 # Expected: все зелёные
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add data/examples/latest.json documentation/openapi.json

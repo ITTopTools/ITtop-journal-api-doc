@@ -48,6 +48,10 @@ class Anonymizer:
             if "@" in node and "." in node.split("@")[-1]:
                 return self.fake.email()
 
+            # JWT токен — три base64-сегмента разделённых точками
+            if re.match(r'^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$', node):
+                return self.fake.sha256()
+
             # Дефолтная замена любой другой строки
             return self.fake.pystr(min_chars=5, max_chars=15)
 
