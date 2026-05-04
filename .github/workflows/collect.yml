@@ -33,7 +33,7 @@ jobs:
           if [ -f data/validation_issue.md ]; then
             echo "validation_failed=true" >> $GITHUB_OUTPUT
           fi
-      
+
       - name: Create issue if validation failed
         if: steps.pipeline.outputs.validation_failed == 'true'
         uses: peter-evans/create-issue-from-file@v5
