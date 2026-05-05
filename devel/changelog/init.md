@@ -41,3 +41,4 @@ Each entry is a separate file: `YYYY-MM-DD-title.md`.
 - [`2026-05-01-homework-endpoints.md`](2026-05-01-homework-endpoints.md) — Add homework endpoints to main pipeline
 - [`2026-05-03-login-validation.md`](2026-05-03-login-validation.md) — Add /auth/login validation and JWT anonymization
 - [`2026-05-04-project-restructure-and-mkdocs-setup.md`](2026-05-04-project-restructure-and-mkdocs-setup.md) — Project restructure and MkDocs documentation setup
+- [`2026-05-05-reusable-workflow-pipeline.md`](2026-05-05-reusable-workflow-pipeline.md) — Reusable workflow pipeline: --step CLI, 8 reusable workflows, soft-fail validation

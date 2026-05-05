@@ -8,7 +8,14 @@
 project/
 ├── .github/
 │   └── workflows/
-│       └── collect.yml          # Запуск pipeline раз в 24ч
+│       ├── pipeline.yml          # Orchestrator: cron + dispatch
+│       ├── _tests.yml            # Reusable: lint + pytest
+│       ├── _collect.yml          # Reusable: API collection
+│       ├── _validate.yml         # Reusable: Pydantic validation (soft fail)
+│       ├── _anonymize.yml        # Reusable: Faker anonymization
+│       ├── _publish.yml          # Reusable: OpenAPI build + Pages deploy
+│       ├── _worker.yml           # Reusable: Cloudflare Worker deploy
+│       └── _mkdocs.yml           # Reusable: MkDocs build + Pages deploy
 ├── src/
 │   ├── collector/
 │   │   ├── __init__.py
@@ -190,24 +197,22 @@ class OpenAPIBuilder:
 ## GitHub Actions Pipeline
 
 ```yaml
-# .github/workflows/collect.yml
+# .github/workflows/pipeline.yml — orchestrator
 on:
   schedule:
     - cron: '0 3 * * *'   # раз в сутки в 03:00 UTC
   workflow_dispatch:        # ручной запуск
 
 jobs:
-  collect:
-    steps:
-      - collect      → src/collector (auth: username+password+application_key)
-      - validate     → src/validator (model, is_list dispatch)
-                       on failure: writes data/validation_issue.md
-                       sets GITHUB_OUTPUT validation_failed=true
-      - anonymize    → src/anonymizer (recursive type-based faker)
-      - build        → src/publisher (openapi.json → documentation/)
-      - deploy       → peaceiris/actions-gh-pages → GitHub Pages
-      - issue        → peter-evans/create-issue-from-file
-                       only if validation_failed == 'true'
+  tests:     → _tests.yml      # lint (ruff) + pytest gate
+  collect:   → _collect.yml    # python main.py --step collect → raw-data artifact
+  validate:  → _validate.yml   # python main.py --step validate → soft fail (exit 0)
+             # outputs validation_failed=true → creates GitHub Issue
+  anonymize: → _anonymize.yml  # python main.py --step anonymize (skipped if validation failed)
+             # falls back to committed examples → examples-data artifact
+  publish:   → _publish.yml    # python main.py --step publish → peaceiris/actions-gh-pages
+  worker:    → _worker.yml     # build_worker.py → npx wrangler deploy
+  mkdocs:    → _mkdocs.yml     # mkdocs build → peaceiris/actions-gh-pages (docs dir)
 ```
 
 ---

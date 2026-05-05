@@ -11,7 +11,7 @@
 - [x] [`devel/design/01-idea.md`](design/01-idea.md) through [`07-tradeoffs.md`](design/07-tradeoffs.md) — design docs completed
 - [x] Implementation plans in [`devel/plans/`](plans/) — multiple plans written
 - [x] Working pipeline: `src/collector/`, `src/validator/`, `src/anonymizer/`, `src/publisher/`
-- [x] CI: `.github/workflows/collect.yml` — daily collection + GitHub Pages deployment
+- [x] CI: `.github/workflows/pipeline.yml` — daily collection via reusable workflows + GitHub Pages deployment
 - [x] Tests in `tests/`
 
 ---
