@@ -43,7 +43,7 @@ repo_name: ITtop-journal-api-doc
 plugins:
   - awesome-pages
   - swagger-ui-tag:
-      supportedSubmitMethods: []
+      supportedSubmitMethods: ["get", "put", "post", "delete", "patch"]
       docExpansion: list
 
 extra:
