@@ -3263,6 +3263,25 @@ export default {
     const apiPath = normalizePath(new URL(request.url).pathname);
     const hasToken = request.headers.has("Authorization");
 
+    // Login endpoint: нет токена ещё, но нужно проксировать на реальный API.
+    // 200 — возвращаем ответ (юзер получил access_token).
+    // 4xx — fallback на mock (неправильные креды, а мок покажет структуру ответа).
+    if (apiPath === "/auth/login") {
+      try {
+        const realResp = await proxyToRealApi(request, apiPath);
+        if (realResp.status >= 200 && realResp.status < 300) {
+          return realResp;
+        }
+      } catch {
+        // Сеть недоступна → fallback на mock
+      }
+      const payload = MOCK[apiPath];
+      if (payload === undefined) {
+        return jsonResponse({ error: "Not found", path: apiPath }, 404);
+      }
+      return jsonResponse(payload);
+    }
+
     // Есть Bearer токен → проксируем на реальный API (живые данные)
     if (hasToken) {
       return proxyToRealApi(request, apiPath);
