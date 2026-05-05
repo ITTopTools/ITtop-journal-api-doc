@@ -22,9 +22,3 @@ jobs:
         with:
           name: openapi-spec
           path: documentation/src/openapi.json
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./documentation/src
-          destination_dir: .
-          keep_files: true
