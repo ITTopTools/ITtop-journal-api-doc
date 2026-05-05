@@ -95,8 +95,6 @@ def step_validate() -> int:
 
     raw = _read_json(RAW_PATH)
 
-    endpoint_map: dict[str, Endpoint] = {e.path: e for e in ENDPOINTS}
-
     # Reconstruct count_warnings from raw counts (not available in step mode)
     validator = Validator()
     results = validator.validate_all(raw)
