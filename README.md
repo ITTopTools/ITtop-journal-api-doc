@@ -12,7 +12,7 @@ IT Top Journal не имеет публичной документации. Эт
 - **Анонимизирует** данные через Faker — реальные имена, ID и даты не попадают в публичный репозиторий
 - **Генерирует** `openapi.json` и публикует Swagger UI на GitHub Pages
 
-Пайплайн запускается автоматически каждый день в 03:00 UTC через GitHub Actions. Также доступен ручной запуск (workflow_dispatch).
+Пайплайн запускается автоматически каждый день в 03:00 UTC через GitHub Actions. Также доступен ручной запуск (workflow_dispatch). Каждый шаг выполняется в отдельном reusable workflow-джобе, данные передаются через артефакты.
 
 ## Как это работает
 
@@ -66,7 +66,14 @@ uv sync
 ### Локальный запуск
 
 ```bash
+# Полный пайплайн
 JOURNAL_LOGIN=ваш_логин JOURNAL_PASSWORD=ваш_пароль uv run main.py
+
+# Отдельные шаги
+uv run main.py --step collect     # Сбор данных (требует JOURNAL_LOGIN/PASSWORD)
+uv run main.py --step validate    # Валидация (всегда exit 0, soft fail)
+uv run main.py --step anonymize   # Анонимизация
+uv run main.py --step publish     # Генерация openapi.json
 ```
 
 После запуска появятся:
@@ -216,7 +223,7 @@ Referer: https://journal.top-academy.ru/
 
 ### Автоматическая публикация (через CI)
 
-Пайплайн `.github/workflows/collect.yml` запускается:
+Пайплайн `.github/workflows/pipeline.yml` запускается:
 - **По расписанию** — каждый день в 03:00 UTC
 - **Вручную** — кнопка «Run workflow» на вкладке Actions
 
@@ -267,9 +274,10 @@ git subtree push --prefix documentation origin gh-pages
 
 Если структура ответа API изменилась и перестала проходить Pydantic-валидацию:
 
-1. Пайплайн падает
+1. Шаг validate пишет `validation_failed=true` в GITHUB_OUTPUT (soft fail — exit 0)
 2. Создаётся GitHub Issue с лейблом `api-change` и описанием конкретных полей
-3. Issue нужно обработать — обновить модель в `src/validator/models.py`
+3. Пайплайн продолжает работу — использует последние закоммиченные примеры
+4. Issue нужно обработать — обновить модель в `src/validator/models.py`
 
 ## Тесты и линтинг
 

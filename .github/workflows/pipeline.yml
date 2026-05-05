@@ -1,0 +1,47 @@
+name: Pipeline
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  tests:
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/_tests.yml
+
+  collect:
+    needs: tests
+    uses: ./.github/workflows/_collect.yml
+    secrets: inherit
+
+  validate:
+    needs: collect
+    uses: ./.github/workflows/_validate.yml
+    secrets: inherit
+
+  anonymize:
+    needs: validate
+    uses: ./.github/workflows/_anonymize.yml
+    with:
+      validation_failed: ${{ needs.validate.outputs.validation_failed }}
+    secrets: inherit
+
+  publish:
+    needs: anonymize
+    uses: ./.github/workflows/_publish.yml
+    secrets: inherit
+
+  worker:
+    needs: anonymize
+    uses: ./.github/workflows/_worker.yml
+    secrets: inherit
+
+  mkdocs:
+    needs: publish
+    uses: ./.github/workflows/_mkdocs.yml
+    secrets: inherit
