@@ -16,4 +16,4 @@ If you don't authorize, the mock server returns anonymized example data. This is
 
 Authorized requests go through to the real API. See [Authentication](authentication.md) for how to get a token.
 
-<!-- swagger-ui-tag plugin renders the spec here -->
+<swagger-ui src="openapi.json"/>
