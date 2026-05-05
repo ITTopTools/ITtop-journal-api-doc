@@ -6,15 +6,19 @@
 
 - **Project:** journal-api-docs
 - **Language / Stack:** Python 3.12 / uv / httpx / Pydantic v2 / Faker
-- **Test runner:** pytest
+- **Infrastructure:** Cloudflare Worker (mock API + proxy to real API)
+- **Documentation:** MkDocs Material with swagger-ui-tag plugin
+- **Test runner:** pytest (37 tests)
 - **Linter / formatter:** ruff
+
+The Cloudflare Worker routes requests: no token returns mock data, with token proxies to the real API, `/auth/login` always proxies first and falls back to mock on 4xx.
 
 ---
 
 ## Non-Negotiables
 
 - Zero compiler/linter warnings on every commit
-- Tests before implementation (RED → GREEN → REFACTOR)
+- Tests before implementation (RED -> GREEN -> REFACTOR)
 - No magic numbers — constants go in a dedicated config/constants file
 - English comments only, conversational ("why not what")
 - One problem per commit, descriptive commit messages
@@ -32,7 +36,7 @@
 ### Implementation Loop
 
 ```
-Write failing test → confirm it fails → implement minimal code → confirm it passes → commit
+Write failing test -> confirm it fails -> implement minimal code -> confirm it passes -> commit
 ```
 
 Never skip the "confirm it fails" step. It proves the test actually catches the bug.
@@ -55,7 +59,7 @@ Never skip the "confirm it fails" step. It proves the test actually catches the 
 3. Check recent changes (`git diff`, recent commits)
 4. Form one hypothesis: *"X is broken because Y"*
 5. Make the smallest possible change to test it
-6. If 3+ fixes failed → stop, the architecture is wrong, discuss
+6. If 3+ fixes failed -> stop, the architecture is wrong, discuss
 
 Red flags — stop and re-investigate if you're thinking:
 - "Just try this and see what happens"
@@ -67,28 +71,34 @@ Red flags — stop and re-investigate if you're thinking:
 ## File Structure
 
 ```
-src/        # Source code
-  collector/  # Auth + data collection
-  validator/  # Pydantic models + validation
-  anonymizer/ # Faker PII replacement
-  publisher/  # OpenAPI + Swagger UI generation
+src/          Source code
+  collector/  Auth + data collection
+  validator/  Pydantic models + validation
+  anonymizer/ Faker PII replacement
+  publisher/  OpenAPI generation
 data/
-  raw/       # Raw API responses (gitignore)
-  examples/  # Anonymized examples (committed)
-documentation/ # MkDocs documentation
-  src/       # Markdown source + openapi.json
-  site/      # Built site (gitignore, deployed to Pages)
+  raw/        Raw API responses (gitignore)
+  examples/   Anonymized examples (committed)
+documentation/
+  src/        Markdown + openapi.json
+  site/       Built site (gitignore, gh-pages)
+mock/
+  worker.js        Generated Cloudflare Worker
+  build_worker.py  Template that generates worker.js
+  wrangler.toml    Worker deployment config
 devel/
-  init.md    # Getting started after creating from template
-  design/    # Design documents (01-idea → 08-branch-strategy)
-  plans/     # Implementation plans (YYYY-MM-DD-name.md)
-  changelog/ # Changelog (LLM and human-written)
-  skills/    # Agent skill references (see below)
-tests/      # Tests — mirror src/ structure
-mock/       # Cloudflare Worker + build script
-.codex/     # Codex-specific config
-.github/    # PR templates
+  design/     Design documents
+  plans/      Implementation plans
+  changelog/  Changelog
+  skills/     Agent skill references
+tests/        Pytest tests (37 total)
 ```
+
+---
+
+## CI Pipeline
+
+7 steps in order: tests -> collect -> validate -> anonymize -> publish -> worker -> mkdocs
 
 ---
 

@@ -1,21 +1,31 @@
-# Mock Server
+# Mock-сервер
 
-A Cloudflare Worker sits between the browser and the real API.
+Cloudflare Worker находится между браузером и реальным API.
 
-## How It Works
+**Адрес воркера:** `https://ittop-mock.blazer19092008.workers.dev/api/v2`
 
-- **No token** → returns anonymized mock data (try it without logging in)
-- **With token** → proxies to the real API, adding required headers
+**Реальный API:** `https://msapi.top-academy.ru/api/v2`
 
-## Why This Exists
+## Логика маршрутизации
 
-Swagger UI hosted on `github.io` cannot call the real API directly because:
+Воркер обрабатывает каждый запрос по следующей логике:
 
-1. **CORS** — the API doesn't allow cross-origin requests from arbitrary domains
-2. **Origin/Referer** — the API requires these headers set to `journal.top-academy.ru`, which a browser on github.io cannot do
+1. **OPTIONS** (CORS preflight) → немедленный ответ `204 No Content` с CORS-заголовками
+2. **POST /auth/login** → проксирование к реальному API; при ошибке 4xx или сбое сети — возврат mock-данных
+3. **Есть заголовок `Authorization: Bearer ...`** → проксирование к реальному API с добавлением `Origin`/`Referer`
+4. **Нет токена** → возврат анонимизированных mock-данных
 
-The Worker solves both problems: it adds the correct CORS headers to every response and injects `Origin`/`Referer` when proxying.
+## Зачем это нужно
 
-## Source Code
+Swagger UI на `github.io` не может вызывать реальный API напрямую:
 
-The Worker is built from `mock/build_worker.py` which embeds anonymized example payloads into a self-contained `worker.js`.
+1. **CORS** — API не разрешает кросс-доменные запросы с произвольных доменов
+2. **Origin/Referer** — API требует эти заголовки равными `journal.top-academy.ru`, что браузер на github.io сделать не может
+
+Воркер решает обе проблемы: добавляет CORS-заголовки к каждому ответу и подставляет `Origin`/`Referer` при проксировании.
+
+## Сборка и деплой
+
+- `mock/build_worker.py` — генерирует `worker.js` из шаблона + анонимизированных примеров данных
+- `mock/wrangler.toml` — конфигурация Cloudflare Wrangler
+- Деплой: `wrangler deploy` (автоматически через CI, шаг `worker`)

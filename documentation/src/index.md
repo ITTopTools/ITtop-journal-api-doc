@@ -1,24 +1,42 @@
-# IT Top Journal API Documentation
+# Документация API журнала IT Top
 
-IT Top Academy Journal does not have public API documentation. This project fills the gap.
+У журнала IT Top Academy нет публичной документации API. Этот проект заполняет пробел — покрывает **34 эндпоинта**.
 
-## Quick Start
+## Быстрый старт
 
-1. **Get a token** — see [Authentication](authentication.md)
-2. **Try it live** — open [Swagger UI](swagger.md) and explore
-3. **Read the docs** — pick an [API section](API/dashboard.md) for details
+1. **Откройте Swagger UI** — [Swagger UI](swagger.md) работает сразу, без токена: mock-сервер отдаёт анонимизированные данные
+2. **Попробуйте логин** — нажмите «Try it out» на `/auth/login`, воркер проксирует запрос к реальному API
+3. **Получите токен** — если нужен доступ к реальным данным, см. [Аутентификация](authentication.md)
+4. **Читайте документацию** — выберите [раздел API](API/dashboard.md) для деталей
 
-## What This Project Does
+## Что делает проект
 
-- **Collects** real API responses via authorized requests
-- **Validates** structure with Pydantic — pipeline fails and opens an Issue if the API changes
-- **Anonymizes** data with Faker — no real names, IDs, or dates in the public repo
-- **Generates** `openapi.json` and publishes Swagger UI + text documentation
+- **Собирает** реальные ответы API через авторизованные запросы
+- **Валидирует** структуру через Pydantic — при изменении API пайплайн падает и открывает Issue
+- **Анонимизирует** данные через Faker — никаких реальных имён, ID и дат в публичном репозитории
+- **Генерирует** `openapi.json` и публикует Swagger UI + текстовую документацию
 
-## Navigation
+## Пайплайн CI
 
-| Page | What you'll find |
-|------|-----------------|
-| [Authentication](authentication.md) | How to get a token, required headers |
-| [Swagger UI](swagger.md) | Interactive API explorer |
-| [Mock Server](mock-server.md) | How the Cloudflare Worker works |
+Последовательность шагов при каждом запуске (крон ночью или вручную):
+
+```
+tests → collect → validate → anonymize → publish → worker
+                                          ↘ mkdocs
+```
+
+1. **tests** — юнит-тесты проекта
+2. **collect** — запросы к реальному API, сбор ответов
+3. **validate** — проверка схем Pydantic; при ошибке — Issue в GitHub
+4. **anonymize** — подмена чувствительных данных через Faker
+5. **publish** — генерация `openapi.json` и деплой Swagger UI на GitHub Pages
+6. **worker** — сборка и деплой Cloudflare Worker (mock-сервер)
+7. **mkdocs** — сборка и деплой текстовой документации на GitHub Pages
+
+## Навигация
+
+| Страница | Содержание |
+|----------|-----------|
+| [Аутентификация](authentication.md) | Получение токена, заголовки, кнопка Authorize |
+| [Swagger UI](swagger.md) | Интерактивный проводник по API |
+| [Mock-сервер](mock-server.md) | Как работает Cloudflare Worker |
