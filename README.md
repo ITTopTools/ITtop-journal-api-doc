@@ -205,7 +205,7 @@ uv run main.py --step publish     # Генерация openapi.json
 |----------|-------|----------|-----------|
 | `/homework/settings/group-history` | GET | Группы студента с предметами (переключатель в ДЗ) | |
 | `/settings/group-specs` | GET | Предметы текущей группы | |
-| `/homework/evaluation/operations/get-tags` | GET | Теги для самооценки ДЗ | |
+| `/homework/evaluation/operations/get-tags` | GET | Теги оценки ДЗ | |
 | `/homework/operations/list` | GET | Список домашних заданий | `?page&status&type&group_id` |
 
 ### Отзывы и обратная связь
