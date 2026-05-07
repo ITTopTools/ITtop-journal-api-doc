@@ -64,7 +64,7 @@ TAGS = [
     {"name": "dashboard", "description": "Dashboard overview: progress charts, attendance, leaderboards, upcoming exams"},
     {"name": "schedule", "description": "Class schedule by date and date range"},
     {"name": "progress", "description": "Academic progress: visit records and exam results"},
-    {"name": "homework", "description": "Homework and assignments: lists, counters, self-evaluation tags"},
+    {"name": "homework", "description": "Homework and assignments: lists, counters, homework evaluation tags"},
     {"name": "library", "description": "Learning materials and library"},
     {"name": "reviews", "description": "Reviews and lesson feedback"},
     {"name": "signals", "description": "Academic alert signals and problem indicators"},

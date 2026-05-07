@@ -314,10 +314,10 @@ ENDPOINTS: list[Endpoint] = [
         path="/homework/evaluation/operations/get-tags",
         method="GET",
         tag="homework",
-        summary="Get homework self-evaluation tags",
+        summary="Get homework evaluation tags",
         description=(
-            "Tags for the homework self-evaluation form. "
-            "Shown to the student after submitting homework for self-assessment."
+            "Tags for the homework evaluation form. "
+            "Shown to the student after submitting homework to describe their confidence and effort level."
         ),
         response_description="Array of evaluation tag items",
     ),

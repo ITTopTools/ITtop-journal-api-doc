@@ -1,6 +1,6 @@
 # Homework
 
-Homework assignments, status counters, self-evaluation tags, and group-related settings for the homework tab.
+Homework assignments, status counters, homework evaluation tags, and group-related settings for the homework tab.
 
 ## Endpoints
 
@@ -9,7 +9,7 @@ Homework assignments, status counters, self-evaluation tags, and group-related s
 | GET | `/count/homework` | Status counters for homework | [Details](counters.md) |
 | GET | `/homework/settings/group-history` | Student's groups with subjects | [Details](group-history.md) |
 | GET | `/settings/group-specs` | Subjects of the current group | [Details](group-specs.md) |
-| GET | `/homework/evaluation/operations/get-tags` | Self-assessment tags | [Details](evaluation-tags.md) |
+| GET | `/homework/evaluation/operations/get-tags` | Homework evaluation tags | [Details](evaluation-tags.md) |
 | GET | `/homework/operations/list` | Paginated homework list | [Details](list.md) |
 
 ## Dependencies

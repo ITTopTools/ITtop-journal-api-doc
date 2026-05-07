@@ -1,10 +1,10 @@
 # GET /homework/evaluation/operations/get-tags
 
-Get self-assessment tags for the homework evaluation form.
+Get homework evaluation tags.
 
 ## Purpose
 
-Self-assessment tags shown to the student after submitting homework — the student selects tags that describe their confidence and effort level.
+Homework evaluation tags shown to the student after submitting homework — the student selects tags that describe their confidence and effort level.
 
 ## Parameters
 

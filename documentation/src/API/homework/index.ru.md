@@ -1,6 +1,6 @@
 # Домашнее задание
 
-Домашние задания, счётчики статусов, теги самооценки и настройки, связанные с группой, для вкладки домашнего задания.
+Домашние задания, счётчики статусов, теги оценки ДЗ и настройки, связанные с группой, для вкладки домашнего задания.
 
 ## Эндпоинты
 
@@ -9,7 +9,7 @@
 | GET | `/count/homework` | Счётчики статусов домашних заданий | [Подробнее](counters.md) |
 | GET | `/homework/settings/group-history` | Группы ученика с предметами | [Подробнее](group-history.md) |
 | GET | `/settings/group-specs` | Предметы текущей группы | [Подробнее](group-specs.md) |
-| GET | `/homework/evaluation/operations/get-tags` | Теги самооценки | [Подробнее](evaluation-tags.md) |
+| GET | `/homework/evaluation/operations/get-tags` | Теги оценки ДЗ | [Подробнее](evaluation-tags.md) |
 | GET | `/homework/operations/list` | Постраничный список домашних заданий | [Подробнее](list.md) |
 
 ## Зависимости

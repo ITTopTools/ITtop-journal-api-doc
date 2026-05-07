@@ -66,4 +66,4 @@ Main homework list in the homework tab — returns assignments filtered by statu
 
 - [Counters](counters.md) — status counts matching `status` values
 - [Group specs](group-specs.md) — subject filter options
-- [Evaluation tags](evaluation-tags.md) — tags shown after submission
+- [Evaluation tags](evaluation-tags.md) — homework evaluation tags shown after submission
