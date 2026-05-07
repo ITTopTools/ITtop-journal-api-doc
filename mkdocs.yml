@@ -50,11 +50,11 @@ plugins:
       languages:
         - locale: ru
           default: true
-          name: Русский
+          name: "\U0001F1F7\U0001F1FA Русский"
           build: true
           site_name: "API Журнала ИТ Top Академии"
         - locale: en
-          name: English
+          name: "\U0001F1EC\U0001F1E7 English"
           build: true
           site_name: "IT Top Academy Journal API"
   - swagger-ui-tag:
