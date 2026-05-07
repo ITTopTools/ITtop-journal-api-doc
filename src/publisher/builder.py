@@ -57,6 +57,91 @@ SERVERS = [
     },
 ]
 
+# Глобальный массив тегов — порядок определяет порядок секций в Swagger UI.
+TAGS = [
+    {"name": "auth", "description": "Authentication — login to obtain JWT access token"},
+    {"name": "profile", "description": "Student profile and personal settings"},
+    {"name": "dashboard", "description": "Dashboard overview: progress charts, attendance, leaderboards, upcoming exams"},
+    {"name": "schedule", "description": "Class schedule by date and date range"},
+    {"name": "progress", "description": "Academic progress: visit records and exam results"},
+    {"name": "homework", "description": "Homework and assignments: lists, counters, self-evaluation tags"},
+    {"name": "library", "description": "Learning materials and library"},
+    {"name": "reviews", "description": "Reviews and lesson feedback"},
+    {"name": "signals", "description": "Academic alert signals and problem indicators"},
+    {"name": "news", "description": "Academy news and announcements"},
+    {"name": "public", "description": "Public reference data — no authentication required"},
+]
+
+
+def _pydantic_to_openapi_schema(model_cls: type, is_list: bool) -> dict[str, Any]:
+    """Convert a Pydantic model to an OpenAPI 3.0.3 response schema.
+
+    Uses model_json_schema() and resolves $defs/$ref into components/schemas
+    references. Returns the schema and a dict of component schemas to merge.
+    """
+    json_schema = model_cls.model_json_schema()
+    defs = json_schema.pop("$defs", {})
+
+    # Собираем схемы для components/schemas
+    component_schemas: dict[str, Any] = {}
+    for def_name, def_schema in defs.items():
+        component_schemas[def_name] = _clean_json_schema(def_schema)
+
+    # Основная схема модели
+    main_schema = _clean_json_schema(json_schema)
+
+    # Если есть $ref — заменяем на компонентную ссылку
+    main_schema = _resolve_refs(main_schema)
+
+    if is_list:
+        items_schema = main_schema
+        # Если основная схема — просто объект без имени, пробуем вытащить из $ref
+        if "$ref" in items_schema:
+            pass  # уже правильная ссылка
+        result = {"type": "array", "items": items_schema}
+    else:
+        result = main_schema
+
+    return result, component_schemas
+
+
+def _clean_json_schema(schema: dict[str, Any]) -> dict[str, Any]:
+    """Remove JSON Schema fields not valid in OpenAPI 3.0.3."""
+    remove_keys = {"title", "default"}
+    cleaned = {}
+    for key, value in schema.items():
+        if key in remove_keys:
+            continue
+        if isinstance(value, dict):
+            cleaned[key] = _clean_json_schema(value)
+        elif isinstance(value, list):
+            cleaned[key] = [
+                _clean_json_schema(item) if isinstance(item, dict) else item
+                for item in value
+            ]
+        else:
+            cleaned[key] = value
+    return cleaned
+
+
+def _resolve_refs(schema: dict[str, Any]) -> dict[str, Any]:
+    """Convert JSON Schema $defs/... references to OpenAPI #/components/schemas/... format."""
+    result = {}
+    for key, value in schema.items():
+        if key == "$ref" and isinstance(value, str) and value.startswith("#/$defs/"):
+            name = value.split("/")[-1]
+            result[key] = f"#/components/schemas/{name}"
+        elif isinstance(value, dict):
+            result[key] = _resolve_refs(value)
+        elif isinstance(value, list):
+            result[key] = [
+                _resolve_refs(item) if isinstance(item, dict) else item
+                for item in value
+            ]
+        else:
+            result[key] = value
+    return result
+
 
 class OpenAPIBuilder:
     """Build and persist OpenAPI schema generated from known endpoints."""
@@ -79,6 +164,8 @@ class OpenAPIBuilder:
         if is_api_down:
             description = f"{description}\n\n{API_DOWN_WARNING}"
 
+        component_schemas: dict[str, Any] = {}
+
         spec: dict[str, Any] = {
             "openapi": "3.0.3",
             "info": {
@@ -86,6 +173,7 @@ class OpenAPIBuilder:
                 "version": date.today().isoformat(),
                 "description": description,
             },
+            "tags": TAGS,
             "servers": SERVERS,
             "components": {
                 "securitySchemes": {
@@ -98,7 +186,8 @@ class OpenAPIBuilder:
                             "`access_token`. Pass as: Authorization: Bearer <token>"
                         ),
                     }
-                }
+                },
+                "schemas": component_schemas,
             },
             "paths": {},
         }
@@ -106,28 +195,36 @@ class OpenAPIBuilder:
         for endpoint in ENDPOINTS:
             method = endpoint.method.lower()
 
-            # Определяем схему ответа через реестр MODELS из validator-а.
-            # is_list=True  → schema type: array  (большинство эндпоинтов)
-            # is_list=False → schema type: object (например /settings/user-info)
-            # Если эндпоинт не в MODELS — fallback на object, не падаем.
+            # Генерируем схему ответа из Pydantic-модели
             if endpoint.path in VALIDATOR_MODELS:
-                _model, is_list = VALIDATOR_MODELS[endpoint.path]
-                if is_list:
-                    response_schema = {
-                        "type": "array",
-                        "items": {"type": "object", "additionalProperties": True},
-                    }
-                else:
-                    response_schema = {"type": "object", "additionalProperties": True}
+                model_cls, is_list = VALIDATOR_MODELS[endpoint.path]
+                try:
+                    response_schema, new_schemas = _pydantic_to_openapi_schema(
+                        model_cls, is_list
+                    )
+                    component_schemas.update(new_schemas)
+                except Exception:
+                    # Fallback если генерация схемы упала
+                    if is_list:
+                        response_schema = {
+                            "type": "array",
+                            "items": {"type": "object", "additionalProperties": True},
+                        }
+                    else:
+                        response_schema = {"type": "object", "additionalProperties": True}
             else:
                 response_schema = {"type": "object", "additionalProperties": True}
 
+            resp_desc = endpoint.response_description or "Successful response"
+
             operation: dict[str, Any] = {
-                "summary": f"{endpoint.method} {endpoint.path}",
-                "description": f"Auto-generated operation for `{endpoint.path}`.",
+                "summary": endpoint.summary or f"{endpoint.method} {endpoint.path}",
+                "description": endpoint.description
+                    or f"Auto-generated operation for `{endpoint.path}`.",
+                "tags": [endpoint.tag] if endpoint.tag else [],
                 "responses": {
                     "200": {
-                        "description": "Successful response",
+                        "description": resp_desc,
                         "content": {
                             "application/json": {
                                 "schema": response_schema
@@ -136,6 +233,10 @@ class OpenAPIBuilder:
                     }
                 },
             }
+
+            # x-uncertain маркер
+            if endpoint.uncertain:
+                operation["x-uncertain"] = endpoint.uncertain
 
             # Query-параметры для GET-эндпоинтов (например date_filter, language).
             if endpoint.method.upper() == "GET" and endpoint.params:
