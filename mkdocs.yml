@@ -42,6 +42,21 @@ repo_name: ITtop-journal-api-doc
 
 plugins:
   - awesome-pages
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: ru
+          default: true
+          name: Русский
+          build: true
+          site_name: "API Журнала ИТ Top Академии"
+        - locale: en
+          name: English
+          build: true
+          site_name: "IT Top Academy Journal API"
   - swagger-ui-tag:
       supportedSubmitMethods: ["get", "put", "post", "delete", "patch"]
       docExpansion: list
