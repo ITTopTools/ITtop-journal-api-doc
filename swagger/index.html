@@ -6,10 +6,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../mock-server/" rel="prev"/>
-<link href="../API/dashboard/" rel="next"/>
-<link href="../material/api" rel="icon"/>
+<link href="../API/auth/" rel="next"/>
+<link href="./" hreflang="ru" rel="alternate"/>
+<link href="../en/swagger/" hreflang="en" rel="alternate"/>
+<link href="../assets/journal_logo.svg" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Swagger UI - IT Top Journal API</title>
+<title>Swagger UI - API Журнала ИТ Top Академии</title>
 <link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -30,8 +32,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="IT Top Journal API" class="md-header__button md-logo" data-md-component="logo" href=".." title="IT Top Journal API">
-<img alt="logo" src="../material/api"/>
+<a aria-label="API Журнала ИТ Top Академии" class="md-header__button md-logo" data-md-component="logo" href=".." title="API Журнала ИТ Top Академии">
+<img alt="logo" src="../assets/journal_logo.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
@@ -40,7 +42,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            IT Top Journal API
+            API Журнала ИТ Top Академии
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -63,6 +65,27 @@
 </label>
 </form>
 <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Выберите язык" class="md-header__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="./" hreflang="ru">
+              🇷🇺 Русский
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../en/swagger/" hreflang="en">
+              🇬🇧 English
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/trapplus/ITtop-journal-api-doc" title="Перейти к репозиторию">
 <div class="md-source__icon md-icon">
@@ -86,7 +109,7 @@
   
     
   
-  IT Top Journal API Documentation
+  Документация API Журнала IT Top Academy
 
       </a>
 </li>
@@ -97,7 +120,18 @@
   
     
   
-  Authentication
+  Аутентификация
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../glossary/">
+        
+  
+  
+    
+  
+  Глоссарий
 
       </a>
 </li>
@@ -108,7 +142,7 @@
   
     
   
-  Mock Server
+  Mock-сервер
 
       </a>
 </li>
@@ -124,7 +158,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../API/dashboard/">
+<a class="md-tabs__link" href="../API/auth/">
           
   
   
@@ -142,10 +176,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="IT Top Journal API" class="md-nav__button md-logo" data-md-component="logo" href=".." title="IT Top Journal API">
-<img alt="logo" src="../material/api"/>
+<a aria-label="API Журнала ИТ Top Академии" class="md-nav__button md-logo" data-md-component="logo" href=".." title="API Журнала ИТ Top Академии">
+<img alt="logo" src="../assets/journal_logo.svg"/>
 </a>
-    IT Top Journal API
+    API Журнала ИТ Top Академии
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/trapplus/ITtop-journal-api-doc" title="Перейти к репозиторию">
@@ -163,7 +197,7 @@
 <span class="md-ellipsis">
     
   
-    IT Top Journal API Documentation
+    Документация API Журнала IT Top Academy
   
 
     
@@ -175,7 +209,19 @@
 <span class="md-ellipsis">
     
   
-    Authentication
+    Аутентификация
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../glossary/">
+<span class="md-ellipsis">
+    
+  
+    Глоссарий
   
 
     
@@ -187,7 +233,7 @@
 <span class="md-ellipsis">
     
   
-    Mock Server
+    Mock-сервер
   
 
     
@@ -224,28 +270,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-authorize">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       
-        How to Authorize
+        Как авторизоваться
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#without-a-token">
+<a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        Without a Token
+        Без токена
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#with-a-token">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
-        With a Token
+        С токеном
       
     </span>
 </a>
@@ -254,8 +300,8 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -266,12 +312,85 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
             
   
     API
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Auth
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Auth
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/auth/">
+<span class="md-ellipsis">
+    
+  
+    Аутентификация
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/auth/login/">
+<span class="md-ellipsis">
+    
+  
+    POST /auth/login
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Dashboard
   
 
           </label>
@@ -281,7 +400,7 @@
 <span class="md-ellipsis">
     
   
-    Dashboard
+    Панель управления
   
 
     
@@ -289,7 +408,119 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../API/homework/">
+<a class="md-nav__link" href="../API/dashboard/activity/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/progress/activity
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/attendance/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/chart/attendance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/average-progress/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/chart/average-progress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/chart-progress/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/chart/progress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/future-exams/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/info/future-exams
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/leader-group-points/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/progress/leader-group-points
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/leader-group/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/progress/leader-group
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/leader-stream-points/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/progress/leader-stream-points
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/dashboard/leader-stream/">
+<span class="md-ellipsis">
+    
+  
+    GET /dashboard/progress/leader-stream
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -298,10 +529,96 @@
 
     
   </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Homework
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/homework/">
+<span class="md-ellipsis">
+    
+  
+    Домашнее задание
+  
+
+    
+  </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../API/library/">
+<a class="md-nav__link" href="../API/homework/counters/">
+<span class="md-ellipsis">
+    
+  
+    GET /count/homework
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/homework/evaluation-tags/">
+<span class="md-ellipsis">
+    
+  
+    GET /homework/evaluation/operations/get-tags
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/homework/group-history/">
+<span class="md-ellipsis">
+    
+  
+    GET /homework/settings/group-history
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/homework/group-specs/">
+<span class="md-ellipsis">
+    
+  
+    GET /settings/group-specs
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/homework/list/">
+<span class="md-ellipsis">
+    
+  
+    GET /homework/operations/list
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -310,10 +627,48 @@
 
     
   </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Library
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/library/">
+<span class="md-ellipsis">
+    
+  
+    Библиотека
+  
+
+    
+  </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../API/news/">
+<a class="md-nav__link" href="../API/library/list/">
+<span class="md-ellipsis">
+    
+  
+    GET /library/operations/list
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -322,10 +677,122 @@
 
     
   </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    News
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/news/">
+<span class="md-ellipsis">
+    
+  
+    Новости
+  
+
+    
+  </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../API/progress/">
+<a class="md-nav__link" href="../API/news/latest-news/">
+<span class="md-ellipsis">
+    
+  
+    GET /news/operations/latest-news
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Profile
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/profile/">
+<span class="md-ellipsis">
+    
+  
+    Профиль
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/profile/achievements/">
+<span class="md-ellipsis">
+    
+  
+    GET /profile/statistic/student-achievements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/profile/settings/">
+<span class="md-ellipsis">
+    
+  
+    GET /profile/operations/settings
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/profile/user-info/">
+<span class="md-ellipsis">
+    
+  
+    GET /settings/user-info
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -334,14 +801,24 @@
 
     
   </span>
-</a>
-</li>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Progress
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../API/public/">
+<a class="md-nav__link" href="../API/progress/">
 <span class="md-ellipsis">
     
   
-    Public Endpoints
+    Прогресс
   
 
     
@@ -349,7 +826,195 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../API/schedule/">
+<a class="md-nav__link" href="../API/progress/student-exams/">
+<span class="md-ellipsis">
+    
+  
+    GET /progress/operations/student-exams
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/progress/student-visits/">
+<span class="md-ellipsis">
+    
+  
+    GET /progress/operations/student-visits
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Public
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Public
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/public/">
+<span class="md-ellipsis">
+    
+  
+    Публичные данные
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/public/languages/">
+<span class="md-ellipsis">
+    
+  
+    GET /public/languages
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/public/tags/">
+<span class="md-ellipsis">
+    
+  
+    GET /public/tags
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/public/translations/">
+<span class="md-ellipsis">
+    
+  
+    GET /public/translations
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Reviews
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Reviews
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/reviews/">
+<span class="md-ellipsis">
+    
+  
+    Отзывы
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/reviews/evaluate-lesson/">
+<span class="md-ellipsis">
+    
+  
+    GET /feedback/students/evaluate-lesson-list
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/reviews/instruction/">
+<span class="md-ellipsis">
+    
+  
+    GET /reviews/index/instruction
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/reviews/list/">
+<span class="md-ellipsis">
+    
+  
+    GET /reviews/index/list
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/reviews/social-review/">
+<span class="md-ellipsis">
+    
+  
+    GET /feedback/social-review/get-review-list
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_10" id="__nav_6_10_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -358,10 +1023,72 @@
 
     
   </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Schedule
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/schedule/">
+<span class="md-ellipsis">
+    
+  
+    Расписание
+  
+
+    
+  </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../API/signals/">
+<a class="md-nav__link" href="../API/schedule/get-by-date-range/">
+<span class="md-ellipsis">
+    
+  
+    GET /schedule/operations/get-by-date-range
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/schedule/get-by-date/">
+<span class="md-ellipsis">
+    
+  
+    GET /schedule/operations/get-by-date
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/schedule/get-by-month/">
+<span class="md-ellipsis">
+    
+  
+    GET /schedule/operations/get-month
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_11" id="__nav_6_11_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -370,7 +1097,56 @@
 
     
   </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Signals
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/signals/">
+<span class="md-ellipsis">
+    
+  
+    Сигналы
+  
+
+    
+  </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/signals/problems-list/">
+<span class="md-ellipsis">
+    
+  
+    GET /signal/operations/problems-list
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../API/signals/signals-list/">
+<span class="md-ellipsis">
+    
+  
+    GET /signal/operations/signals-list
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -390,28 +1166,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-authorize">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       
-        How to Authorize
+        Как авторизоваться
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#without-a-token">
+<a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        Without a Token
+        Без токена
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#with-a-token">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
-        With a Token
+        С токеном
       
     </span>
 </a>
@@ -423,21 +1199,21 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/trapplus/ITtop-journal-api-doc/edit/master/docs/swagger.md" rel="edit" title="Редактировать страницу">
+<a class="md-content__button md-icon" href="https://github.com/trapplus/ITtop-journal-api-doc/edit/master/docs/swagger.ru.md" rel="edit" title="Редактировать страницу">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="swagger-ui">Swagger UI</h1>
-<p>Interactive API documentation powered by Swagger UI.</p>
-<h2 id="how-to-authorize">How to Authorize</h2>
+<p>Интерактивная документация API на базе Swagger UI.</p>
+<h2 id="_1">Как авторизоваться</h2>
 <ol>
-<li>Click the <strong>Authorize</strong> button</li>
-<li>Enter your Bearer token</li>
-<li>All subsequent "Try it out" requests will include the token</li>
+<li>Нажмите кнопку <strong>Authorize</strong></li>
+<li>Введите Bearer-токен</li>
+<li>Все последующие запросы «Try it out» будут включать токен</li>
 </ol>
-<h2 id="without-a-token">Without a Token</h2>
-<p>If you don't authorize, the mock server returns anonymized example data. This is enough to explore the API structure.</p>
-<h2 id="with-a-token">With a Token</h2>
-<p>Authorized requests go through to the real API. See <a href="../authentication/">Authentication</a> for how to get a token.</p>
+<h2 id="_2">Без токена</h2>
+<p>Без авторизации mock-сервер вернёт анонимизированные примеры данных. Этого достаточно для изучения структуры API.</p>
+<h2 id="_3">С токеном</h2>
+<p>Авторизованные запросы проксируются к реальному API. См. <a href="../authentication/">Аутентификация</a> для получения токена.</p>
 <p><iframe class="swagger-ui-iframe" frameborder="0" id="f097396a" onload="this.style.display = 'block'; this.style.overflow = 'hidden'; this.style.width = '100%';" src="swagger-f097396a.html" style="display:none;" width="100%"></iframe></p>
 </article>
 </div>

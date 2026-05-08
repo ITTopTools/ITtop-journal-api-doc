@@ -5,6 +5,52 @@
     "version": "2026-05-08",
     "description": "Auto-generated documentation from daily Journal API collection."
   },
+  "tags": [
+    {
+      "name": "auth",
+      "description": "Authentication — login to obtain JWT access token"
+    },
+    {
+      "name": "profile",
+      "description": "Student profile and personal settings"
+    },
+    {
+      "name": "dashboard",
+      "description": "Dashboard overview: progress charts, attendance, leaderboards, upcoming exams"
+    },
+    {
+      "name": "schedule",
+      "description": "Class schedule by date and date range"
+    },
+    {
+      "name": "progress",
+      "description": "Academic progress: visit records and exam results"
+    },
+    {
+      "name": "homework",
+      "description": "Homework and assignments: lists, counters, homework evaluation tags"
+    },
+    {
+      "name": "library",
+      "description": "Learning materials and library"
+    },
+    {
+      "name": "reviews",
+      "description": "Reviews and lesson feedback"
+    },
+    {
+      "name": "signals",
+      "description": "Academic alert signals and problem indicators"
+    },
+    {
+      "name": "news",
+      "description": "Academy news and announcements"
+    },
+    {
+      "name": "public",
+      "description": "Public reference data — no authentication required"
+    }
+  ],
   "servers": [
     {
       "url": "https://ittop-mock.blazer19092008.workers.dev/api/v2",
@@ -19,38 +65,217 @@
         "bearerFormat": "JWT",
         "description": "JWT access token obtained from POST /auth/login response field `access_token`. Pass as: Authorization: Bearer <token>"
       }
+    },
+    "schemas": {
+      "GroupSpecItem": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "short_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "HomeworkCommentItem": {
+        "additionalProperties": true,
+        "properties": {
+          "text_comment": {},
+          "attachment": {},
+          "attachment_path": {},
+          "date_updated": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "HomeworkStudItem": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "file_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tmp_file": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mark": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "creation_time": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "stud_answer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "auto_mark": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      }
     }
   },
   "paths": {
     "/auth/login": {
       "post": {
-        "summary": "POST /auth/login",
-        "description": "Auto-generated operation for `/auth/login`.",
+        "summary": "Submit login credentials",
+        "description": "Login with username and password to obtain a JWT access token. The `access_token` from the response is used as a Bearer token for all other endpoints.",
+        "tags": [
+          "auth"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "JWT tokens and user session info",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": true,
+                  "properties": {
+                    "access_token": {
+                      "type": "string"
+                    },
+                    "refresh_token": {
+                      "type": "string"
+                    },
+                    "expires_in_refresh": {
+                      "type": "integer"
+                    },
+                    "expires_in_access": {
+                      "type": "integer"
+                    },
+                    "user_type": {
+                      "type": "integer"
+                    },
+                    "city_data": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    "user_role": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "access_token",
+                    "refresh_token",
+                    "expires_in_refresh",
+                    "expires_in_access",
+                    "user_type",
+                    "city_data",
+                    "user_role"
+                  ],
+                  "type": "object"
                 },
                 "example": {
-                  "access_token": "2c39c3c4fe26f6aa36492793a32ba833d17c5caae01235bbebfdb0bf0764e3c9",
-                  "refresh_token": "727168b55f698f9d15bcfa7fb3c76c736f35eb73f96cc3c4555427a082c20af1",
-                  "expires_in_refresh": 43415,
-                  "expires_in_access": 67998,
-                  "user_type": 6326,
+                  "access_token": "de10a4a6d69b5fee0a802a00fe3be7e396eff5f614fc4dd6a353e737ff7d4708",
+                  "refresh_token": "a9aab88dd07cb2546d0491024b31884692e7c1c3fbfa66093401d5693231e72d",
+                  "expires_in_refresh": 33131,
+                  "expires_in_access": 16249,
+                  "user_type": 50393,
                   "city_data": {
-                    "id_city": 27330,
-                    "prefix": "KkYELIPDzRbFg",
-                    "translate_key": "SybZhlcUsMpidRt",
-                    "timezone_name": "kKzJVD",
-                    "country_code": "tWwEPwu",
-                    "market_status": 62488,
-                    "name": "ICmjK"
+                    "id_city": 71535,
+                    "prefix": "CcPrENJfm",
+                    "translate_key": "CSNTW",
+                    "timezone_name": "MpIVKaGmhg",
+                    "country_code": "GyYNxZp",
+                    "market_status": 20465,
+                    "name": "oeheEXzf"
                   },
-                  "user_role": "GFnOPuJidGtWuvw"
+                  "user_role": "VxSdkU"
                 }
               }
             }
@@ -78,44 +303,210 @@
     },
     "/settings/user-info": {
       "get": {
-        "summary": "GET /settings/user-info",
-        "description": "Auto-generated operation for `/settings/user-info`.",
+        "summary": "Get current student info",
+        "description": "Returns the authenticated student's profile: name, group, stream, current group ID, and other personal details. `current_group_id` is used as `group_id` parameter in homework endpoints.",
+        "tags": [
+          "profile"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Student profile with group, stream, and personal info",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": true,
+                  "properties": {
+                    "student_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "full_name": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "group_name": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "stream_name": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "level": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "age": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "gender": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "birthday": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "last_date_visit": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "registration_date": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "current_group_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "current_group_status": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "stream_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "achieves_count": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "manual_link": {},
+                    "photo": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "study_form_short_name": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
                 },
                 "example": {
                   "groups": [
                     {
-                      "group_status": 82922,
+                      "group_status": 62676,
                       "is_primary": true,
-                      "id": 50254,
-                      "name": "JQviTJUfFL"
+                      "id": 75283,
+                      "name": "ulkOjkzc"
                     }
                   ],
                   "manual_link": null,
-                  "student_id": 24951,
-                  "current_group_id": 73257,
-                  "full_name": "WSdhtjZbj",
-                  "achieves_count": 13475,
-                  "stream_id": 54546,
-                  "stream_name": "UTxWvKLVMYOtoGK",
-                  "group_name": "HSOSizqAbNNEcM",
-                  "level": 44003,
-                  "photo": "http://thomas.com/",
+                  "student_id": 72296,
+                  "current_group_id": 83706,
+                  "full_name": "azpCKwXvPUfcLMI",
+                  "achieves_count": 80153,
+                  "stream_id": 3064,
+                  "stream_name": "ciAgGIosmeTp",
+                  "group_name": "JXFQwnJ",
+                  "level": 34001,
+                  "photo": "https://www.stewart-miller.com/",
                   "gaming_points": [
                     {
-                      "new_gaming_point_types__id": 82073,
-                      "points": 26549
+                      "new_gaming_point_types__id": 37987,
+                      "points": 12476
                     },
                     {
-                      "new_gaming_point_types__id": 70531,
-                      "points": 69687
+                      "new_gaming_point_types__id": 43690,
+                      "points": 27078
                     }
                   ],
                   "spent_gaming_points": [],
@@ -142,13 +533,13 @@
                     "is_russian_branch": true,
                     "is_academy_branch": false
                   },
-                  "current_group_status": 27514,
-                  "birthday": "2026-02-07T04:42:19.578197",
-                  "age": 99733,
-                  "last_date_visit": "2026-02-01T03:35:33.365734",
-                  "registration_date": "2026-03-16T09:35:52.049281",
-                  "gender": 87205,
-                  "study_form_short_name": "yEmaEEBdMkkwTS"
+                  "current_group_status": 45268,
+                  "birthday": "2026-02-28T06:35:36.971048",
+                  "age": 99750,
+                  "last_date_visit": "2026-02-20T04:10:08.233864",
+                  "registration_date": "2026-01-23T13:08:35.158989",
+                  "gender": 87022,
+                  "study_form_short_name": "TgHQCrebafDkJ"
                 }
               }
             }
@@ -195,67 +586,217 @@
     },
     "/profile/operations/settings": {
       "get": {
-        "summary": "GET /profile/operations/settings",
-        "description": "Auto-generated operation for `/profile/operations/settings`.",
+        "summary": "Get profile settings",
+        "description": "Editable student profile fields: name, address, email, phone verification status, photo, and profile completion percentage. Note: the API returns `ful_name` (typo) instead of `full_name`.",
+        "tags": [
+          "profile"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Editable profile fields and verification status",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": true,
+                  "properties": {
+                    "id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "ful_name": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "address": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "date_birth": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "study": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "email": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "last_approving_status": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "form_type": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "photo_path": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "has_not_approved_data": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "has_not_approved_photo": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "is_email_verified": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "is_phone_verified": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "fill_percentage": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "decline_comment": {},
+                    "azure_login": {}
+                  },
+                  "type": "object"
                 },
                 "example": {
-                  "id": 52128,
-                  "ful_name": "ivAzButWx",
-                  "address": "sAbjykNNZFEjS",
-                  "date_birth": "2026-03-14T04:12:19.104125",
-                  "study": "iOISRsqw",
-                  "email": "wilsonlisa@example.org",
-                  "last_approving_status": 15282,
-                  "form_type": 17762,
-                  "photo_path": "http://www.bryan.com/",
+                  "id": 55839,
+                  "ful_name": "xVXqUi",
+                  "address": "QSQnEwq",
+                  "date_birth": "2026-01-06T17:14:00.356510",
+                  "study": "sNmYpV",
+                  "email": "qnguyen@example.org",
+                  "last_approving_status": 63340,
+                  "form_type": 28995,
+                  "photo_path": "https://www.ballard-love.info/",
                   "has_not_approved_data": false,
                   "has_not_approved_photo": false,
                   "is_email_verified": true,
                   "is_phone_verified": true,
                   "phones": [
                     {
-                      "phone_type": 66470,
-                      "phone_number": "dYcDpBIVe"
+                      "phone_type": 16131,
+                      "phone_number": "gHXRxsj"
                     },
                     {
-                      "phone_type": 85116,
-                      "phone_number": "iLVEEx"
+                      "phone_type": 2761,
+                      "phone_number": "EFBcgtBDxTf"
                     }
                   ],
                   "links": [
                     {
-                      "id": 67487,
-                      "name": "UpbnhhVF",
-                      "reg": "kgJpfmEGwJuW",
-                      "required_type": 44207,
+                      "id": 97992,
+                      "name": "EWSwgkJEcg",
+                      "reg": "jsagSAUvBznWO",
+                      "required_type": 87511,
                       "value": null,
                       "valid": true,
                       "is_required": false,
                       "show_link": true
                     },
                     {
-                      "id": 27664,
-                      "name": "LBdNimWdESY",
-                      "reg": "SLvKA",
-                      "required_type": 36042,
+                      "id": 65364,
+                      "name": "mZzwnx",
+                      "reg": "xDmOLHFyzTY",
+                      "required_type": 76767,
                       "value": null,
                       "valid": true,
                       "is_required": false,
                       "show_link": true
                     },
                     {
-                      "id": 83356,
-                      "name": "rDXKwkxuJRPI",
+                      "id": 71298,
+                      "name": "IdMSB",
                       "reg": "",
-                      "required_type": 27167,
+                      "required_type": 27693,
                       "value": null,
                       "valid": true,
                       "is_required": false,
@@ -263,7 +804,7 @@
                     }
                   ],
                   "relatives": [],
-                  "fill_percentage": 18525,
+                  "fill_percentage": 47946,
                   "decline_comment": null,
                   "azure": {
                     "login": null,
@@ -317,63 +858,109 @@
     },
     "/profile/statistic/student-achievements": {
       "get": {
-        "summary": "GET /profile/statistic/student-achievements",
-        "description": "Auto-generated operation for `/profile/statistic/student-achievements`.",
+        "summary": "List student achievements",
+        "description": "Achievements earned by the student (badges, milestones). Each achievement has a `translate_key` for the UI label and an `achieve_points` list.",
+        "tags": [
+          "profile"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of achievements with points",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "translate_key": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "is_active": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "achieve_points": {
+                        "anyOf": [
+                          {
+                            "items": {},
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id": 62817,
-                    "translate_key": "jsnoUzZDIyuRR",
+                    "id": 57682,
+                    "translate_key": "UQRvoUI",
                     "is_active": true,
                     "achieve_points": [
                       {
-                        "id": 52281,
-                        "points_count": 81769
+                        "id": 51150,
+                        "points_count": 49380
                       },
                       {
-                        "id": 29816,
-                        "points_count": 49399
+                        "id": 78963,
+                        "points_count": 99267
                       }
                     ]
                   },
                   {
-                    "id": 26158,
-                    "translate_key": "TbHwquHsUHn",
+                    "id": 44432,
+                    "translate_key": "atVaPmRYw",
                     "is_active": true,
                     "achieve_points": [
                       {
-                        "id": 58181,
-                        "points_count": 93378
+                        "id": 57549,
+                        "points_count": 77232
                       },
                       {
-                        "id": 97399,
-                        "points_count": 20043
+                        "id": 88962,
+                        "points_count": 6985
                       }
                     ]
                   },
                   {
-                    "id": 98522,
-                    "translate_key": "ZrDdTZmd",
+                    "id": 98796,
+                    "translate_key": "AkFbHBissjFRs",
                     "is_active": true,
                     "achieve_points": [
                       {
-                        "id": 46507,
-                        "points_count": 69196
+                        "id": 28304,
+                        "points_count": 77651
                       },
                       {
-                        "id": 62826,
-                        "points_count": 18748
+                        "id": 52331,
+                        "points_count": 12368
                       }
                     ]
                   }
@@ -423,37 +1010,88 @@
     },
     "/dashboard/chart/average-progress": {
       "get": {
-        "summary": "GET /dashboard/chart/average-progress",
-        "description": "Auto-generated operation for `/dashboard/chart/average-progress`.",
+        "summary": "Get average progress chart",
+        "description": "Monthly average progress values for the student. Used to render the progress line chart on the main dashboard. Each item has `points` (current month) and `previous_points` (previous month).",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of monthly progress data points",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "points": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previous_points": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "has_rasp": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date": "2026-05-02T10:36:27.605108",
-                    "points": 3423,
+                    "date": "2026-04-18T14:19:29.476930",
+                    "points": 35176,
                     "previous_points": null,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-01-22T21:00:06.580342",
-                    "points": 63816,
-                    "previous_points": 56513,
+                    "date": "2026-04-18T14:25:55.329989",
+                    "points": 65182,
+                    "previous_points": 54397,
                     "has_rasp": null
                   },
                   {
-                    "date": "2026-02-10T23:48:37.941011",
-                    "points": 36220,
-                    "previous_points": 95143,
+                    "date": "2026-04-20T16:46:26.618174",
+                    "points": 63395,
+                    "previous_points": 51227,
                     "has_rasp": null
                   }
                 ]
@@ -502,37 +1140,88 @@
     },
     "/dashboard/chart/attendance": {
       "get": {
-        "summary": "GET /dashboard/chart/attendance",
-        "description": "Auto-generated operation for `/dashboard/chart/attendance`.",
+        "summary": "Get attendance chart data",
+        "description": "Monthly attendance percentages for the student's group. Used to render the attendance chart on the main dashboard. `points` is the attendance percentage for the given month.",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of monthly attendance percentages",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "points": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previous_points": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "has_rasp": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date": "2026-04-10T17:32:59.665395",
-                    "points": 46853,
+                    "date": "2026-02-23T13:47:32.465012",
+                    "points": 86773,
                     "previous_points": null,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-01-30T23:09:06.360278",
-                    "points": 51506,
-                    "previous_points": 3352,
+                    "date": "2026-02-15T08:52:50.630473",
+                    "points": 69813,
+                    "previous_points": 40916,
                     "has_rasp": true
                   },
                   {
-                    "date": "2026-01-10T08:34:21.891201",
-                    "points": 89942,
-                    "previous_points": 41175,
+                    "date": "2026-01-21T06:32:49.575202",
+                    "points": 18354,
+                    "previous_points": 5988,
                     "has_rasp": true
                   }
                 ]
@@ -581,67 +1270,95 @@
     },
     "/dashboard/chart/progress": {
       "get": {
-        "summary": "GET /dashboard/chart/progress",
-        "description": "Auto-generated operation for `/dashboard/chart/progress`.",
+        "summary": "Get progress charts by type",
+        "description": [
+          "Progress chart data grouped by `chart_type`. Each group contains `chart_models` with the same structure as average-progress items. Used for the multi-chart dashboard view."
+        ],
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of chart groups, each with typed progress data",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "chart_type": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "chart_models": {
+                        "anyOf": [
+                          {
+                            "items": {},
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "chart_type": 74023,
+                    "chart_type": 21222,
                     "chart_models": []
                   },
                   {
-                    "chart_type": 70428,
+                    "chart_type": 99652,
                     "chart_models": [
                       {
-                        "date": "2026-02-02T09:12:25.783043",
-                        "points": 86725,
+                        "date": "2026-01-15T18:34:50.179381",
+                        "points": 73230,
                         "previous_points": null,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-05-04T02:42:11.950516",
-                        "points": 16746,
-                        "previous_points": 20274,
+                        "date": "2026-01-11T02:44:05.367661",
+                        "points": 59184,
+                        "previous_points": 57695,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-04-18T04:28:40.382902",
-                        "points": 29383,
-                        "previous_points": 99471,
+                        "date": "2026-01-15T14:00:51.256149",
+                        "points": 80010,
+                        "previous_points": 10711,
                         "has_rasp": false
                       }
                     ]
                   },
                   {
-                    "chart_type": 62848,
+                    "chart_type": 76786,
                     "chart_models": [
                       {
-                        "date": "2026-03-10T15:01:06.854274",
-                        "points": 3516,
+                        "date": "2026-05-01T20:48:38.213946",
+                        "points": 82837,
                         "previous_points": null,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-01-02T10:38:33.209847",
-                        "points": 10987,
-                        "previous_points": 39593,
+                        "date": "2026-02-17T20:57:35.169298",
+                        "points": 9608,
+                        "previous_points": 16346,
                         "has_rasp": false
                       },
                       {
-                        "date": "2026-02-17T23:05:53.118491",
-                        "points": 86989,
-                        "previous_points": 4251,
+                        "date": "2026-01-21T20:53:18.798068",
+                        "points": 69064,
+                        "previous_points": 56493,
                         "has_rasp": false
                       }
                     ]
@@ -651,6 +1368,7 @@
             }
           }
         },
+        "x-uncertain": "Meaning of each chart_type value is not documented by the API",
         "security": [
           {
             "BearerAuth": []
@@ -692,55 +1410,163 @@
     },
     "/dashboard/progress/activity": {
       "get": {
-        "summary": "GET /dashboard/progress/activity",
-        "description": "Auto-generated operation for `/dashboard/progress/activity`.",
+        "summary": "Get activity feed",
+        "description": "Activity feed with points, achievements, and badges. Shows recent actions (earned points, unlocked achievements) on the dashboard activity section.",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of activity events with points and achievements",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "action": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "current_point": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "point_types_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "point_types_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "achievements_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "achievements_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "achievements_type": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "badge": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "old_competition": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date": "2026-01-14T08:35:13.140478",
-                    "action": 80622,
-                    "current_point": 73511,
-                    "point_types_id": 78830,
-                    "point_types_name": "syMfqYMv",
-                    "achievements_id": 49170,
-                    "achievements_name": "zkFoU",
-                    "achievements_type": 22134,
-                    "badge": 94154,
+                    "date": "2026-01-15T00:35:12.346979",
+                    "action": 91051,
+                    "current_point": 51519,
+                    "point_types_id": 25942,
+                    "point_types_name": "KmqzNvzqDpMBkx",
+                    "achievements_id": 45146,
+                    "achievements_name": "ZpdBvjiZQMngO",
+                    "achievements_type": 81121,
+                    "badge": 52374,
                     "old_competition": false
                   },
                   {
-                    "date": "2026-03-11T18:25:25.636067",
-                    "action": 50761,
-                    "current_point": 55984,
-                    "point_types_id": 71915,
-                    "point_types_name": "aDJhGSFeQG",
-                    "achievements_id": 23351,
-                    "achievements_name": "azMrmAqV",
-                    "achievements_type": 66273,
-                    "badge": 52567,
+                    "date": "2026-05-03T09:43:32.532897",
+                    "action": 67432,
+                    "current_point": 90828,
+                    "point_types_id": 78708,
+                    "point_types_name": "cwaIZziBltlRfz",
+                    "achievements_id": 68780,
+                    "achievements_name": "fCCwyUAAZ",
+                    "achievements_type": 81323,
+                    "badge": 68636,
                     "old_competition": false
                   },
                   {
-                    "date": "2026-02-08T00:23:32.338786",
-                    "action": 52850,
-                    "current_point": 43624,
-                    "point_types_id": 7649,
-                    "point_types_name": "wNeqwxuewdeSYX",
-                    "achievements_id": 34254,
-                    "achievements_name": "oKnhaAKGCAvSXIk",
-                    "achievements_type": 55636,
-                    "badge": 21623,
+                    "date": "2026-01-03T23:02:03.380880",
+                    "action": 66078,
+                    "current_point": 20893,
+                    "point_types_id": 90785,
+                    "point_types_name": "GuqwFCXBEvCeRDo",
+                    "achievements_id": 67442,
+                    "achievements_name": "aRBfJ",
+                    "achievements_type": 85638,
+                    "badge": 9090,
                     "old_competition": false
                   }
                 ]
@@ -789,41 +1615,99 @@
     },
     "/dashboard/progress/leader-group": {
       "get": {
-        "summary": "GET /dashboard/progress/leader-group",
-        "description": "Auto-generated operation for `/dashboard/progress/leader-group`.",
+        "summary": "Get group leaderboard",
+        "description": "Top students in the student's group ranked by points. Each entry has `position`, `full_name`, and `amount` (total points).",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of group members ranked by points",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "full_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "photo_path": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "position": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "amount": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "amount": 55178,
-                    "id": 52480,
-                    "full_name": "nllOUHeCYAP",
-                    "photo_path": "https://sanders.com/",
-                    "position": 96563
+                    "amount": 16633,
+                    "id": 93479,
+                    "full_name": "yHFVKeqFvMULV",
+                    "photo_path": "https://ray-wallace.com/",
+                    "position": 73792
                   },
                   {
-                    "amount": 12661,
-                    "id": 12919,
-                    "full_name": "GTuDTOZpIAtkd",
-                    "photo_path": "http://nichols.com/",
-                    "position": 85188
+                    "amount": 14951,
+                    "id": 39263,
+                    "full_name": "IseUsgjJLe",
+                    "photo_path": "http://gay.com/",
+                    "position": 32784
                   },
                   {
-                    "amount": 69151,
-                    "id": 29462,
-                    "full_name": "vfEJHyZaGIQrw",
-                    "photo_path": "http://edwards-moran.com/",
-                    "position": 95938
+                    "amount": 61553,
+                    "id": 88934,
+                    "full_name": "RnJlvLttokC",
+                    "photo_path": "http://www.romero.biz/",
+                    "position": 9575
                   }
                 ]
               }
@@ -871,41 +1755,99 @@
     },
     "/dashboard/progress/leader-stream": {
       "get": {
-        "summary": "GET /dashboard/progress/leader-stream",
-        "description": "Auto-generated operation for `/dashboard/progress/leader-stream`.",
+        "summary": "Get stream leaderboard",
+        "description": "Top students across the entire stream ranked by points. Same structure as group leaderboard but covering the whole stream.",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of stream members ranked by points",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "full_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "photo_path": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "position": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "amount": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id": 56200,
-                    "full_name": "LHHUpyQknsT",
-                    "photo_path": "http://weaver-reeves.org/",
-                    "position": 48912,
-                    "amount": 65070
+                    "id": 14219,
+                    "full_name": "sGEBEnWPbC",
+                    "photo_path": "https://ross.com/",
+                    "position": 37353,
+                    "amount": 38404
                   },
                   {
-                    "id": 92101,
-                    "full_name": "woOxJt",
-                    "photo_path": "http://www.turner-valencia.com/",
-                    "position": 70954,
-                    "amount": 12216
+                    "id": 94834,
+                    "full_name": "IFoyHLJYFm",
+                    "photo_path": "http://www.joyce.com/",
+                    "position": 55424,
+                    "amount": 37461
                   },
                   {
-                    "id": 71262,
-                    "full_name": "HdPeecNFiccvBI",
-                    "photo_path": "http://love.com/",
-                    "position": 59729,
-                    "amount": 64104
+                    "id": 82798,
+                    "full_name": "HRhmFJqwBGEjz",
+                    "photo_path": "https://www.collins-lewis.com/",
+                    "position": 46063,
+                    "amount": 40318
                   }
                 ]
               }
@@ -953,22 +1895,73 @@
     },
     "/dashboard/progress/leader-group-points": {
       "get": {
-        "summary": "GET /dashboard/progress/leader-group-points",
-        "description": "Auto-generated operation for `/dashboard/progress/leader-group-points`.",
+        "summary": "Get student position in group",
+        "description": "Current student's position and point stats within the group: `studentPosition`, `totalCount` (group size), `weekDiff`, `monthDiff` (point change relative to previous week/month).",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Student's group position and point dynamics",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": true,
+                  "properties": {
+                    "totalCount": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "studentPosition": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "weekDiff": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "monthDiff": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
                 },
                 "example": {
-                  "totalCount": 24331,
-                  "studentPosition": 36679,
-                  "weekDiff": 11705,
-                  "monthDiff": 59887
+                  "totalCount": 60525,
+                  "studentPosition": 18841,
+                  "weekDiff": 17379,
+                  "monthDiff": 81663
                 }
               }
             }
@@ -1015,22 +2008,73 @@
     },
     "/dashboard/progress/leader-stream-points": {
       "get": {
-        "summary": "GET /dashboard/progress/leader-stream-points",
-        "description": "Auto-generated operation for `/dashboard/progress/leader-stream-points`.",
+        "summary": "Get student position in stream",
+        "description": "Current student's position and point stats within the stream. Same structure as leader-group-points but for the whole stream. `totalCount` can be null.",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Student's stream position and point dynamics",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": true,
+                  "properties": {
+                    "totalCount": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "studentPosition": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "weekDiff": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "monthDiff": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
                 },
                 "example": {
                   "totalCount": null,
-                  "studentPosition": 14845,
-                  "weekDiff": 49723,
-                  "monthDiff": 50010
+                  "studentPosition": 88566,
+                  "weekDiff": 63287,
+                  "monthDiff": 48214
                 }
               }
             }
@@ -1077,18 +2121,43 @@
     },
     "/dashboard/info/future-exams": {
       "get": {
-        "summary": "GET /dashboard/info/future-exams",
-        "description": "Auto-generated operation for `/dashboard/info/future-exams`.",
+        "summary": "Get upcoming exams",
+        "description": "List of upcoming exams with subject name (`spec`) and date.",
+        "tags": [
+          "dashboard"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of upcoming exam entries",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "spec": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": []
@@ -1137,47 +2206,122 @@
     },
     "/schedule/operations/get-by-date": {
       "get": {
-        "summary": "GET /schedule/operations/get-by-date",
-        "description": "Auto-generated operation for `/schedule/operations/get-by-date`.",
+        "summary": "Get schedule for a date",
+        "description": "Class schedule for a specific date. Returns lessons with time, teacher, subject, and room info. Number of items varies by how many classes are scheduled that day.",
+        "tags": [
+          "schedule"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of scheduled lessons for the date",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "lesson": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "started_at": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "finished_at": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "teacher_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "subject_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "room_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date": "2026-02-14T13:56:13.339819",
-                    "lesson": 98821,
-                    "started_at": "gisiJYOudJ",
-                    "finished_at": "HJedvLFfdMR",
-                    "teacher_name": "mSZrLImNQNj",
-                    "subject_name": "fxhdohGwiWke",
-                    "room_name": "wkEaz"
+                    "date": "2026-02-01T03:37:30.034734",
+                    "lesson": 1572,
+                    "started_at": "UpRWVBGpUylTEB",
+                    "finished_at": "qiOVI",
+                    "teacher_name": "ZKDsqDfdM",
+                    "subject_name": "xdMzSygPS",
+                    "room_name": "CyCIGsEAPbZ"
                   },
                   {
-                    "date": "2026-02-22T22:41:54.466399",
-                    "lesson": 35082,
-                    "started_at": "hgLnHayaivcAdC",
-                    "finished_at": "ObOGvtFk",
-                    "teacher_name": "DECHreKrvVD",
-                    "subject_name": "KStLMp",
-                    "room_name": "WYVcFl"
+                    "date": "2026-01-29T21:57:43.980070",
+                    "lesson": 42817,
+                    "started_at": "pFonPD",
+                    "finished_at": "OTsQjyXX",
+                    "teacher_name": "LOJBhyrsVu",
+                    "subject_name": "wPGVFmvZ",
+                    "room_name": "TgrdYwqA"
                   },
                   {
-                    "date": "2026-04-13T11:57:23.382464",
-                    "lesson": 87333,
-                    "started_at": "Zlbeg",
-                    "finished_at": "xDbIqvH",
-                    "teacher_name": "DNODCLbcbaG",
-                    "subject_name": "AaorTHyO",
-                    "room_name": "htymnvJXdLDGnF"
+                    "date": "2026-03-27T03:31:20.078179",
+                    "lesson": 54288,
+                    "started_at": "QuqLHQPrzAAety",
+                    "finished_at": "CkgEqn",
+                    "teacher_name": "eMglVOBkdPHbn",
+                    "subject_name": "bqgpWJl",
+                    "room_name": "FNGkAezS"
                   }
                 ]
               }
@@ -1234,47 +2378,122 @@
     },
     "/schedule/operations/get-by-date-range": {
       "get": {
-        "summary": "GET /schedule/operations/get-by-date-range",
-        "description": "Auto-generated operation for `/schedule/operations/get-by-date-range`.",
+        "summary": "Get schedule for a date range",
+        "description": "Class schedule for a date range (start and end inclusive). Returns an empty array if no classes fall within the range — this is normal.",
+        "tags": [
+          "schedule"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of scheduled lessons in the date range",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "lesson": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "started_at": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "finished_at": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "teacher_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "subject_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "room_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date": "2026-03-28T12:55:54.738004",
-                    "lesson": 68999,
-                    "started_at": "BwyJH",
-                    "finished_at": "ETlOJTYFKaNoK",
-                    "teacher_name": "tQVDmfEn",
-                    "subject_name": "rVwpyvt",
-                    "room_name": "bICuPCBB"
+                    "date": "2026-02-27T14:20:57.211478",
+                    "lesson": 94840,
+                    "started_at": "WxMNdinSMwYOd",
+                    "finished_at": "JiREBblI",
+                    "teacher_name": "cPuwpzlSkkcWL",
+                    "subject_name": "egKdqIM",
+                    "room_name": "gnBqcwDCTiwiR"
                   },
                   {
-                    "date": "2026-03-12T14:59:28.801499",
-                    "lesson": 3888,
-                    "started_at": "aSuEjIWMpRUPPB",
-                    "finished_at": "qfONzpUvDOZ",
-                    "teacher_name": "YehydPe",
-                    "subject_name": "PvUcoZtPY",
-                    "room_name": "nkMawl"
+                    "date": "2026-01-31T14:36:49.959039",
+                    "lesson": 72556,
+                    "started_at": "HIcsH",
+                    "finished_at": "ZPBNFmUz",
+                    "teacher_name": "QudVulesfbsIABR",
+                    "subject_name": "gtczaHUexYScbt",
+                    "room_name": "PsUfQccohYwkaod"
                   },
                   {
-                    "date": "2026-01-13T16:01:25.126692",
-                    "lesson": 25571,
-                    "started_at": "xQBXStFQIDnS",
-                    "finished_at": "BrRbOyRN",
-                    "teacher_name": "mKwWk",
-                    "subject_name": "BsffLCiWCbymep",
-                    "room_name": "kCwAFoVGIj"
+                    "date": "2026-03-16T20:37:25.448938",
+                    "lesson": 53164,
+                    "started_at": "NXfpxY",
+                    "finished_at": "FZlfprpcyM",
+                    "teacher_name": "ShqppRRsV",
+                    "subject_name": "HKYuxZ",
+                    "room_name": "QUxsCgOsgi"
                   }
                 ]
               }
@@ -1340,47 +2559,122 @@
     },
     "/schedule/operations/get-month": {
       "get": {
-        "summary": "GET /schedule/operations/get-month",
-        "description": "Auto-generated operation for `/schedule/operations/get-month`.",
+        "summary": "Get schedule for a month",
+        "description": "Class schedule for the month containing the given date. Same item structure as get-by-date.",
+        "tags": [
+          "schedule"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of scheduled lessons for the month",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "lesson": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "started_at": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "finished_at": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "teacher_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "subject_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "room_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date": "2026-01-04T18:15:50.241901",
-                    "lesson": 26169,
-                    "started_at": "FXHtnGZLAFiBn",
-                    "finished_at": "SPGZHPgfI",
-                    "teacher_name": "HoOZZUGPJ",
-                    "subject_name": "pOMSDjpqePWMw",
-                    "room_name": "TFUVpbMNXzFfGa"
+                    "date": "2026-01-23T17:28:00.791965",
+                    "lesson": 37920,
+                    "started_at": "KlSBKByJqHc",
+                    "finished_at": "svBFVOpxFXtKqny",
+                    "teacher_name": "GEhUhqvQlsyY",
+                    "subject_name": "tanzrvKWXMtY",
+                    "room_name": "rAbdSxSZECjp"
                   },
                   {
-                    "date": "2026-03-22T19:21:40.249719",
-                    "lesson": 71012,
-                    "started_at": "YAcjvpy",
-                    "finished_at": "DPbkqrOl",
-                    "teacher_name": "xZtviwQ",
-                    "subject_name": "IrSHGcDzSFrMh",
-                    "room_name": "tDXMdMr"
+                    "date": "2026-04-08T09:59:13.586288",
+                    "lesson": 17369,
+                    "started_at": "XyGLVa",
+                    "finished_at": "aRBKpZfSMICP",
+                    "teacher_name": "AXqsdQyc",
+                    "subject_name": "XWUYUXBbOdjcwe",
+                    "room_name": "xJgIutrzqFmCUY"
                   },
                   {
-                    "date": "2026-02-14T11:36:40.509313",
-                    "lesson": 37883,
-                    "started_at": "SFsJjVXwcn",
-                    "finished_at": "ZFBhFdo",
-                    "teacher_name": "uUJtp",
-                    "subject_name": "bDmmiYmBSetM",
-                    "room_name": "DlydajMmuRI"
+                    "date": "2026-03-22T01:17:03.140436",
+                    "lesson": 47226,
+                    "started_at": "EvurJnINVbWMSS",
+                    "finished_at": "UsNMn",
+                    "teacher_name": "OPZauyQv",
+                    "subject_name": "CNsSwuFWz",
+                    "room_name": "MYeuchfkFPii"
                   }
                 ]
               }
@@ -1437,29 +2731,182 @@
     },
     "/progress/operations/student-visits": {
       "get": {
-        "summary": "GET /progress/operations/student-visits",
-        "description": "Auto-generated operation for `/progress/operations/student-visits`.",
+        "summary": "Get visit journal with grades",
+        "description": "Visit records with grades per lesson. Each entry includes visit status (`status_was`), subject, teacher, lesson theme, and separate grade fields: `control_work_mark`, `home_work_mark`, `lab_work_mark`, `class_work_mark`, `practical_work_mark`, `final_work_mark`.",
+        "tags": [
+          "progress"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of visit records with lesson grades",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date_visit": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "lesson_number": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "status_was": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "spec_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "teacher_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "spec_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "lesson_theme": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "control_work_mark": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "home_work_mark": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "lab_work_mark": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "class_work_mark": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "practical_work_mark": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "final_work_mark": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date_visit": "2026-05-06T04:23:12.210458",
-                    "lesson_number": 78425,
-                    "status_was": 55751,
-                    "spec_id": 19287,
-                    "teacher_name": "JvQTfTJBuj",
-                    "spec_name": "QMYdrvS",
-                    "lesson_theme": "fWxVstdPnhgk",
+                    "date_visit": "2026-01-20T02:25:09.053829",
+                    "lesson_number": 28826,
+                    "status_was": 8901,
+                    "spec_id": 30442,
+                    "teacher_name": "EHhvs",
+                    "spec_name": "mcVnhyMNlzGB",
+                    "lesson_theme": "YgRfqSlGL",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -1468,13 +2915,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-04-16T21:57:03.897863",
-                    "lesson_number": 37691,
-                    "status_was": 56260,
-                    "spec_id": 44966,
-                    "teacher_name": "gMbqBhakeWhzUGW",
-                    "spec_name": "nmnPz",
-                    "lesson_theme": "ImIaOYIGjal",
+                    "date_visit": "2026-03-13T06:33:39.743699",
+                    "lesson_number": 43100,
+                    "status_was": 35279,
+                    "spec_id": 29889,
+                    "teacher_name": "GRtFndMazA",
+                    "spec_name": "OUnZis",
+                    "lesson_theme": "dRibZkDbwLKr",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -1483,13 +2930,13 @@
                     "final_work_mark": null
                   },
                   {
-                    "date_visit": "2026-02-26T10:49:53.344029",
-                    "lesson_number": 15383,
-                    "status_was": 27539,
-                    "spec_id": 61965,
-                    "teacher_name": "DqCpHtYsY",
-                    "spec_name": "nXRYFoHZElSw",
-                    "lesson_theme": "LtgToyUJbW",
+                    "date_visit": "2026-03-07T16:34:59.985858",
+                    "lesson_number": 93617,
+                    "status_was": 58817,
+                    "spec_id": 47241,
+                    "teacher_name": "oGnaQL",
+                    "spec_name": "TTmVWUmL",
+                    "lesson_theme": "fOTUiVMNehoiKU",
                     "control_work_mark": null,
                     "home_work_mark": null,
                     "lab_work_mark": null,
@@ -1543,71 +2990,183 @@
     },
     "/progress/operations/student-exams": {
       "get": {
-        "summary": "GET /progress/operations/student-exams",
-        "description": "Auto-generated operation for `/progress/operations/student-exams`.",
+        "summary": "Get exam grades",
+        "description": "Exam results with teacher, mark, date, subject, and optional file attachments (`file_path`, `id_file`). `mark_type` distinguishes exam types.",
+        "tags": [
+          "progress"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of exam results with grades and files",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "teacher": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "mark": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "mark_type": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "ex_file_name": {},
+                      "id_file": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "exam_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "file_path": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "comment_teach": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "need_access": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "need_access_stud": {},
+                      "comment_delete_file": {},
+                      "spec": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "teacher": "otqYcBZvIXR",
-                    "mark": 1585,
-                    "mark_type": 26152,
-                    "date": "2026-03-06T04:12:05.547393",
+                    "teacher": "IiZVBoAbVtwrfo",
+                    "mark": 93135,
+                    "mark_type": 29010,
+                    "date": "2026-01-15T02:09:44.837838",
                     "ex_file_name": null,
-                    "id_file": 59603,
-                    "exam_id": 43650,
+                    "id_file": 68050,
+                    "exam_id": 1124,
                     "file_path": null,
                     "comment_teach": null,
-                    "need_access": 82116,
+                    "need_access": 69217,
                     "need_access_stud": null,
                     "comment_delete_file": null,
-                    "spec": "JcxaySItGkoJw"
+                    "spec": "LCPZzPiAkzsjjTn"
                   },
                   {
-                    "teacher": "NzBcacI",
-                    "mark": 55976,
-                    "mark_type": 14238,
-                    "date": "2026-04-11T02:24:23.015630",
+                    "teacher": "URCkWllniRgjSKz",
+                    "mark": 96454,
+                    "mark_type": 53776,
+                    "date": "2026-04-09T03:06:52.729908",
                     "ex_file_name": null,
-                    "id_file": 45276,
-                    "exam_id": 15712,
-                    "file_path": "https://williams-anderson.com/",
+                    "id_file": 26946,
+                    "exam_id": 87722,
+                    "file_path": "http://www.brady.com/",
                     "comment_teach": "",
-                    "need_access": 43127,
+                    "need_access": 77956,
                     "need_access_stud": null,
                     "comment_delete_file": null,
-                    "spec": "kQqrHDOgR"
+                    "spec": "VrbZO"
                   },
                   {
-                    "teacher": "sLaQR",
-                    "mark": 49418,
-                    "mark_type": 25779,
-                    "date": "2026-01-29T09:59:37.474439",
+                    "teacher": "prKFJDDdyWKcS",
+                    "mark": 55480,
+                    "mark_type": 83475,
+                    "date": "2026-01-20T23:04:57.144437",
                     "ex_file_name": null,
-                    "id_file": 1328,
-                    "exam_id": 35179,
-                    "file_path": "https://www.gonzales.com/",
+                    "id_file": 86024,
+                    "exam_id": 54226,
+                    "file_path": "https://www.harrison.info/",
                     "comment_teach": "",
-                    "need_access": 32062,
+                    "need_access": 50299,
                     "need_access_stud": null,
                     "comment_delete_file": null,
-                    "spec": "WDVBMYZZDBZXE"
+                    "spec": "XPxsBmBbwUSXGb"
                   }
                 ]
               }
             }
           }
         },
+        "x-uncertain": "mark_type values not documented — observed 0 and 1 in data",
         "security": [
           {
             "BearerAuth": []
@@ -1649,18 +3208,22 @@
     },
     "/library/operations/list": {
       "get": {
-        "summary": "GET /library/operations/list",
-        "description": "Auto-generated operation for `/library/operations/list`.",
+        "summary": "List learning materials",
+        "description": "Learning materials from the library. `material_type`, `filter_type`, `recommended_type` are filter parameters observed in the UI with default values 2, 0, 0 respectively.",
+        "tags": [
+          "library"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of learning material items",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {},
+                    "type": "object"
                   }
                 },
                 "example": []
@@ -1668,6 +3231,7 @@
             }
           }
         },
+        "x-uncertain": "material_type/filter_type/recommended_type values are inferred from UI, not documented; response schema unknown — collected data was empty",
         "parameters": [
           {
             "name": "Origin",
@@ -1736,32 +3300,57 @@
     },
     "/count/homework": {
       "get": {
-        "summary": "GET /count/homework",
-        "description": "Auto-generated operation for `/count/homework`.",
+        "summary": "Get homework counters by status",
+        "description": "Count of homework items per status type. `counter_type` meanings:\n- 0 — overdue (deadline passed, auto-fail grade assigned)\n- 1 — reviewed by teacher (has a grade)\n- 2 — submitted, awaiting teacher review\n- 3 — current (not yet submitted by student)\n- 4 — total across all types\n- 5 — deleted by teacher (was submitted but rejected)",
+        "tags": [
+          "homework"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of counter_type/counter pairs",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "counter_type": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "counter": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "counter_type": 23170,
-                    "counter": 43509
+                    "counter_type": 44372,
+                    "counter": 96320
                   },
                   {
-                    "counter_type": 84275,
-                    "counter": 24570
+                    "counter_type": 77980,
+                    "counter": 11608
                   },
                   {
-                    "counter_type": 15927,
-                    "counter": 62374
+                    "counter_type": 4102,
+                    "counter": 74000
                   }
                 ]
               }
@@ -1809,46 +3398,84 @@
     },
     "/homework/settings/group-history": {
       "get": {
-        "summary": "GET /homework/settings/group-history",
-        "description": "Auto-generated operation for `/homework/settings/group-history`.",
+        "summary": "List student groups with subjects",
+        "description": "Student's groups with their subjects (specs). Shown in the group switcher in the homework (DZ) tab. Not used to resolve `group_id` — that comes from `current_group_id` in `/settings/user-info`.",
+        "tags": [
+          "homework"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of groups with nested subject lists",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "specs": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "$ref": "#/components/schemas/GroupSpecItem"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
                     "specs": [
                       {
-                        "id": 5741,
-                        "name": "mLVQxupDMMWzVy",
-                        "short_name": "cDkoIjMGmhMFd"
+                        "id": 37437,
+                        "name": "VfWPUzgaYrN",
+                        "short_name": "kTDOtjqa"
                       },
                       {
-                        "id": 2264,
-                        "name": "uDFsIiHvCkC",
-                        "short_name": "LcoOO"
+                        "id": 28460,
+                        "name": "qLroYlMX",
+                        "short_name": "JcZYkcsllDDTR"
                       },
                       {
-                        "id": 27184,
-                        "name": "IhbTbEwENxpZvvh",
-                        "short_name": "WpwizFcMd"
+                        "id": 2355,
+                        "name": "aDJwZCkF",
+                        "short_name": "xsOKhLln"
                       }
                     ],
-                    "id": 12896,
-                    "name": "fmjfIBn"
+                    "id": 18365,
+                    "name": "UbwSqblZKSafv"
                   },
                   {
                     "specs": [],
-                    "id": 95619,
-                    "name": "NYyrIjoGxhBRCZ"
+                    "id": 91839,
+                    "name": "HxPmxohX"
                   }
                 ]
               }
@@ -1896,35 +3523,70 @@
     },
     "/settings/group-specs": {
       "get": {
-        "summary": "GET /settings/group-specs",
-        "description": "Auto-generated operation for `/settings/group-specs`.",
+        "summary": "Get subjects of current group",
+        "description": "Subjects (specs) linked to the student's current group.",
+        "tags": [
+          "homework"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of subject items with id, name, short_name",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "short_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id": 12017,
-                    "name": "BDUUUyXh",
-                    "short_name": "emZoRXIKQYpYkP"
+                    "id": 50853,
+                    "name": "auYzmvHOP",
+                    "short_name": "NgnulKJMX"
                   },
                   {
-                    "id": 76427,
-                    "name": "kUKmVFAx",
-                    "short_name": "BQMWRafscybM"
+                    "id": 99010,
+                    "name": "WVKboiiEKh",
+                    "short_name": "NLvkizn"
                   },
                   {
-                    "id": 39442,
-                    "name": "ioRXboINFuQKCb",
-                    "short_name": "BzaCVWdRgY"
+                    "id": 64216,
+                    "name": "CuFZqKEi",
+                    "short_name": "bHxyTPIZ"
                   }
                 ]
               }
@@ -1972,35 +3634,70 @@
     },
     "/homework/evaluation/operations/get-tags": {
       "get": {
-        "summary": "GET /homework/evaluation/operations/get-tags",
-        "description": "Auto-generated operation for `/homework/evaluation/operations/get-tags`.",
+        "summary": "Get homework evaluation tags",
+        "description": "Tags for the homework evaluation form. Shown to the student after submitting homework to describe their confidence and effort level.",
+        "tags": [
+          "homework"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of evaluation tag items",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "translate_key": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "type": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id": 78172,
-                    "translate_key": "PipwgN",
-                    "type": "UTjLTErBUNoCYQS"
+                    "id": 44296,
+                    "translate_key": "vPhMm",
+                    "type": "ZjjnGVIZT"
                   },
                   {
-                    "id": 11036,
-                    "translate_key": "gVHGd",
-                    "type": "UDbjMIbo"
+                    "id": 81685,
+                    "translate_key": "QewTeqr",
+                    "type": "iQVef"
                   },
                   {
-                    "id": 81397,
-                    "translate_key": "ywVuhnewFgBXc",
-                    "type": "bkSJFIgFH"
+                    "id": 91595,
+                    "translate_key": "EqVVSTlm",
+                    "type": "UVYmHF"
                   }
                 ]
               }
@@ -2048,44 +3745,220 @@
     },
     "/homework/operations/list": {
       "get": {
-        "summary": "GET /homework/operations/list",
-        "description": "Auto-generated operation for `/homework/operations/list`.",
+        "summary": "List homework assignments",
+        "description": "Paginated list of homework assignments.\n- `page`: page number for pagination\n- `status`: filter by status — 0=overdue, 1=reviewed, 2=submitted, 3=current, 5=deleted\n- `type`: 0=regular homework, 1=lab work (identical response structure)\n- `group_id`: from `current_group_id` in `/settings/user-info`",
+        "tags": [
+          "homework"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Paginated array of homework items with submission details",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "id_spec": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "id_teach": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "id_group": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "fio_teach": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "theme": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "completion_time": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "creation_time": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "overdue_time": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "filename": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "file_path": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "comment": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "name_spec": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "common_status": {},
+                      "cover_image": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "homework_stud": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/HomeworkStudItem"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "homework_comment": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/HomeworkCommentItem"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id": 70633,
-                    "id_spec": 71545,
-                    "id_teach": 38559,
-                    "id_group": 12240,
-                    "fio_teach": "VaNEJ",
-                    "theme": "PzLDYGig",
-                    "completion_time": "2026-01-11T17:21:19.443213",
-                    "creation_time": "2026-02-04T04:51:49.789138",
-                    "overdue_time": "2026-05-03T06:57:39.204144",
+                    "id": 80718,
+                    "id_spec": 44095,
+                    "id_teach": 89765,
+                    "id_group": 16560,
+                    "fio_teach": "tLbOlHTAUw",
+                    "theme": "ZpTiqUpjfpQgi",
+                    "completion_time": "2026-01-22T20:19:57.352367",
+                    "creation_time": "2026-02-08T20:45:37.266446",
+                    "overdue_time": "2026-03-10T23:29:14.871816",
                     "filename": null,
-                    "file_path": "http://taylor-hall.com/",
-                    "comment": "oQcvZIRjEdfpxU",
-                    "name_spec": "fAJvEZRAo",
-                    "status": 58181,
+                    "file_path": "http://barber.net/",
+                    "comment": "MoGAIJ",
+                    "name_spec": "GHtvHQqvuplnrC",
+                    "status": 11332,
                     "common_status": null,
                     "homework_stud": {
-                      "id": 57427,
+                      "id": 6958,
                       "filename": null,
-                      "file_path": "http://www.townsend-bradley.com/",
+                      "file_path": "https://scott.com/",
                       "tmp_file": null,
-                      "mark": 73956,
-                      "creation_time": "2026-03-13T09:04:39.358648",
+                      "mark": 32907,
+                      "creation_time": "2026-02-12T11:17:50.958082",
                       "stud_answer": null,
                       "auto_mark": false
                     },
@@ -2093,33 +3966,33 @@
                       "text_comment": null,
                       "attachment": null,
                       "attachment_path": null,
-                      "date_updated": "2026-01-20T06:02:36.629817"
+                      "date_updated": "2026-01-12T20:02:21.455078"
                     },
                     "cover_image": null
                   },
                   {
-                    "id": 90361,
-                    "id_spec": 3283,
-                    "id_teach": 84439,
-                    "id_group": 42257,
-                    "fio_teach": "mkFvpHVByowq",
-                    "theme": "hJJsdw",
-                    "completion_time": "2026-01-28T21:42:10.460279",
-                    "creation_time": "2026-03-19T09:51:29.107006",
-                    "overdue_time": "2026-03-03T00:33:18.735645",
+                    "id": 4361,
+                    "id_spec": 40493,
+                    "id_teach": 52633,
+                    "id_group": 85797,
+                    "fio_teach": "TllTRWiLNOTWjP",
+                    "theme": "fhKYDfHEu",
+                    "completion_time": "2026-03-11T20:24:31.936456",
+                    "creation_time": "2026-01-14T17:29:33.290966",
+                    "overdue_time": "2026-04-07T09:48:37.755830",
                     "filename": null,
-                    "file_path": "https://www.woods.info/",
+                    "file_path": "https://huffman-hicks.com/",
                     "comment": "",
-                    "name_spec": "ldcFVTNTUMDTZIT",
-                    "status": 93129,
+                    "name_spec": "JTHyJz",
+                    "status": 94698,
                     "common_status": null,
                     "homework_stud": {
-                      "id": 47427,
+                      "id": 42062,
                       "filename": null,
-                      "file_path": "http://walsh.biz/",
+                      "file_path": "https://www.garner-mendoza.org/",
                       "tmp_file": null,
-                      "mark": 86975,
-                      "creation_time": "2026-03-02T22:30:12.659290",
+                      "mark": 46369,
+                      "creation_time": "2026-04-06T06:00:56.455898",
                       "stud_answer": null,
                       "auto_mark": false
                     },
@@ -2127,33 +4000,33 @@
                       "text_comment": null,
                       "attachment": null,
                       "attachment_path": null,
-                      "date_updated": "2026-04-24T10:52:28.117432"
+                      "date_updated": "2026-01-07T10:29:17.060080"
                     },
-                    "cover_image": "http://parrish.com/"
+                    "cover_image": "http://flores.com/"
                   },
                   {
-                    "id": 39552,
-                    "id_spec": 14602,
-                    "id_teach": 85998,
-                    "id_group": 6091,
-                    "fio_teach": "KflYihwJTFDq",
-                    "theme": "pIVJiNUxcoya",
-                    "completion_time": "2026-04-18T09:39:49.996144",
-                    "creation_time": "2026-01-05T02:55:29.216790",
-                    "overdue_time": "2026-03-29T06:34:50.046029",
+                    "id": 9203,
+                    "id_spec": 76022,
+                    "id_teach": 58907,
+                    "id_group": 86340,
+                    "fio_teach": "lUwGfYSEzWesi",
+                    "theme": "etuvxKgMw",
+                    "completion_time": "2026-03-29T16:41:29.420222",
+                    "creation_time": "2026-01-26T04:50:49.799645",
+                    "overdue_time": "2026-03-30T18:40:07.497114",
                     "filename": null,
-                    "file_path": "https://walter.info/",
+                    "file_path": "https://thomas.com/",
                     "comment": "",
-                    "name_spec": "ggfJxLXqkoPA",
-                    "status": 3678,
+                    "name_spec": "RrINs",
+                    "status": 62737,
                     "common_status": null,
                     "homework_stud": {
-                      "id": 16280,
+                      "id": 59943,
                       "filename": null,
-                      "file_path": "http://www.key.com/",
+                      "file_path": "http://www.bates-ramirez.com/",
                       "tmp_file": null,
-                      "mark": 83286,
-                      "creation_time": "2026-05-06T01:20:48.039881",
+                      "mark": 97481,
+                      "creation_time": "2026-02-25T16:33:50.045452",
                       "stud_answer": null,
                       "auto_mark": false
                     },
@@ -2161,9 +4034,9 @@
                       "text_comment": null,
                       "attachment": null,
                       "attachment_path": null,
-                      "date_updated": "2026-02-11T11:42:54.724756"
+                      "date_updated": "2026-03-11T02:25:49.340083"
                     },
-                    "cover_image": "http://www.krause.biz/"
+                    "cover_image": "http://www.stevens.biz/"
                   }
                 ]
               }
@@ -2247,41 +4120,96 @@
     },
     "/reviews/index/list": {
       "get": {
-        "summary": "GET /reviews/index/list",
-        "description": "Auto-generated operation for `/reviews/index/list`.",
+        "summary": "List lesson reviews",
+        "description": "Reviews written about lessons. Each entry includes date, message text, subject, and teacher name.",
+        "tags": [
+          "reviews"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of review entries",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "date": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "spec": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "full_spec": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "teacher": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "date": "2026-03-13T05:33:43.231696",
-                    "message": "zqLawObsxUiub",
-                    "spec": "JdbFiVtBmKx",
-                    "full_spec": "oHSjnwOUZW",
-                    "teacher": "juFQIWkbQet"
+                    "date": "2026-04-30T11:50:32.791325",
+                    "message": "MtAtIRBkTRdp",
+                    "spec": "fTvFPFwlKglhZ",
+                    "full_spec": "PtMXKSutfEb",
+                    "teacher": "pToiBmDyFeIlsf"
                   },
                   {
-                    "date": "2026-03-18T13:27:41.700046",
-                    "message": "rjKgqbbLyUPrm",
-                    "spec": "OCsckJZPmnDw",
-                    "full_spec": "TNTVaXKY",
-                    "teacher": "zJZhnzZVfg"
+                    "date": "2026-01-02T06:59:55.645297",
+                    "message": "MYQEE",
+                    "spec": "GZIdE",
+                    "full_spec": "TYKOBopnGHCWczt",
+                    "teacher": "sQedM"
                   },
                   {
-                    "date": "2026-03-27T17:09:07.674916",
-                    "message": "ttqJlqUjdrf",
-                    "spec": "lqfMU",
-                    "full_spec": "qXwokdQe",
-                    "teacher": "fxxLZIoNw"
+                    "date": "2026-04-27T03:51:53.216711",
+                    "message": "mRlmKMFr",
+                    "spec": "QLtFysOzyfpqla",
+                    "full_spec": "sRHBNlwkVu",
+                    "teacher": "FwqbuyWuKTR"
                   }
                 ]
               }
@@ -2329,11 +4257,14 @@
     },
     "/reviews/index/instruction": {
       "get": {
-        "summary": "GET /reviews/index/instruction",
-        "description": "Auto-generated operation for `/reviews/index/instruction`.",
+        "summary": "Get review instructions",
+        "description": "Instructions for submitting reviews. Returns `null` when no instruction is available.",
+        "tags": [
+          "reviews"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Review instruction text or null",
             "content": {
               "application/json": {
                 "schema": {
@@ -2386,40 +4317,86 @@
     },
     "/feedback/students/evaluate-lesson-list": {
       "get": {
-        "summary": "GET /feedback/students/evaluate-lesson-list",
-        "description": "Auto-generated operation for `/feedback/students/evaluate-lesson-list`.",
+        "summary": "List lessons available for evaluation",
+        "description": "Lessons the student can evaluate (leave feedback for). Each entry has lesson date, teacher name, and subject.",
+        "tags": [
+          "reviews"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of lessons eligible for student evaluation",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "key": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "date_visit": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "fio_teach": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "spec_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "teach_photo": {}
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "key": "RaVTOHljdLOh",
-                    "date_visit": "2026-01-08T11:13:57.227891",
-                    "fio_teach": "dOWCwSZjPGTYx",
-                    "spec_name": "TkWruMBxBcIENxN",
+                    "key": "nakZi",
+                    "date_visit": "2026-01-03T21:58:19.520526",
+                    "fio_teach": "iPqvbFawndr",
+                    "spec_name": "nNBDzSkzBsEy",
                     "teach_photo": null
                   },
                   {
-                    "key": "ZglzJnhBg",
-                    "date_visit": "2026-02-11T12:39:37.424143",
-                    "fio_teach": "AgoqbQDZPCka",
-                    "spec_name": "kMLFIfrISfzJqzX",
+                    "key": "hrHyjepdJPked",
+                    "date_visit": "2026-04-26T22:54:57.727472",
+                    "fio_teach": "ePNojVBpaneh",
+                    "spec_name": "EtLJfib",
                     "teach_photo": null
                   },
                   {
-                    "key": "SepkH",
-                    "date_visit": "2026-04-14T17:57:43.817042",
-                    "fio_teach": "SNhccL",
-                    "spec_name": "PvfKDdDAlnXm",
+                    "key": "NJKQjti",
+                    "date_visit": "2026-03-12T07:09:32.444396",
+                    "fio_teach": "eddKqbsPrvdhI",
+                    "spec_name": "djsLTsVrwrE",
                     "teach_photo": null
                   }
                 ]
@@ -2468,24 +4445,120 @@
     },
     "/feedback/social-review/get-review-list": {
       "get": {
-        "summary": "GET /feedback/social-review/get-review-list",
-        "description": "Auto-generated operation for `/feedback/social-review/get-review-list`.",
+        "summary": "List social review submissions",
+        "description": "Student's submitted social reviews (e.g., course reviews on external platforms). Each entry has a link, screenshot, teacher comment, and visibility status.",
+        "tags": [
+          "reviews"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of social review submissions",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "status": {},
+                      "social_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "link_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "link": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "screen_shot": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "review_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "comment": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "teach_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "updated_at": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "is_visibility": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
                     "status": null,
-                    "social_id": 33107,
+                    "social_id": 49495,
                     "link_id": null,
                     "link": null,
                     "screen_shot": null,
@@ -2497,21 +4570,21 @@
                   },
                   {
                     "status": null,
-                    "social_id": 68130,
-                    "link_id": 74355,
-                    "link": "https://www.baldwin.biz/",
-                    "screen_shot": "https://martinez.com/",
-                    "review_id": 75247,
+                    "social_id": 9767,
+                    "link_id": 75389,
+                    "link": "http://cook-mcdaniel.com/",
+                    "screen_shot": "https://thomas.com/",
+                    "review_id": 49163,
                     "comment": "",
-                    "teach_name": "OlbAcEsUuiuIR",
-                    "updated_at": "2026-03-22T01:12:49.203396",
+                    "teach_name": "UpuEwMAuis",
+                    "updated_at": "2026-03-18T10:54:20.692851",
                     "is_visibility": true
                   },
                   {
                     "status": null,
-                    "social_id": 58104,
-                    "link_id": 8894,
-                    "link": "https://www.bauer-phillips.com/",
+                    "social_id": 91791,
+                    "link_id": 42954,
+                    "link": "http://cochran.biz/",
                     "screen_shot": null,
                     "review_id": null,
                     "comment": null,
@@ -2565,34 +4638,159 @@
     },
     "/signal/operations/signals-list": {
       "get": {
-        "summary": "GET /signal/operations/signals-list",
-        "description": "Auto-generated operation for `/signal/operations/signals-list`.",
+        "summary": "List academic signals",
+        "description": "Academic signals/alerts assigned to the student (requests, problems). Each signal has priority, status, message, initiator, and linked problem.",
+        "tags": [
+          "signals"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of signal entries with priority and status",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "date_desired": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "date_start": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "priority": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "initiator_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "problem_id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "problem_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "problem_type": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "days_diff": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "theme": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id": 19493,
-                    "date_desired": "2026-04-27T03:49:30.270972",
-                    "date_start": "2026-02-12T07:15:06.947178",
-                    "priority": 9477,
-                    "status": 38832,
-                    "message": "okkNzmCNUNcGzst",
-                    "initiator_name": "brHyMnUspZOX",
-                    "problem_id": 52828,
-                    "problem_name": "izInLPkPpJv",
-                    "problem_type": 83188,
-                    "days_diff": 92891,
-                    "theme": "JgKgg"
+                    "id": 62751,
+                    "date_desired": "2026-03-09T02:27:44.591491",
+                    "date_start": "2026-04-18T20:37:08.607456",
+                    "priority": 67704,
+                    "status": 75984,
+                    "message": "GwWVkAHiO",
+                    "initiator_name": "zFXsOWmEJDQHcn",
+                    "problem_id": 32325,
+                    "problem_name": "tSZwJMr",
+                    "problem_type": 24005,
+                    "days_diff": 33516,
+                    "theme": "DPKFtu"
                   }
                 ]
               }
@@ -2640,32 +4838,47 @@
     },
     "/signal/operations/problems-list": {
       "get": {
-        "summary": "GET /signal/operations/problems-list",
-        "description": "Auto-generated operation for `/signal/operations/problems-list`.",
+        "summary": "List problem types",
+        "description": "Reference list of problem types used in signals. Each has `id` and `title`.",
+        "tags": [
+          "signals"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of problem type entries",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id": 99475,
-                    "title": "faXaAbur"
+                    "id": 61892,
+                    "title": "WGfYjnjp"
                   },
                   {
-                    "id": 12913,
-                    "title": "EnYdAUqrZSD"
+                    "id": 59830,
+                    "title": "QbwSVxYFhFDSMaL"
                   },
                   {
-                    "id": 43247,
-                    "title": "WCtUJeudvj"
+                    "id": 99003,
+                    "title": "GnjwvrtdEVod"
                   }
                 ]
               }
@@ -2713,37 +4926,82 @@
     },
     "/news/operations/latest-news": {
       "get": {
-        "summary": "GET /news/operations/latest-news",
-        "description": "Auto-generated operation for `/news/operations/latest-news`.",
+        "summary": "Get latest news",
+        "description": "Academy news and announcements. Each entry has a theme, timestamp, and viewed status.",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of news items",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "id_bbs": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "theme": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "time": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "viewed": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
                   {
-                    "id_bbs": 14463,
-                    "theme": "GKgZHANjGjj",
-                    "time": "2026-01-11T04:21:46.843114",
+                    "id_bbs": 43489,
+                    "theme": "xalzmbILXhwRo",
+                    "time": "2026-01-27T09:56:46.829787",
                     "viewed": false
                   },
                   {
-                    "id_bbs": 35985,
-                    "theme": "GCkCpviFzrjHAPf",
-                    "time": "2026-04-04T18:12:33.822241",
+                    "id_bbs": 77451,
+                    "theme": "kPjrOMfqoRQCYq",
+                    "time": "2026-02-28T09:28:17.856152",
                     "viewed": true
                   },
                   {
-                    "id_bbs": 43370,
-                    "theme": "aKmoQ",
-                    "time": "2026-04-04T07:07:25.000981",
+                    "id_bbs": 78403,
+                    "theme": "WHnZxb",
+                    "time": "2026-02-12T14:19:42.821721",
                     "viewed": true
                   }
                 ]
@@ -2792,18 +5050,43 @@
     },
     "/public/languages": {
       "get": {
-        "summary": "GET /public/languages",
-        "description": "Auto-generated operation for `/public/languages`.",
+        "summary": "List available languages",
+        "description": "Available UI languages. Each has a `name_mystat` and `short_name` (locale code).",
+        "tags": [
+          "public"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of language entries",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {
+                      "name_mystat": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "short_name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "example": [
@@ -2865,11 +5148,14 @@
     },
     "/public/translations": {
       "get": {
-        "summary": "GET /public/translations",
-        "description": "Auto-generated operation for `/public/translations`.",
+        "summary": "Get localization strings",
+        "description": "Localization key-value pairs for the given language. Returns a flat dictionary of translation keys to translated strings. Only `language=ru` (Russian) was collected; other locales share the same schema.",
+        "tags": [
+          "public"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Dictionary of translation keys to localized strings",
             "content": {
               "application/json": {
                 "schema": {
@@ -3936,7 +6222,7 @@
                   "KRAMATORSK": "Краматорск",
                   "KRASNODAR": "Краснодар",
                   "KRASNODAR_KOLLEDZH": "Краснодар Колледж",
-                  "KRASNODAR_MOBIUS": "Краснодар Мобиус",
+                  "KRASNODAR_MOBIUS": "Краснодар Лицей",
                   "KRASNODAR_OKRUZHNOY": "Краснодар Окружной",
                   "KRASNODAR_SCHOOL": "Краснодар Школа",
                   "KRASNODAR_VUZ": "Краснодар ВУЗ",
@@ -4783,7 +7069,7 @@
                   "settlement_account_short": "Р/c",
                   "SEVASTOPOL": "Севастополь",
                   "SEVASTOPOL_KOLLEDZH": "Севастополь Колледж",
-                  "SEVASTOPOL_MOBIUS": "Севастополь Мобиус",
+                  "SEVASTOPOL_MOBIUS": "Севастополь Лицей",
                   "SEVASTOPOL_VUZ": "Севастополь ВУЗ",
                   "SEVERODONETSK": "Северодонецк",
                   "SEVERODVINSK": "Северодвинск",
@@ -4817,8 +7103,8 @@
                   "SIGN_UP": "Получение доступа к системе",
                   "SIMFEROPOL": "Симферополь",
                   "SIMFEROPOL_KOLLEDZH": "Симферополь Колледж",
-                  "SIMFEROPOL_MOBIUS": "Симферополь пр. Победы Мобиус",
-                  "SIMFEROPOL_UL_SEVASTOPOLSKAYA_MOBIUS": "Симферополь ул. Севастопольская Мобиус",
+                  "SIMFEROPOL_MOBIUS": "Симферополь пр. Победы Лицей",
+                  "SIMFEROPOL_UL_SEVASTOPOLSKAYA_MOBIUS": "Симферополь ул. Севастопольская Лицей",
                   "skip_tutorial": "Пропустить",
                   "SLAVYANSK": "Славянск",
                   "SMOLENSK": "Смоленск",
@@ -5429,18 +7715,22 @@
     },
     "/public/tags": {
       "get": {
-        "summary": "GET /public/tags",
-        "description": "Auto-generated operation for `/public/tags`.",
+        "summary": "List public tags",
+        "description": "Reference list of public tags. Schema unknown — collected data was empty.",
+        "tags": [
+          "public"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Array of tag items",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "properties": {},
+                    "type": "object"
                   }
                 },
                 "example": []
@@ -5448,6 +7738,7 @@
             }
           }
         },
+        "x-uncertain": "response schema unknown — collected data returned an empty array",
         "security": [
           {
             "BearerAuth": []
