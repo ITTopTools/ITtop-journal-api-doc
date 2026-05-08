@@ -34,8 +34,8 @@ theme:
     - content.action.edit
   icon:
     repo: fontawesome/brands/github
-  logo: material/api
-  favicon: material/api
+  logo: assets/journal_logo.svg
+  favicon: assets/journal_logo.svg
 
 repo_url: https://github.com/trapplus/ITtop-journal-api-doc
 repo_name: ITtop-journal-api-doc
