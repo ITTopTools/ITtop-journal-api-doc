@@ -2,700 +2,700 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>Noneauthentication/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="Noneauthentication/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/authentication/"/>
     </url>
     <url>
         <loc>Noneglossary/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="Noneglossary/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/glossary/"/>
     </url>
     <url>
         <loc>None./</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="None"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/"/>
     </url>
     <url>
         <loc>Nonemock-server/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="Nonemock-server/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/mock-server/"/>
     </url>
     <url>
         <loc>Noneswagger/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="Noneswagger/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/swagger/"/>
     </url>
     <url>
         <loc>NoneAPI/auth/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/auth/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/auth/"/>
     </url>
     <url>
         <loc>NoneAPI/auth/login/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/auth/login/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/auth/login/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/activity/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/activity/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/activity/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/attendance/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/attendance/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/attendance/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/average-progress/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/average-progress/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/average-progress/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/chart-progress/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/chart-progress/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/chart-progress/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/future-exams/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/future-exams/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/future-exams/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/leader-group-points/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-group-points/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-group-points/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/leader-group/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-group/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-group/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/leader-stream-points/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-stream-points/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-stream-points/"/>
     </url>
     <url>
         <loc>NoneAPI/dashboard/leader-stream/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-stream/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-stream/"/>
     </url>
     <url>
         <loc>NoneAPI/homework/counters/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/counters/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/counters/"/>
     </url>
     <url>
         <loc>NoneAPI/homework/evaluation-tags/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/evaluation-tags/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/evaluation-tags/"/>
     </url>
     <url>
         <loc>NoneAPI/homework/group-history/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/group-history/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/group-history/"/>
     </url>
     <url>
         <loc>NoneAPI/homework/group-specs/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/group-specs/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/group-specs/"/>
     </url>
     <url>
         <loc>NoneAPI/homework/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/"/>
     </url>
     <url>
         <loc>NoneAPI/homework/list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/list/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/list/"/>
     </url>
     <url>
         <loc>NoneAPI/library/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/library/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/library/"/>
     </url>
     <url>
         <loc>NoneAPI/library/list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/library/list/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/library/list/"/>
     </url>
     <url>
         <loc>NoneAPI/news/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/news/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/news/"/>
     </url>
     <url>
         <loc>NoneAPI/news/latest-news/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/news/latest-news/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/news/latest-news/"/>
     </url>
     <url>
         <loc>NoneAPI/profile/achievements/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/achievements/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/achievements/"/>
     </url>
     <url>
         <loc>NoneAPI/profile/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/"/>
     </url>
     <url>
         <loc>NoneAPI/profile/settings/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/settings/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/settings/"/>
     </url>
     <url>
         <loc>NoneAPI/profile/user-info/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/user-info/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/user-info/"/>
     </url>
     <url>
         <loc>NoneAPI/progress/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/progress/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/progress/"/>
     </url>
     <url>
         <loc>NoneAPI/progress/student-exams/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/progress/student-exams/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/progress/student-exams/"/>
     </url>
     <url>
         <loc>NoneAPI/progress/student-visits/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/progress/student-visits/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/progress/student-visits/"/>
     </url>
     <url>
         <loc>NoneAPI/public/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/"/>
     </url>
     <url>
         <loc>NoneAPI/public/languages/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/languages/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/languages/"/>
     </url>
     <url>
         <loc>NoneAPI/public/tags/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/tags/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/tags/"/>
     </url>
     <url>
         <loc>NoneAPI/public/translations/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/translations/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/translations/"/>
     </url>
     <url>
         <loc>NoneAPI/reviews/evaluate-lesson/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/evaluate-lesson/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/evaluate-lesson/"/>
     </url>
     <url>
         <loc>NoneAPI/reviews/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/"/>
     </url>
     <url>
         <loc>NoneAPI/reviews/instruction/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/instruction/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/instruction/"/>
     </url>
     <url>
         <loc>NoneAPI/reviews/list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/list/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/list/"/>
     </url>
     <url>
         <loc>NoneAPI/reviews/social-review/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/social-review/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/social-review/"/>
     </url>
     <url>
         <loc>NoneAPI/schedule/get-by-date-range/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/get-by-date-range/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/get-by-date-range/"/>
     </url>
     <url>
         <loc>NoneAPI/schedule/get-by-date/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/get-by-date/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/get-by-date/"/>
     </url>
     <url>
         <loc>NoneAPI/schedule/get-by-month/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/get-by-month/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/get-by-month/"/>
     </url>
     <url>
         <loc>NoneAPI/schedule/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/"/>
     </url>
     <url>
         <loc>NoneAPI/signals/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/signals/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/signals/"/>
     </url>
     <url>
         <loc>NoneAPI/signals/problems-list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/signals/problems-list/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/signals/problems-list/"/>
     </url>
     <url>
         <loc>NoneAPI/signals/signals-list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/signals/signals-list/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/signals/signals-list/"/>
     </url>
     <url>
         <loc>Noneen/authentication/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/authentication/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="Noneauthentication/"/>
     </url>
     <url>
         <loc>Noneen/glossary/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/glossary/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="Noneglossary/"/>
     </url>
     <url>
         <loc>Noneen/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="None"/>
     </url>
     <url>
         <loc>Noneen/mock-server/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/mock-server/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="Nonemock-server/"/>
     </url>
     <url>
         <loc>Noneen/swagger/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/swagger/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="Noneswagger/"/>
     </url>
     <url>
         <loc>Noneen/API/auth/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/auth/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/auth/"/>
     </url>
     <url>
         <loc>Noneen/API/auth/login/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/auth/login/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/auth/login/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/activity/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/activity/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/activity/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/attendance/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/attendance/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/attendance/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/average-progress/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/average-progress/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/average-progress/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/chart-progress/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/chart-progress/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/chart-progress/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/future-exams/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/future-exams/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/future-exams/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/leader-group-points/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-group-points/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-group-points/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/leader-group/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-group/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-group/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/leader-stream-points/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-stream-points/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-stream-points/"/>
     </url>
     <url>
         <loc>Noneen/API/dashboard/leader-stream/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/dashboard/leader-stream/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/dashboard/leader-stream/"/>
     </url>
     <url>
         <loc>Noneen/API/homework/counters/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/counters/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/counters/"/>
     </url>
     <url>
         <loc>Noneen/API/homework/evaluation-tags/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/evaluation-tags/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/evaluation-tags/"/>
     </url>
     <url>
         <loc>Noneen/API/homework/group-history/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/group-history/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/group-history/"/>
     </url>
     <url>
         <loc>Noneen/API/homework/group-specs/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/group-specs/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/group-specs/"/>
     </url>
     <url>
         <loc>Noneen/API/homework/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/"/>
     </url>
     <url>
         <loc>Noneen/API/homework/list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/homework/list/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/homework/list/"/>
     </url>
     <url>
         <loc>Noneen/API/library/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/library/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/library/"/>
     </url>
     <url>
         <loc>Noneen/API/library/list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/library/list/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/library/list/"/>
     </url>
     <url>
         <loc>Noneen/API/news/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/news/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/news/"/>
     </url>
     <url>
         <loc>Noneen/API/news/latest-news/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/news/latest-news/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/news/latest-news/"/>
     </url>
     <url>
         <loc>Noneen/API/profile/achievements/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/achievements/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/achievements/"/>
     </url>
     <url>
         <loc>Noneen/API/profile/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/"/>
     </url>
     <url>
         <loc>Noneen/API/profile/settings/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/settings/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/settings/"/>
     </url>
     <url>
         <loc>Noneen/API/profile/user-info/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/profile/user-info/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/profile/user-info/"/>
     </url>
     <url>
         <loc>Noneen/API/progress/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/progress/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/progress/"/>
     </url>
     <url>
         <loc>Noneen/API/progress/student-exams/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/progress/student-exams/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/progress/student-exams/"/>
     </url>
     <url>
         <loc>Noneen/API/progress/student-visits/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/progress/student-visits/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/progress/student-visits/"/>
     </url>
     <url>
         <loc>Noneen/API/public/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/"/>
     </url>
     <url>
         <loc>Noneen/API/public/languages/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/languages/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/languages/"/>
     </url>
     <url>
         <loc>Noneen/API/public/tags/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/tags/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/tags/"/>
     </url>
     <url>
         <loc>Noneen/API/public/translations/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/public/translations/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/public/translations/"/>
     </url>
     <url>
         <loc>Noneen/API/reviews/evaluate-lesson/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/evaluate-lesson/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/evaluate-lesson/"/>
     </url>
     <url>
         <loc>Noneen/API/reviews/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/"/>
     </url>
     <url>
         <loc>Noneen/API/reviews/instruction/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/instruction/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/instruction/"/>
     </url>
     <url>
         <loc>Noneen/API/reviews/list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/list/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/list/"/>
     </url>
     <url>
         <loc>Noneen/API/reviews/social-review/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/reviews/social-review/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/reviews/social-review/"/>
     </url>
     <url>
         <loc>Noneen/API/schedule/get-by-date-range/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/get-by-date-range/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/get-by-date-range/"/>
     </url>
     <url>
         <loc>Noneen/API/schedule/get-by-date/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/get-by-date/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/get-by-date/"/>
     </url>
     <url>
         <loc>Noneen/API/schedule/get-by-month/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/get-by-month/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/get-by-month/"/>
     </url>
     <url>
         <loc>Noneen/API/schedule/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/schedule/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/schedule/"/>
     </url>
     <url>
         <loc>Noneen/API/signals/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/signals/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/signals/"/>
     </url>
     <url>
         <loc>Noneen/API/signals/problems-list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/signals/problems-list/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/signals/problems-list/"/>
     </url>
     <url>
         <loc>Noneen/API/signals/signals-list/</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneen/API/signals/signals-list/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="NoneAPI/signals/signals-list/"/>
